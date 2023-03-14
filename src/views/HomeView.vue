@@ -1,9 +1,12 @@
-<script setup>
-import TheWelcome from '../components/TheWelcome.vue'
+<script>
+
 </script>
 
 <template>
     <main>
-        <TheWelcome />
+        <span style="font-size: 3em;">
+            mądrALO
+        </span>
+        <p>Zadania zadania, jeszcze nie ma zadań</p>
     </main>
 </template>
