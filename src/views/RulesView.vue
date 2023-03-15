@@ -5,8 +5,8 @@
 <template>
     <main>
         <span style="font-size: 3em;">
-            mądrALO
+            Zasady
         </span>
-        <p>Zadania zadania, jeszcze nie ma zadań</p>
+        <p>Nie kradnij, nie zabijaj, ...</p>
     </main>
 </template>
