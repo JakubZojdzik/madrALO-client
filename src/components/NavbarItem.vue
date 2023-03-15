@@ -5,28 +5,42 @@ export default {
     props: {
         name: String
     },
-    data() {
-        return {
-            activeButton: 0,
-        };
-    },
-    methods: {
-        setActivity(event) {
-            this.activeButton = event.currentTarget.id[4] - '0';
+    computed: {
+        currentRoute() {
+            switch (this.$route.name) {
+                case 'challanges':
+                    return 0;
+                case 'ranking':
+                    return 1;
+                case 'rules':
+                    return 2;
+                case 'login':
+                    return 3;
+                case 'profile':
+                    return 3;
+                default:
+                    return 0;
+            }
         }
     },
+    data() {
+    },
+    methods: {
+    },
     components: {
-        RouterLink,
+        RouterLink
     }
 };
 </script>
 
 <template>
     <nav class="wrapper">
-        <RouterLink to="/"><div id="butt0" @click="setActivity" :class="{ active: activeButton==0 }" class="element">Zadania</div></RouterLink>
-        <RouterLink to="/ranking"><div id="butt1" @click="setActivity" :class="{ active: activeButton==1 }" class="element">Ranking</div></RouterLink>
-        <RouterLink to="/zasady"><div id="butt2" @click="setActivity" :class="{ active: activeButton==2 }" class="element">Zasady</div></RouterLink>
-        <RouterLink :to="this.name ? '/profil' : '/login'"><div id="butt3" @click="setActivity" :class="{ active: activeButton==3 }" class="element">{{ name ? name : 'Zaloguj' }}</div></RouterLink>
+        <RouterLink to="/"><div id="butt0" @click="setActivity" :class="{ active: currentRoute == 0 }" class="element">Zadania</div></RouterLink>
+        <RouterLink to="/ranking"><div id="butt1" @click="setActivity" :class="{ active: currentRoute == 1 }" class="element">Ranking</div></RouterLink>
+        <RouterLink to="/zasady"><div id="butt2" @click="setActivity" :class="{ active: currentRoute == 2 }" class="element">Zasady</div></RouterLink>
+        <RouterLink :to="this.name ? '/profil' : '/login'"
+            ><div id="butt3" @click="setActivity" :class="{ active: currentRoute == 3 }" class="element">{{ name ? name : 'Zaloguj' }}</div></RouterLink
+        >
         <div class="clear"></div>
     </nav>
 </template>
@@ -37,6 +51,7 @@ export default {
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 4rem;
+    margin-top: 1.6rem;
     border: 1px solid #fff;
 }
 
