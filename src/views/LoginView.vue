@@ -1,4 +1,6 @@
 <script>
+import axios from 'axios';
+
 export default {
     data() {
         return {
@@ -7,7 +9,18 @@ export default {
         };
     },
     methods: {
-        login() {}
+        login() {
+            axios
+                .get('http://localhost:8080/users/login', {
+                    auth: {
+                        username: 'foo',
+                        password: 'bar'
+                    }
+                })
+                .then((response) => {
+                    console.log(response);
+                });
+        }
     }
 };
 </script>
@@ -27,6 +40,9 @@ export default {
                     <label for="password">Hasło</label>
                     <input type="password" name="password" placeholder="Hasło" />
                 </div>
+
+                <!-- <input type="button" value="Zaloguj" /> -->
+                <button type="submit" @click="logn" >Zaloguj</button>
                 <div>Nie posiadasz jeszcze konta? Napisz do ... na librusie...</div>
             </form>
         </div>
@@ -55,7 +71,7 @@ label {
     display: block;
 }
 
-input {
+input, button {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -68,6 +84,15 @@ input {
 }
 
 input:focus {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+button {
+    cursor: pointer;
+    margin-bottom: 2rem;
+}
+
+button:hover {
     background-color: rgba(255, 255, 255, 0.1);
 }
 
