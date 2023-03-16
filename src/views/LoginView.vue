@@ -11,12 +11,14 @@ export default {
     methods: {
         login() {
             axios
-                .get('http://localhost:8080/users/login', {
-                    auth: {
-                        username: 'foo',
-                        password: 'bar'
-                    }
-                })
+                .post(
+                    'http://localhost:8080/users/login',
+                    {
+                        email: this.email,
+                        password: this.password
+                    },
+                    { headers: { 'content-type': 'application/x-www-form-urlencoded' } }
+                )
                 .then((response) => {
                     console.log(response);
                 });
@@ -33,16 +35,16 @@ export default {
 
                 <div class="field">
                     <label for="email">Email</label>
-                    <input type="text" name="email" placeholder="imie.nazwisko.rok@alo.pwr.edu.pl" />
+                    <input v-model="email" type="text" name="email" placeholder="imie.nazwisko.rok@alo.pwr.edu.pl" />
                 </div>
 
                 <div class="field">
                     <label for="password">Hasło</label>
-                    <input type="password" name="password" placeholder="Hasło" />
+                    <input v-model="password" type="password" name="password" placeholder="Hasło" />
                 </div>
 
                 <!-- <input type="button" value="Zaloguj" /> -->
-                <button type="submit" @click="logn" >Zaloguj</button>
+                <button type="submit" @click="logn">Zaloguj</button>
                 <div>Nie posiadasz jeszcze konta? Napisz do ... na librusie...</div>
             </form>
         </div>
@@ -71,7 +73,8 @@ label {
     display: block;
 }
 
-input, button {
+input,
+button {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;

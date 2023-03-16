@@ -23,10 +23,6 @@ export default {
             }
         }
     },
-    data() {
-    },
-    methods: {
-    },
     components: {
         RouterLink
     }
