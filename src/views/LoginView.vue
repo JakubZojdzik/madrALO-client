@@ -1,11 +1,13 @@
 <script>
 import axios from 'axios';
+import VueCookie from 'vue-cookie';
 
 export default {
     data() {
         return {
             email: '',
-            password: ''
+            password: '',
+            err: ''
         };
     },
     methods: {
@@ -20,7 +22,12 @@ export default {
                     { headers: { 'content-type': 'application/x-www-form-urlencoded' } }
                 )
                 .then((response) => {
-                    console.log(response);
+                    this.err = '';
+                    VueCookie.set('authorization', response.data, '1h');
+                })
+                .catch((error) => {
+                    this.err = error.response.data;
+                    this.password = '';
                 });
         }
     }
@@ -35,12 +42,16 @@ export default {
 
                 <div class="field">
                     <label for="email">Email</label>
-                    <input v-model="email" type="text" name="email" placeholder="imie.nazwisko.rok@alo.pwr.edu.pl" />
+                    <input v-model="email" type="email" name="email" placeholder="imie.nazwisko.rok@alo.pwr.edu.pl" />
                 </div>
 
                 <div class="field">
                     <label for="password">Hasło</label>
                     <input v-model="password" type="password" name="password" placeholder="Hasło" />
+                </div>
+
+                <div v-if="err" class="error">
+                    {{ err }}
                 </div>
 
                 <!-- <input type="button" value="Zaloguj" /> -->
@@ -100,6 +111,11 @@ button:hover {
 }
 
 .field {
+    margin-bottom: 1.5rem;
+}
+
+.error {
+    color: #d44040;
     margin-bottom: 1.5rem;
 }
 </style>
