@@ -24,6 +24,7 @@ export default {
                 .then((response) => {
                     this.err = '';
                     VueCookie.set('authorization', response.data, '1h');
+                    this.$router.push('/');
                 })
                 .catch((error) => {
                     this.err = error.response.data;
