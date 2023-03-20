@@ -1,5 +1,6 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import { AccountView, ChallangesView, LoginView, RankingView, RulesView } from '../views'
+import { createRouter, createWebHistory } from 'vue-router';
+import { AccountView, ChallangesView, LoginView, RankingView, RulesView } from '../views';
+import { useLoggedIn } from '../composables/useLoggedIn';
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -28,8 +29,14 @@ const router = createRouter({
             path: '/profil',
             name: 'profile',
             component: AccountView
-        },
+        }
     ]
-})
+});
 
-export default router
+router.beforeEach(async (to) => {
+    if (to.name === 'profile' && !useLoggedIn()) {
+        return { name: 'login' };
+    }
+});
+
+export default router;

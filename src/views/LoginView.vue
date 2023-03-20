@@ -25,7 +25,6 @@ export default {
                 .then((response) => {
                     this.err = '';
                     VueCookie.set('authorization', response.data.token, '1h');
-                    console.log('ustawiam', response.data.name, response.data.email);
                     store.commit('setUserData', response.data.name, response.data.email);
                     this.$router.push('/');
                 })
@@ -59,7 +58,6 @@ export default {
                     {{ err }}
                 </div>
 
-                <!-- <input type="button" value="Zaloguj" /> -->
                 <button type="submit" @click="logn">Zaloguj</button>
                 <div>Nie posiadasz jeszcze konta? Napisz do ... na librusie...</div>
             </form>
