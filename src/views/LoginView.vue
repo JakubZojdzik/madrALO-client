@@ -1,6 +1,7 @@
 <script>
 import axios from 'axios';
 import VueCookie from 'vue-cookie';
+import store from '../store';
 
 export default {
     data() {
@@ -23,10 +24,13 @@ export default {
                 )
                 .then((response) => {
                     this.err = '';
-                    VueCookie.set('authorization', response.data, '1h');
+                    VueCookie.set('authorization', response.data.token, '1h');
+                    console.log('ustawiam', response.data.name, response.data.email);
+                    store.commit('setUserData', response.data.name, response.data.email);
                     this.$router.push('/');
                 })
                 .catch((error) => {
+                    console.log("err:", error);
                     this.err = error.response.data;
                     this.password = '';
                 });

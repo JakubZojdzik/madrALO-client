@@ -1,11 +1,12 @@
 <script>
 import { RouterLink } from 'vue-router';
+import store from '../store';
 
 export default {
-    props: {
-        name: String
-    },
     computed: {
+        name() {
+            return store.state.name;
+        },
         currentRoute() {
             switch (this.$route.name) {
                 case 'challanges':
