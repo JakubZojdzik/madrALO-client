@@ -9,12 +9,10 @@ export default createStore({
         };
     },
     mutations: {
-        setUserData(state, name, email) {
+        setUserData(state, { name, email }) {
             state.name = name;
             state.email = email;
         }
     },
-    plugins: [
-        createPersistedState()
-    ]
+    plugins: [createPersistedState()]
 });

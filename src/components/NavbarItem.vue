@@ -35,7 +35,7 @@ export default {
         <RouterLink to="/"><div id="butt0" @click="setActivity" :class="{ active: currentRoute == 0 }" class="element">Zadania</div></RouterLink>
         <RouterLink to="/ranking"><div id="butt1" @click="setActivity" :class="{ active: currentRoute == 1 }" class="element">Ranking</div></RouterLink>
         <RouterLink to="/zasady"><div id="butt2" @click="setActivity" :class="{ active: currentRoute == 2 }" class="element">Zasady</div></RouterLink>
-        <RouterLink :to="name ? 'profil' : ''"
+        <RouterLink :to="name ? 'profil' : 'login'"
             ><div id="butt3" @click="setActivity" :class="{ active: currentRoute == 3 }" class="element">{{ name ? name : 'Zaloguj' }}</div></RouterLink
         >
         <div class="clear"></div>

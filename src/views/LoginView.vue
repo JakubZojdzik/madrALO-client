@@ -25,11 +25,10 @@ export default {
                 .then((response) => {
                     this.err = '';
                     VueCookie.set('authorization', response.data.token, '1h');
-                    store.commit('setUserData', response.data.name, response.data.email);
+                    store.commit('setUserData', { name: response.data.name, email: response.data.email });
                     this.$router.push('/');
                 })
                 .catch((error) => {
-                    console.log("err:", error);
                     this.err = error.response.data;
                     this.password = '';
                 });
