@@ -1,6 +1,5 @@
 import { createStore } from 'vuex';
 import createPersistedState from 'vuex-persistedstate';
-// import VueCookie from 'vue-cookie';
 
 export default createStore({
     state() {

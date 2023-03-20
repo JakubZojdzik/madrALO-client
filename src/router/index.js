@@ -34,8 +34,12 @@ const router = createRouter({
 });
 
 router.beforeEach(async (to) => {
-    if (to.name === 'profile' && !useLoggedIn()) {
-        return { name: 'login' };
+    if (to.name === 'profile') {
+        useLoggedIn().then((res) => {
+            console.log('odbieram ze', res);
+            if (!res) return { name: 'login' };
+            else return true;
+        });
     }
 });
 

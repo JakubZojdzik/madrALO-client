@@ -1,7 +1,8 @@
 import axios from 'axios';
 import VueCookie from 'vue-cookie';
 
-export function useLoggedIn() {
+export async function useLoggedIn() {
+    console.log("pytanko!");
     axios
         .get('http://localhost:8080/users/islogged', {
             headers: {
@@ -9,7 +10,8 @@ export function useLoggedIn() {
             }
         })
         .then((response) => {
-            return response;
+            console.log('dostaje', response.data);
+            return response.data;
         })
         .catch(() => {
             return false;
