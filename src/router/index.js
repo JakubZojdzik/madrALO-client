@@ -34,12 +34,12 @@ const router = createRouter({
 });
 
 router.beforeEach(async (to) => {
+    let logged = false;
     if (to.name === 'profile') {
-        useLoggedIn().then((res) => {
-            if (!res) return { name: 'login' };
-            else return true;
-        });
+        logged = await useLoggedIn();
+        return logged;
     }
+    return true;
 });
 
 export default router;

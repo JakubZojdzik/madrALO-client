@@ -6,7 +6,8 @@ export default {
         title: String,
         content: String,
         points: Number,
-        solves: Number
+        solves: Number,
+        solved: Boolean
     },
     components: {
         RouterLink
@@ -16,7 +17,7 @@ export default {
 
 <template>
     <RouterLink class="link" :to="'/challange/' + id.toString()">
-        <div class="frame">
+        <div :class="{ solved: solved }" class="frame">
             <div class="title">
                 <b>{{ title }}</b>
                 <br />({{ points }} pkt)
@@ -50,6 +51,10 @@ export default {
 
 .frame:hover {
     background: rgba(255, 255, 255, 0.1);
+}
+
+.solved {
+    background-color: #40d46c;
 }
 
 .title {

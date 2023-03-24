@@ -13,13 +13,12 @@ export default {
     },
     methods: {
         logout() {
+            store.commit('reset');
             VueCookie.delete('authorization');
-            store.state.email = '';
-            store.state.name = '';
             this.$router.push('/');
         }
     }
-}
+};
 </script>
 
 <template>
@@ -67,5 +66,4 @@ button {
 button:hover {
     background-color: rgba(255, 255, 255, 0.1);
 }
-
 </style>
