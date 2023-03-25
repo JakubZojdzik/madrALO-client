@@ -44,10 +44,18 @@ export default {
 
 <template>
     <main>
-        <span style="font-size: 3em"> mądrALO - Zadania </span>
-        <p>Zadania zadania, jeszcze nie ma zadań</p>
+        <div  class="title"> mądrALO - Zadania </div>
         <div>
             <ChallangeTileItem v-for="{ id, title, content, points, solves, solved } in challs" :key="id" :id="id" :title="title" :content="content" :points="points" :solves="solves" :solved="solved" />
         </div>
     </main>
 </template>
+
+<style scoped>
+.title {
+    font-size: 3em;
+    text-align: center;
+    width: 100%;
+    margin-top: 3rem;
+}
+</style>

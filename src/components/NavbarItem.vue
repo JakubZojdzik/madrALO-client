@@ -1,6 +1,7 @@
 <script>
 import { RouterLink } from 'vue-router';
 import store from '../store';
+import { useLoggedIn } from '../composables/useLoggedIn';
 
 export default {
     computed: {
@@ -23,6 +24,13 @@ export default {
                     return 0;
             }
         }
+    },
+    mounted() {
+        useLoggedIn().then((logged) => {
+            if (!logged) {
+                store.commit('setUserData', { name: '', email: '' });
+            }
+        })
     },
     components: {
         RouterLink

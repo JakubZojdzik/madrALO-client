@@ -54,7 +54,11 @@ export default {
 }
 
 .solved {
-    background-color: #40d46c;
+    background-color: rgb(64, 212, 108);
+}
+
+.solved:hover {
+    background: rgba(64, 212, 108, 0.8);
 }
 
 .title {

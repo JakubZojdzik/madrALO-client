@@ -3,6 +3,7 @@ import ChallangesView from './ChallangesView.vue';
 import LoginView from './LoginView.vue';
 import RankingView from './RankingView.vue';
 import RulesView from './RulesView.vue';
+import ChallangeView from './ChallangeView.vue';
 
 export {
     AccountView,
@@ -10,4 +11,5 @@ export {
     LoginView,
     RankingView,
     RulesView,
+    ChallangeView,
 }
