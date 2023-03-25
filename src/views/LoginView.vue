@@ -57,7 +57,7 @@ export default {
                     {{ err }}
                 </div>
 
-                <button type="submit" @click="logn">Zaloguj</button>
+                <button type="submit">Zaloguj</button>
                 <div>Nie posiadasz jeszcze konta? Napisz do ... na librusie...</div>
             </form>
         </div>

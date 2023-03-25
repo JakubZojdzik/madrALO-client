@@ -7,6 +7,5 @@ export async function useLoggedIn() {
             authorization: 'Bearer ' + VueCookie.get('authorization')
         }
     })).data;
-    console.log('use:', r);
     return r;
 }
