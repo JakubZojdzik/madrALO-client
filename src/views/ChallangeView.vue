@@ -17,7 +17,8 @@ export default {
             points: 0,
             solves: 0,
             solved: false,
-            logged: false
+            logged: false,
+            answer: ''
         };
     },
     methods: {
@@ -41,7 +42,31 @@ export default {
             this.points = chall.points;
             this.solves = chall.solves;
             this.solved = s.includes(this.id);
-            console.log(this.content);
+        },
+
+        submitAnswer() {
+            console.log('submituje');
+            axios
+                .post(
+                    'http://localhost:8080/challanges/solve',
+                    {
+                        challId: this.id,
+                        answer: this.answer
+                    },
+                    {
+                        headers: {
+                            'content-type': 'application/x-www-form-urlencoded',
+                            authorization: 'Bearer ' + VueCookie.get('authorization')
+                        }
+                    }
+                )
+                .then((response) => {
+                    if (response.data == true) {
+                        console.log('poprawna!');
+                    } else {
+                        console.log('bledna!');
+                    }
+                });
         }
     },
     created() {
@@ -62,23 +87,25 @@ export default {
             </tr>
             <tr>
                 <td colspan="3">
-                    <span style="white-space: pre-wrap;">
+                    <span style="white-space: pre-wrap">
                         {{ content }}
                     </span>
                 </td>
             </tr>
         </table>
-        <table style="margin-top: -1px">
-            <tr>
-                <td width="50%" class="last">
-                    <input v-model="answer" type="text" name="answer" placeholder="Odpowiedź" />
-                </td>
-                <td width="20%" class="last">
-                    <button type="submit" @click="fetchData">Wyślij</button>
-                </td>
-                <td width="30%" class="last">Rozwiązało: {{ solves }}</td>
-            </tr>
-        </table>
+        <form @submit.prevent="submitAnswer">
+            <table style="margin-top: -1px">
+                <tr>
+                    <td width="50%" class="last">
+                        <input v-model="answer" type="text" name="answer" placeholder="Odpowiedź" />
+                    </td>
+                    <td width="20%" class="last">
+                        <button type="submit">Wyślij</button>
+                    </td>
+                    <td width="30%" class="last">Rozwiązało: {{ solves }}</td>
+                </tr>
+            </table>
+        </form>
     </main>
 </template>
 
@@ -113,7 +140,8 @@ td {
     text-align: center;
 }
 
-input, button {
+input,
+button {
     width: 100%;
     height: 100%;
     padding: 20px;
@@ -133,6 +161,4 @@ button:hover {
     background-color: rgba(255, 255, 255, 0.1);
     cursor: pointer;
 }
-
-
 </style>
