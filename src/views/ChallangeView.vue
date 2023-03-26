@@ -2,6 +2,7 @@
 import axios from 'axios';
 import VueCookie from 'vue-cookie';
 import { useLoggedIn } from '../composables/useLoggedIn';
+import { Fireworks } from '@fireworks-js/vue';
 
 export default {
     computed: {
@@ -18,7 +19,8 @@ export default {
             solves: 0,
             solved: false,
             logged: false,
-            answer: ''
+            answer: '',
+            fireworks: false
         };
     },
     methods: {
@@ -62,6 +64,12 @@ export default {
                 )
                 .then((response) => {
                     if (response.data == true) {
+                        this.solved = true;
+                        this.solves++;
+                        this.fireworks = true;
+                        setTimeout(() => {
+                            this.fireworks = false;
+                        }, 3000);
                         console.log('poprawna!');
                     } else {
                         console.log('bledna!');
@@ -71,12 +79,15 @@ export default {
     },
     created() {
         this.fetchData();
+    },
+    components: {
+        Fireworks
     }
 };
 </script>
 
 <template>
-    <main>
+    <main class="fireworks">
         <table>
             <tr>
                 <td width="10%" class="t-center">{{ points }} pkt</td>
@@ -107,6 +118,17 @@ export default {
             </table>
         </form>
     </main>
+    <Fireworks
+        v-if="fireworks"
+        :style="{
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            position: 'fixed'
+        }"
+        style="z-index: -1"
+    />
 </template>
 
 <style scoped>

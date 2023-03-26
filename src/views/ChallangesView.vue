@@ -23,7 +23,6 @@ export default {
                     })
                 ).data;
             }
-            console.log('zrobione:', typeof solves, solves);
             this.challs = await (await axios.get('http://localhost:8080/challanges/currentChallanges')).data;
             this.challs.forEach((c) => {
                 c.solved = solves.includes(c.id);
