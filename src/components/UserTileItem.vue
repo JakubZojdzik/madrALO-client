@@ -4,15 +4,16 @@ export default {
         name: String,
         email: String,
         points: Number,
-        position: Number
+        position: Number,
+        active: Boolean
     }
 };
 </script>
 
 <template>
-    <div class="frame">
+    <div :class="{ podium: position <= 3, active: active}" class="frame">
         <div class="pos">
-            <b>{{ position }}</b>
+            {{ position }}
         </div>
         <div class="name">
             {{ name }}
@@ -20,9 +21,7 @@ export default {
         <div class="email">
             {{ email }}
         </div>
-        <div class="points">
-            {{ points }} pkt
-        </div>
+        <div class="points">{{ points }} pkt</div>
     </div>
 </template>
 
@@ -55,13 +54,13 @@ export default {
 }
 
 .name {
-    width: 40%;
+    width: 35%;
     text-align: right;
     padding-right: 1rem;
 }
 
 .email {
-    width: 40%;
+    width: 45%;
     text-align: left;
     padding-left: 1rem;
 }
@@ -71,4 +70,16 @@ export default {
     text-align: right;
 }
 
+.podium {
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.active {
+    background-color: rgb(64, 212, 108);
+}
+
+.active:hover {
+    background-color: rgb(64, 212, 108, 0.8);
+}
 </style>
