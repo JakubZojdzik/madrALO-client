@@ -69,10 +69,9 @@ export default {
                         this.fireworks = true;
                         setTimeout(() => {
                             this.fireworks = false;
-                        }, 3000);
-                        console.log('poprawna!');
+                        }, 5000);
                     } else {
-                        console.log('bledna!');
+                        this.answer = '';
                     }
                 });
         }
