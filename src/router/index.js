@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import { AccountView, ChallangesView, LoginView, RankingView, RulesView, ChallangeView } from '../views';
+import { AccountView, ChallangesView, LoginView, RankingView, RulesView, ChallangeView, AddChallangeView } from '../views';
 import { useLoggedIn } from '../composables/useLoggedIn';
 
 const router = createRouter({
@@ -31,10 +31,15 @@ const router = createRouter({
             component: AccountView
         },
         {
+            path: '/addChallange',
+            name: 'addChallange',
+            component: AddChallangeView
+        },
+        {
             path: '/challange/:id',
             name: 'challange',
             component: ChallangeView
-        }
+        },
     ]
 });
 
