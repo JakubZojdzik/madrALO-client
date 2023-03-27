@@ -108,10 +108,10 @@ export default {
             <table style="margin-top: -1px">
                 <tr>
                     <td width="50%" class="last">
-                        <input v-model="answer" type="text" name="answer" placeholder="Odpowiedź" />
+                        <input :disabled="solved" v-model="answer" type="text" name="answer" placeholder="Odpowiedź" />
                     </td>
                     <td width="20%" class="last">
-                        <button type="submit">Wyślij</button>
+                        <button :disabled="solved" type="submit">Wyślij</button>
                     </td>
                     <td width="30%" class="last">Rozwiązało: {{ solves }}</td>
                 </tr>
@@ -182,5 +182,10 @@ input:focus {
 button:hover {
     background-color: rgba(255, 255, 255, 0.1);
     cursor: pointer;
+}
+
+button:disabled, button[disabled], input:disabled, input[disabled] {
+    background-color: rgba(255, 255, 255, 0.1);
+    cursor: unset;
 }
 </style>
