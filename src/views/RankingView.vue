@@ -1,38 +1,30 @@
 <script>
+import { UserTileItem } from '../components';
 import axios from 'axios';
-import VueCookie from 'vue-cookie';
 
 export default {
     data() {
         return {
-            email: '',
-            password: '',
-            err: ''
+            usrs: null
         };
     },
     methods: {
-        dane() {
-            axios
-                .get('http://localhost:8080/users/myid', {
-                    headers: {
-                        authorization: 'Bearer ' +  VueCookie.get('authorization')
-                    }
-                })
-                .then((response) => {
-                    console.log(response);
-                })
-                .catch((error) => {
-                    console.log(error);
-                });
+        async fetchData() {
+            this.usrs = (await axios.get('http://localhost:8080/users/ranking')).data;
         }
+    },
+    created() {
+        this.fetchData();
+    },
+    components: {
+        UserTileItem
     }
 };
 </script>
 
 <template>
-    <div class="wrapper">
-        <button type="submit" @click="dane">Zaloguj</button>
-    </div>
+    <main>
+        <UserTileItem v-for="{ name, email, position, points } in usrs " :key="name" :name="name" :email="email" :position="position" :points="points" />
+        <ul></ul>
+    </main>
 </template>
-
-<style scoped></style>
