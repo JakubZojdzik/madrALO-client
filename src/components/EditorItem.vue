@@ -1,15 +1,24 @@
 <script>
-import { QuillEditor } from '@vueup/vue-quill';
+import { QuillEditor, Quill } from '@vueup/vue-quill';
 import '@vueup/vue-quill/dist/vue-quill.snow.css';
 
 export default {
+    emits: ['modelValue'],
     data() {
         return {
-            value: String
-        };
+            localValue: String
+        }
     },
-    created() {
-        console.log('created!');
+    methods: {
+        quillGetHTML(inputDelta) {
+            var tempQuill= new Quill(document.createElement('div'));
+            tempQuill.setContents(inputDelta);
+            return tempQuill.root.innerHTML;
+        },
+        onChange(xd) {
+            const htmlContent = this.quillGetHTML(xd);
+            this.$emit('modelValue', htmlContent);
+        },
     },
     components: {
         QuillEditor
@@ -19,8 +28,10 @@ export default {
 
 <template>
     <main>
-        <div class="editor">
+        <div>
             <QuillEditor
+                v-model:content="localValue"
+                @update:content="onChange"
                 theme="snow"
                 :toolbar="[
                     ['bold', 'italic', 'underline'],
@@ -33,11 +44,3 @@ export default {
         </div>
     </main>
 </template>
-
-<style scoped>
-.editor {
-    margin-left: auto;
-    margin-right: auto;
-    width: 80%;
-}
-</style>

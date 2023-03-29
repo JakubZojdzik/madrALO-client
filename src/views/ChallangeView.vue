@@ -47,7 +47,6 @@ export default {
         },
 
         submitAnswer() {
-            console.log('submituje');
             axios
                 .post(
                     'http://localhost:8080/challanges/solve',

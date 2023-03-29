@@ -76,10 +76,7 @@ export default {
 }
 
 .active {
-    background-color: rgb(64, 212, 108);
+    background: rgba(255, 255, 255, 0.1);
 }
 
-.active:hover {
-    background-color: rgb(64, 212, 108, 0.8);
-}
 </style>
