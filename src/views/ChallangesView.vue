@@ -26,6 +26,7 @@ export default {
             this.challs = await (await axios.get('http://localhost:8080/challanges/currentChallanges')).data;
             this.challs.forEach((c) => {
                 c.solved = solves.includes(c.id);
+                c.content = c.content.replace(/<[^>]+>/g, '');
                 if (c.content.length > 100) {
                     c.content = c.content.substring(0, 96) + '...';
                 }

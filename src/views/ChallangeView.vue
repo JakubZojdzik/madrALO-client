@@ -85,7 +85,7 @@ export default {
 </script>
 
 <template>
-    <main class="fireworks">
+    <main>
         <table>
             <tr>
                 <td width="10%" class="t-center">{{ points }} pkt</td>
@@ -96,9 +96,7 @@ export default {
             </tr>
             <tr>
                 <td colspan="3">
-                    <span style="white-space: pre-wrap">
-                        {{ content }}
-                    </span>
+                    <span v-html="content" style="white-space: pre-wrap"></span>
                 </td>
             </tr>
         </table>
