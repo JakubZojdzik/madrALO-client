@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import { AccountView, ChallangesView, LoginView, RankingView, RulesView, ChallangeView, AddChallangeView } from '../views';
-import { useLoggedIn } from '../composables';
+import { useAdmin, useLoggedIn } from '../composables';
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -44,10 +44,13 @@ const router = createRouter({
 });
 
 router.beforeEach(async (to) => {
-    let logged = false;
     if (to.name === 'profile') {
-        logged = await useLoggedIn();
+        const logged = await useLoggedIn();
         return logged;
+    }
+    if (to.name === 'addChallange') {
+        const admin = await useAdmin();
+        return admin;
     }
     return true;
 });

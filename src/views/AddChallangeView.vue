@@ -16,7 +16,6 @@ export default {
     },
     methods: {
         submit() {
-            console.log(this.start, this.title, this.answer);
             axios
                 .post(
                     'http://localhost:8080/challanges/addChallange',

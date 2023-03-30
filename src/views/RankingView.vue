@@ -18,7 +18,6 @@ export default {
                     x.active = true;
                 }
             });
-            console.log(this.usrs);
         }
     },
     created() {

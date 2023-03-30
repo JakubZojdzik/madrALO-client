@@ -7,8 +7,8 @@ import { RouterLink } from 'vue-router';
 export default {
     data() {
         return {
-            admin: false,
-        }
+            admin: false
+        };
     },
     computed: {
         emailVal() {
@@ -32,7 +32,7 @@ export default {
             } else {
                 this.admin = false;
             }
-        })
+        });
     },
     components: {
         RouterLink
@@ -47,8 +47,8 @@ export default {
                 <div class="field">Email: {{ emailVal }}</div>
                 <div class="field">Nazwa: {{ nameVal }}</div>
                 <button class="field" @click="logout">Wyloguj</button>
-                <RouterLink to="/addChallange">
-                    <button class="field" @click="logout">Dodaj zadanie</button>
+                <RouterLink v-if="admin" to="/addChallange">
+                    <button class="field">Dodaj zadanie</button>
                 </RouterLink>
             </div>
         </div>
