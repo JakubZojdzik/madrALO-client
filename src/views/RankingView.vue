@@ -1,7 +1,7 @@
 <script>
 import { UserTileItem } from '../components';
 import axios from 'axios';
-import { useLoggedIn } from '../composables/useLoggedIn';
+import { useLoggedIn } from '../composables';
 
 export default {
     data() {

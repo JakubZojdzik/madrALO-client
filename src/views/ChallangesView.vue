@@ -2,7 +2,7 @@
 import { ChallangeTileItem } from '../components';
 import axios from 'axios';
 import VueCookie from 'vue-cookie';
-import { useLoggedIn } from '../composables/useLoggedIn';
+import { useLoggedIn } from '../composables';
 
 export default {
     data() {

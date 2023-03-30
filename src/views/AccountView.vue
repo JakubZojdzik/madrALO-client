@@ -1,8 +1,15 @@
 <script>
 import store from '../store';
 import VueCookie from 'vue-cookie';
+import { useAdmin } from '../composables';
+import { RouterLink } from 'vue-router';
 
 export default {
+    data() {
+        return {
+            admin: false,
+        }
+    },
     computed: {
         emailVal() {
             return store.state.email;
@@ -17,6 +24,18 @@ export default {
             VueCookie.delete('authorization');
             this.$router.push('/');
         }
+    },
+    mounted() {
+        useAdmin().then((logged) => {
+            if (logged) {
+                this.admin = true;
+            } else {
+                this.admin = false;
+            }
+        })
+    },
+    components: {
+        RouterLink
     }
 };
 </script>
@@ -28,6 +47,9 @@ export default {
                 <div class="field">Email: {{ emailVal }}</div>
                 <div class="field">Nazwa: {{ nameVal }}</div>
                 <button class="field" @click="logout">Wyloguj</button>
+                <RouterLink to="/addChallange">
+                    <button class="field" @click="logout">Dodaj zadanie</button>
+                </RouterLink>
             </div>
         </div>
     </main>

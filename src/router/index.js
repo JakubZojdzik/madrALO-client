@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import { AccountView, ChallangesView, LoginView, RankingView, RulesView, ChallangeView, AddChallangeView } from '../views';
-import { useLoggedIn } from '../composables/useLoggedIn';
+import { useLoggedIn } from '../composables';
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),

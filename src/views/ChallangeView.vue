@@ -1,7 +1,7 @@
 <script>
 import axios from 'axios';
 import VueCookie from 'vue-cookie';
-import { useLoggedIn } from '../composables/useLoggedIn';
+import { useLoggedIn } from '../composables';
 import { Fireworks } from '@fireworks-js/vue';
 
 export default {

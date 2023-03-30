@@ -1,7 +1,7 @@
 <script>
 import { RouterLink } from 'vue-router';
 import store from '../store';
-import { useLoggedIn } from '../composables/useLoggedIn';
+import { useLoggedIn } from '../composables';
 
 export default {
     computed: {

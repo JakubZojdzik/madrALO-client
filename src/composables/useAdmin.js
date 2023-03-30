@@ -1,7 +1,7 @@
 import axios from 'axios';
 import VueCookie from 'vue-cookie';
 
-export async function useLoggedIn() {
+export async function useAdmin() {
     if (!VueCookie.get('authorization')) return false;
     const r = (
         await axios.get('http://localhost:8080/users/isAdmin', {
