@@ -2,7 +2,7 @@
 import { ChallangeTileItem } from '../components';
 import axios from 'axios';
 import VueCookie from 'vue-cookie';
-import { useLoggedIn } from '../composables';
+import { useLoggedIn, useAdmin } from '../composables';
 
 export default {
     data() {
@@ -11,7 +11,7 @@ export default {
         };
     },
     methods: {
-        async fetchData() {
+        async fetchData(admin) {
             let solves = [];
             const logged = await useLoggedIn();
             if (logged) {
@@ -23,18 +23,41 @@ export default {
                     })
                 ).data;
             }
-            this.challs = await (await axios.get('http://localhost:8080/challanges/currentChallanges')).data;
+            let inactChalls = [];
+            if (admin) {
+                inactChalls = (
+                    await axios.get('http://localhost:8080/challanges/inactiveChallanges', {
+                        headers: {
+                            authorization: 'Bearer ' + VueCookie.get('authorization')
+                        }
+                    })
+                ).data;
+                inactChalls.forEach((c) => {
+                    c.solved = solves.includes(c.id);
+                    c.content = c.content.replace(/<[^>]+>/g, ' ');
+                    c.current = false;
+                    if (c.content.length > 100) {
+                        c.content = c.content.substring(0, 96) + '...';
+                    }
+                });
+            }
+            this.challs = (await axios.get('http://localhost:8080/challanges/currentChallanges')).data;
             this.challs.forEach((c) => {
                 c.solved = solves.includes(c.id);
-                c.content = c.content.replace(/<[^>]+>/g, '');
+                c.content = c.content.replace(/<[^>]+>/g, ' ');
+                c.current = true;
                 if (c.content.length > 100) {
                     c.content = c.content.substring(0, 96) + '...';
                 }
             });
+            this.challs = this.challs.concat(inactChalls);
+            console.log(this.challs);
         }
     },
     created() {
-        this.fetchData();
+        useAdmin().then((admin) => {
+            this.fetchData(admin);
+        });
     },
     components: {
         ChallangeTileItem
@@ -44,7 +67,7 @@ export default {
 
 <template>
     <main>
-        <div  class="title"> mądrALO - Zadania </div>
+        <div class="title">mądrALO - Zadania</div>
         <div>
             <ChallangeTileItem v-for="{ id, title, content, points, solves, solved } in challs" :key="id" :id="id" :title="title" :content="content" :points="points" :solves="solves" :solved="solved" />
         </div>

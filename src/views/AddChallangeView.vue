@@ -95,5 +95,3 @@ button:hover {
     background-color: rgba(255, 255, 255, 0.1);
 }
 </style>
-
-<!-- <p>Wyznaczyć wszystkie dodatnie liczby całkowite b o następującej własności: istnieją takie dodatnie liczby całkowite a, k, l, że liczby a<sup>k</sup> + b<sup>l</sup> i a<sup>l</sup> + b<sup>k</sup> są podzielne przez b<sup>k+l</sup>, a przy tym k &amp;#8800; l.</p> -->
