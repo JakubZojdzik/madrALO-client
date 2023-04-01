@@ -10,7 +10,7 @@ export default {
             content: '',
             answer: '',
             author: '',
-            points: 0,
+            points: null,
             start: null,
         };
     },
@@ -50,12 +50,12 @@ export default {
     <main>
         <div class="wrapper">
             <form @submit.prevent="submit">
-                <input v-model="title" type="text" placeholder="Tytuł" />
-                <input v-model="author" type="text" placeholder="Autor" />
+                <input v-model="title" type="text" placeholder="Tytuł" required />
+                <input v-model="author" type="text" placeholder="Autor" required />
                 <EditorItem @modelValue="(msg) => (content = msg)" />
-                <input v-model="answer" type="text" placeholder="Odpowiedź" />
-                <input v-model="points" type="number" placeholder="Punkty" />
-                <input v-model="start" type="datetime-local" ref="dateInp" min="2023-02-01T00:00" max="2024-01-01T00:00" />
+                <input v-model="answer" type="text" placeholder="Odpowiedź" required />
+                <input v-model="points" type="number" placeholder="Punkty" required />
+                <input v-model="start" type="datetime-local" ref="dateInp" min="2023-02-01T00:00" max="2024-01-01T00:00" required />
                 <button type="submit">Zapisz</button>
             </form>
         </div>
