@@ -7,7 +7,8 @@ export default {
         content: String,
         points: Number,
         solves: Number,
-        solved: Boolean
+        solved: Boolean,
+        current: Boolean,
     },
     components: {
         RouterLink
@@ -17,7 +18,7 @@ export default {
 
 <template>
     <RouterLink class="link" :to="'/challange/' + id.toString()">
-        <div :class="{ solved: solved }" class="frame">
+        <div :class="{ solved: solved, inactive: !current }" class="frame">
             <div class="title">
                 <b>{{ title }}</b>
                 <br />({{ points }} pkt)
@@ -73,5 +74,9 @@ export default {
 
 .solves {
     text-decoration: none;
+}
+
+.inactive {
+    background: rgba(255, 255, 255, 0.1);
 }
 </style>

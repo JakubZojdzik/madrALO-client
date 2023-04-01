@@ -51,7 +51,6 @@ export default {
                 }
             });
             this.challs = this.challs.concat(inactChalls);
-            console.log(this.challs);
         }
     },
     created() {
@@ -69,7 +68,7 @@ export default {
     <main>
         <div class="title">mądrALO - Zadania</div>
         <div>
-            <ChallangeTileItem v-for="{ id, title, content, points, solves, solved } in challs" :key="id" :id="id" :title="title" :content="content" :points="points" :solves="solves" :solved="solved" />
+            <ChallangeTileItem v-for="{ id, title, content, points, solves, solved, current } in challs" :key="id" :id="id" :title="title" :content="content" :points="points" :solves="solves" :solved="solved" :current="current" />
         </div>
     </main>
 </template>

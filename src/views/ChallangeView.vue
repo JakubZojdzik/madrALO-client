@@ -21,7 +21,7 @@ export default {
             logged: false,
             answer: '',
             fireworks: false,
-            admin: false,
+            admin: false
         };
     },
     methods: {
@@ -38,7 +38,13 @@ export default {
                     })
                 ).data;
             }
-            const chall = (await axios.get('http://localhost:8080/challanges/' + this.id)).data;
+            const chall = (
+                await axios.get('http://localhost:8080/challanges/byId/' + this.id, {
+                    headers: {
+                        authorization: 'Bearer ' + VueCookie.get('authorization')
+                    }
+                })
+            ).data;
             this.title = chall.title;
             this.content = chall.content;
             this.author = chall.author;
@@ -79,18 +85,15 @@ export default {
         removeChallange() {
             console.log('usuwam', this.id);
             axios
-                .delete(
-                    'http://localhost:8080/challanges/removeChallange',
-                    {
-                        data: {
-                            challId: this.id
-                        },
-                        headers: {
-                            'content-type': 'application/x-www-form-urlencoded',
-                            authorization: 'Bearer ' + VueCookie.get('authorization')
-                        }
+                .delete('http://localhost:8080/challanges/removeChallange', {
+                    data: {
+                        challId: this.id
+                    },
+                    headers: {
+                        'content-type': 'application/x-www-form-urlencoded',
+                        authorization: 'Bearer ' + VueCookie.get('authorization')
                     }
-                )
+                })
                 .then(() => {
                     this.$router.push('/');
                 });
@@ -100,7 +103,7 @@ export default {
         this.fetchData();
         useAdmin().then((admin) => {
             this.admin = admin;
-        })
+        });
     },
     components: {
         Fireworks
@@ -205,7 +208,10 @@ button:hover {
     cursor: pointer;
 }
 
-button:disabled, button[disabled], input:disabled, input[disabled] {
+button:disabled,
+button[disabled],
+input:disabled,
+input[disabled] {
     background-color: rgba(255, 255, 255, 0.1);
     cursor: unset;
 }
@@ -229,5 +235,4 @@ button:disabled, button[disabled], input:disabled, input[disabled] {
 button:hover {
     background-color: rgba(255, 255, 255, 0.1);
 }
-
 </style>
