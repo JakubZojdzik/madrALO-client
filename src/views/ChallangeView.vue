@@ -50,6 +50,7 @@ export default {
             this.author = chall.author;
             this.points = chall.points;
             this.solves = chall.solves;
+            this.start = chall.start;
             this.solved = s.includes(this.id);
         },
 
@@ -141,6 +142,9 @@ export default {
             </table>
         </form>
         <button class="rem" v-if="admin" @click="removeChallange">Usuń zadanie</button>
+        <div class="start">
+            <p v-if="admin">Start: {{ start }}</p>
+        </div>
     </main>
     <Fireworks
         v-if="fireworks"
@@ -234,5 +238,12 @@ input[disabled] {
 
 button:hover {
     background-color: rgba(255, 255, 255, 0.1);
+}
+
+.start {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: right;
 }
 </style>
