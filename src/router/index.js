@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import { AccountView, ChallangesView, LoginView, RankingView, RulesView, ChallangeView, AddChallangeView } from '../views';
+import { AccountView, ChallangesView, LoginView, RankingView, RulesView, ChallangeView, AddChallangeView, RegisterView } from '../views';
 import { useAdmin, useLoggedIn } from '../composables';
 
 const router = createRouter({
@@ -16,7 +16,7 @@ const router = createRouter({
             component: RankingView
         },
         {
-            path: '/zasady',
+            path: '/rules',
             name: 'rules',
             component: RulesView
         },
@@ -26,7 +26,12 @@ const router = createRouter({
             component: LoginView
         },
         {
-            path: '/profil',
+            path: '/register',
+            name: 'register',
+            component: RegisterView
+        },
+        {
+            path: '/profile',
             name: 'profile',
             component: AccountView
         },

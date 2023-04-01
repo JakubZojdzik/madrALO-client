@@ -2,6 +2,7 @@
 import axios from 'axios';
 import VueCookie from 'vue-cookie';
 import store from '../store';
+import { RouterLink } from 'vue-router';
 
 export default {
     data() {
@@ -33,6 +34,9 @@ export default {
                     this.password = '';
                 });
         }
+    },
+    components: {
+        RouterLink,
     }
 };
 </script>
@@ -58,7 +62,8 @@ export default {
                 </div>
 
                 <button type="submit">Zaloguj</button>
-                <div>Nie posiadasz jeszcze konta? Napisz do ... na librusie...</div>
+                <div>Nie posiadasz jeszcze konta?</div>
+                <RouterLink to="/register"><button>Zarejestruj się</button></RouterLink>
             </form>
         </div>
     </div>
@@ -75,6 +80,7 @@ export default {
 .container {
     border: 1px solid #fff;
     padding: 3rem;
+    min-width: 35%;
 }
 
 .title {
