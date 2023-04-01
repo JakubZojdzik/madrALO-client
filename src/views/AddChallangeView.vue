@@ -35,16 +35,8 @@ export default {
                     }
                 )
                 .then((response) => {
-                    if (response.data == true) {
-                        this.solved = true;
-                        this.solves++;
-                        this.fireworks = true;
-                        setTimeout(() => {
-                            this.fireworks = false;
-                        }, 5000);
-                    } else {
-                        this.answer = '';
-                    }
+                    console.log('odbieram', response);
+                    this.$router.push('/');
                 });
         }
     },
