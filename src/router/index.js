@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import { AccountView, ChallangesView, LoginView, RankingView, RulesView, ChallangeView, AddChallangeView, RegisterView, EmailInfoView } from '../views';
+import { AccountView, ChallangesView, LoginView, RankingView, RulesView, ChallangeView, AddChallangeView, RegisterView, EmailInfoView, VerificationView } from '../views';
 import { useAdmin, useLoggedIn } from '../composables';
 
 const router = createRouter({
@@ -44,6 +44,11 @@ const router = createRouter({
             path: '/emailInfo',
             name: 'emailInfo',
             component: EmailInfoView
+        },
+        {
+            path: '/verification',
+            name: 'verification',
+            component: VerificationView
         },
         {
             path: '/challange/:id',
