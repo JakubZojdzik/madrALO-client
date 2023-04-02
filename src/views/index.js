@@ -6,6 +6,7 @@ import RulesView from './RulesView.vue';
 import ChallangeView from './ChallangeView.vue';
 import AddChallangeView from './AddChallangeView.vue';
 import RegisterView from './RegisterView.vue';
+import EmailInfoView from './EmailInfoView.vue';
 
 export {
     AccountView,
@@ -16,4 +17,5 @@ export {
     ChallangeView,
     AddChallangeView,
     RegisterView,
+    EmailInfoView
 }

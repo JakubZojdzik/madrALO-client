@@ -1,37 +1,40 @@
 <script>
-// import axios from 'axios';
-// import VueCookie from 'vue-cookie';
-// import store from '../store';
+import axios from 'axios';
+import VueCookie from 'vue-cookie';
+import store from '../store';
 
 export default {
     data() {
         return {
             email: '',
+            name: '',
             password: '',
+            passwordRep: '',
             err: ''
         };
     },
     methods: {
         register() {
-            // axios
-            //     .post(
-            //         'http://localhost:8080/users/login',
-            //         {
-            //             email: this.email,
-            //             password: this.password
-            //         },
-            //         { headers: { 'content-type': 'application/x-www-form-urlencoded' } }
-            //     )
-            //     .then((response) => {
-            //         this.err = '';
-            //         VueCookie.set('authorization', response.data.token, '1h');
-            //         store.commit('setUserData', { name: response.data.name, email: response.data.email });
-            //         this.$router.push('/');
-            //     })
-            //     .catch((error) => {
-            //         this.err = error.response.data;
-            //         this.password = '';
-            //     });
+            axios
+                .post(
+                    'http://localhost:8080/users/register',
+                    {
+                        email: this.email,
+                        name: this.name,
+                        password: this.password,
+                        passwordRep: this.passwordRep
+                    },
+                    { headers: { 'content-type': 'application/x-www-form-urlencoded' } }
+                )
+                .then((response) => {
+                    this.err = '';
+                    VueCookie.set('authorization', response.data.token, '1h');
+                    store.commit('setUserData', { name: response.data.name, email: response.data.email });
+                    this.$router.push('/emailInfo');
+                })
+                .catch((error) => {
+                    this.err = error.response.data;
+                });
         }
     }
 };

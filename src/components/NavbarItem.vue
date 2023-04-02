@@ -20,6 +20,8 @@ export default {
                     return 3;
                 case 'profile':
                     return 3;
+                case 'register':
+                    return 3;
                 default:
                     return 0;
             }
@@ -42,8 +44,8 @@ export default {
     <nav class="wrapper">
         <RouterLink to="/"><div id="butt0" @click="setActivity" :class="{ active: currentRoute == 0 }" class="element">Zadania</div></RouterLink>
         <RouterLink to="/ranking"><div id="butt1" @click="setActivity" :class="{ active: currentRoute == 1 }" class="element">Ranking</div></RouterLink>
-        <RouterLink to="/zasady"><div id="butt2" @click="setActivity" :class="{ active: currentRoute == 2 }" class="element">Zasady</div></RouterLink>
-        <RouterLink :to="name ? '/profil' : '/login'"
+        <RouterLink to="/rules"><div id="butt2" @click="setActivity" :class="{ active: currentRoute == 2 }" class="element">Zasady</div></RouterLink>
+        <RouterLink :to="name ? '/profile' : '/login'"
             ><div id="butt3" @click="setActivity" :class="{ active: currentRoute == 3 }" class="element">{{ name ? name : 'Zaloguj' }}</div></RouterLink
         >
         <div class="clear"></div>
