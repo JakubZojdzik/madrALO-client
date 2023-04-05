@@ -132,10 +132,10 @@ export default {
             <table style="margin-top: -1px">
                 <tr>
                     <td width="50%" class="last">
-                        <input :disabled="solved" v-model="answer" type="text" name="answer" placeholder="Odpowiedź" />
+                        <input :disabled="solved || !logged" v-model="answer" type="text" name="answer" placeholder="Odpowiedź" />
                     </td>
                     <td width="20%" class="last">
-                        <button :disabled="solved" type="submit">Wyślij</button>
+                        <button :disabled="solved || !logged" type="submit">Wyślij</button>
                     </td>
                     <td width="30%" class="last">Rozwiązało: {{ solves }}</td>
                 </tr>
