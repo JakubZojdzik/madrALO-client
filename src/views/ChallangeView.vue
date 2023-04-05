@@ -21,10 +21,15 @@ export default {
             logged: false,
             answer: '',
             fireworks: false,
-            admin: false
+            admin: false,
+            shake: false,
         };
     },
     methods: {
+        async WA() {
+            this.shake = true;
+            setTimeout(() => this.shake = false, 500);
+        },
         async fetchData() {
             let s = [];
             const lgd = await useLoggedIn();
@@ -79,6 +84,7 @@ export default {
                         }, 5000);
                     } else {
                         this.answer = '';
+                        this.WA();
                     }
                 });
         },
@@ -132,7 +138,7 @@ export default {
             <table style="margin-top: -1px">
                 <tr>
                     <td width="50%" class="last">
-                        <input :disabled="solved || !logged" v-model="answer" type="text" name="answer" placeholder="Odpowiedź" />
+                        <input :class="{shake: shake}" :disabled="solved || !logged" v-model="answer" type="text" name="answer" placeholder="Odpowiedź" />
                     </td>
                     <td width="20%" class="last">
                         <button :disabled="solved || !logged" type="submit">Wyślij</button>
@@ -245,5 +251,30 @@ button:hover {
     margin-left: auto;
     margin-right: auto;
     text-align: right;
+}
+
+.shake {
+    animation: shake 0.5s infinite;
+}
+
+@keyframes shake {
+    0% {
+        transform: translate(0);
+    }
+    20% {
+        transform: translate(3em);
+    }
+    40% {
+        transform: translate(-3em);
+    }
+    60% {
+        transform: translate(3em);
+    }
+    80% {
+        transform: translate(-3em);
+    }
+    100% {
+        transform: translate(0);
+    }
 }
 </style>
