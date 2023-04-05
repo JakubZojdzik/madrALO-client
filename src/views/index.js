@@ -8,6 +8,7 @@ import AddChallangeView from './AddChallangeView.vue';
 import RegisterView from './RegisterView.vue';
 import EmailInfoView from './EmailInfoView.vue';
 import VerificationView from './VerificationView.vue';
+import ThanksView from './ThanksView.vue';
 
 export {
     AccountView,
@@ -19,5 +20,6 @@ export {
     AddChallangeView,
     RegisterView,
     EmailInfoView,
-    VerificationView
+    VerificationView,
+    ThanksView
 }

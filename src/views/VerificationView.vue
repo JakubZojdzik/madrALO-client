@@ -13,7 +13,7 @@ export default {
                 { headers: { 'content-type': 'application/x-www-form-urlencoded' } }
             )
             .then(() => {
-                this.$router.push('/login');
+                this.$router.push('/thanks');
             });
     }
 };
