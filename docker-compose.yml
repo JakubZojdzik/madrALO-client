@@ -1,0 +1,12 @@
+version: '3.7'
+
+services:
+    client:
+        container_name: client
+        image: node:lts-alpine
+        command: npm run dev -- --host --port 8080
+        working_dir: /app
+        ports:
+            - 8080:8080
+        volumes:
+            - ./:/app
