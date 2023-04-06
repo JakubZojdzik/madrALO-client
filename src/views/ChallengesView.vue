@@ -1,5 +1,5 @@
 <script>
-import { ChallangeTileItem } from '../components';
+import { ChallengeTileItem } from '../components';
 import axios from 'axios';
 import VueCookie from 'vue-cookie';
 import { useLoggedIn, useAdmin } from '../composables';
@@ -26,7 +26,7 @@ export default {
             let inactChalls = [];
             if (admin) {
                 inactChalls = (
-                    await axios.get('http://localhost:8080/challanges/inactiveChallanges', {
+                    await axios.get('http://localhost:8080/challenges/inactiveChallenges', {
                         headers: {
                             authorization: 'Bearer ' + VueCookie.get('authorization')
                         }
@@ -41,7 +41,7 @@ export default {
                     }
                 });
             }
-            this.challs = (await axios.get('http://localhost:8080/challanges/currentChallanges')).data;
+            this.challs = (await axios.get('http://localhost:8080/challenges/currentChallenges')).data;
             this.challs.forEach((c) => {
                 c.solved = solves.includes(c.id);
                 c.content = c.content.replace(/<[^>]+>/g, ' ');
@@ -59,7 +59,7 @@ export default {
         });
     },
     components: {
-        ChallangeTileItem
+        ChallengeTileItem
     }
 };
 </script>
@@ -68,7 +68,7 @@ export default {
     <main>
         <div class="title">mądrALO - Zadania</div>
         <div>
-            <ChallangeTileItem v-for="{ id, title, content, points, solves, solved, current } in challs" :key="id" :id="id" :title="title" :content="content" :points="points" :solves="solves" :solved="solved" :current="current" />
+            <ChallengeTileItem v-for="{ id, title, content, points, solves, solved, current } in challs" :key="id" :id="id" :title="title" :content="content" :points="points" :solves="solves" :solved="solved" :current="current" />
         </div>
     </main>
 </template>

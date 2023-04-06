@@ -47,7 +47,7 @@ export default {
                 <div class="field">Email: {{ emailVal }}</div>
                 <div class="field">Nazwa: {{ nameVal }}</div>
                 <button class="field" @click="logout">Wyloguj</button>
-                <RouterLink v-if="admin" to="/addChallange">
+                <RouterLink v-if="admin" to="/addChallenge">
                     <button class="field">Dodaj zadanie</button>
                 </RouterLink>
             </div>

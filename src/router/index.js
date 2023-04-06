@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import { AccountView, ChallangesView, LoginView, RankingView, RulesView, ChallangeView, AddChallangeView, RegisterView, EmailInfoView, VerificationView, ThanksView } from '../views';
+import { AccountView, ChallengesView, LoginView, RankingView, RulesView, ChallengeView, AddChallengeView, RegisterView, EmailInfoView, VerificationView, ThanksView } from '../views';
 import { useAdmin, useLoggedIn } from '../composables';
 
 const router = createRouter({
@@ -7,8 +7,8 @@ const router = createRouter({
     routes: [
         {
             path: '/',
-            name: 'challanges',
-            component: ChallangesView
+            name: 'challenges',
+            component: ChallengesView
         },
         {
             path: '/ranking',
@@ -36,9 +36,9 @@ const router = createRouter({
             component: AccountView
         },
         {
-            path: '/addChallange',
-            name: 'addChallange',
-            component: AddChallangeView
+            path: '/addChallenge',
+            name: 'addChallenge',
+            component: AddChallengeView
         },
         {
             path: '/emailInfo',
@@ -56,9 +56,9 @@ const router = createRouter({
             component: ThanksView
         },
         {
-            path: '/challange/:id',
-            name: 'challange',
-            component: ChallangeView
+            path: '/challenge/:id',
+            name: 'challenge',
+            component: ChallengeView
         }
     ]
 });
@@ -68,7 +68,7 @@ router.beforeEach(async (to) => {
         const logged = await useLoggedIn();
         return logged;
     }
-    if (to.name === 'addChallange') {
+    if (to.name === 'addChallenge') {
         const admin = await useAdmin();
         return admin;
     }

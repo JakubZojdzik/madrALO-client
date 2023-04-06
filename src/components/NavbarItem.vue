@@ -10,7 +10,7 @@ export default {
         },
         currentRoute() {
             switch (this.$route.name) {
-                case 'challanges':
+                case 'challenges':
                     return 0;
                 case 'ranking':
                     return 1;

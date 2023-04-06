@@ -17,7 +17,7 @@ export default {
 </script>
 
 <template>
-    <RouterLink class="link" :to="'/challange/' + id.toString()">
+    <RouterLink class="link" :to="'/challenge/' + id.toString()">
         <div :class="{ solved: solved, inactive: !current }" class="frame">
             <div class="title">
                 <b>{{ title }}</b>

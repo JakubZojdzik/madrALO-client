@@ -44,7 +44,7 @@ export default {
                 ).data;
             }
             const chall = (
-                await axios.get('http://localhost:8080/challanges/byId/' + this.id, {
+                await axios.get('http://localhost:8080/challenges/byId/' + this.id, {
                     headers: {
                         authorization: 'Bearer ' + VueCookie.get('authorization')
                     }
@@ -62,7 +62,7 @@ export default {
         submitAnswer() {
             axios
                 .post(
-                    'http://localhost:8080/challanges/solve',
+                    'http://localhost:8080/challenges/solve',
                     {
                         challId: this.id,
                         answer: this.answer
@@ -89,10 +89,10 @@ export default {
                 });
         },
 
-        removeChallange() {
+        removeChallenge() {
             console.log('usuwam', this.id);
             axios
-                .delete('http://localhost:8080/challanges/removeChallange', {
+                .delete('http://localhost:8080/challenges/removeChallenge', {
                     data: {
                         challId: this.id
                     },
@@ -147,7 +147,7 @@ export default {
                 </tr>
             </table>
         </form>
-        <button class="rem" v-if="admin" @click="removeChallange">Usuń zadanie</button>
+        <button class="rem" v-if="admin" @click="removeChallenge">Usuń zadanie</button>
         <div class="start">
             <p v-if="admin">Start: {{ start }}</p>
         </div>

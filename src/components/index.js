@@ -1,11 +1,11 @@
 import NavbarItem from './NavbarItem.vue';
-import ChallangeTileItem from './ChallangeTileItem.vue';
+import ChallengeTileItem from './ChallengeTileItem.vue';
 import UserTileItem from './UserTileItem.vue';
 import EditorItem from './EditorItem.vue';
 
 export {
     NavbarItem,
-    ChallangeTileItem,
+    ChallengeTileItem,
     UserTileItem,
     EditorItem,
 }

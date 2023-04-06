@@ -18,7 +18,7 @@ export default {
         submit() {
             axios
                 .post(
-                    'http://localhost:8080/challanges/addChallange',
+                    'http://localhost:8080/challenges/addChallenge',
                     {
                         title: this.title,
                         content: this.content,
