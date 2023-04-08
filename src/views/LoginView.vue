@@ -4,6 +4,8 @@ import VueCookie from 'vue-cookie';
 import store from '../store';
 import { RouterLink } from 'vue-router';
 
+const url = import.meta.env.VITE_APP_API_URL;
+
 export default {
     data() {
         return {
@@ -16,7 +18,7 @@ export default {
         login() {
             axios
                 .post(
-                    'http://localhost:8080/users/login',
+                    url + '/users/login',
                     {
                         email: this.email,
                         password: this.password

@@ -1,6 +1,10 @@
-# madrALO
+# mądrALO client
 
-This template should help get you started developing with Vue 3 in Vite.
+## mądrALO
+**mądrALO** is system created for school maths competition. It allows to create challenges, solve them, collect points and it shows ranking with best users.
+
+## Client
+This repository contains client of **mądrALO** writen in vue with javascript.
 
 ## Recommended IDE Setup
 

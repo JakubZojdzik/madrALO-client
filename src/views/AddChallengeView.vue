@@ -3,6 +3,8 @@ import { EditorItem } from '../components';
 import axios from 'axios';
 import VueCookie from 'vue-cookie';
 
+const url = import.meta.env.VITE_APP_API_URL;
+
 export default {
     data() {
         return {
@@ -18,7 +20,7 @@ export default {
         submit() {
             axios
                 .post(
-                    'http://localhost:8080/challenges/addChallenge',
+                    url + '/challenges/addChallenge',
                     {
                         title: this.title,
                         content: this.content,

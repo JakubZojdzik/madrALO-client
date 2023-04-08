@@ -3,6 +3,8 @@ import axios from 'axios';
 import VueCookie from 'vue-cookie';
 import store from '../store';
 
+const url = import.meta.env.VITE_APP_API_URL;
+
 export default {
     data() {
         return {
@@ -17,7 +19,7 @@ export default {
         register() {
             axios
                 .post(
-                    'http://localhost:8080/users/register',
+                    url + '/users/register',
                     {
                         email: this.email,
                         name: this.name,

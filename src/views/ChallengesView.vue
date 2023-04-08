@@ -4,6 +4,8 @@ import axios from 'axios';
 import VueCookie from 'vue-cookie';
 import { useLoggedIn, useAdmin } from '../composables';
 
+const url = import.meta.env.VITE_APP_API_URL;
+
 export default {
     data() {
         return {
@@ -16,7 +18,7 @@ export default {
             const logged = await useLoggedIn();
             if (logged) {
                 solves = (
-                    await axios.get('http://localhost:8080/users/solves', {
+                    await axios.get(url + '/users/solves', {
                         headers: {
                             authorization: 'Bearer ' + VueCookie.get('authorization')
                         }
@@ -26,7 +28,7 @@ export default {
             let inactChalls = [];
             if (admin) {
                 inactChalls = (
-                    await axios.get('http://localhost:8080/challenges/inactiveChallenges', {
+                    await axios.get(url + '/challenges/inactiveChallenges', {
                         headers: {
                             authorization: 'Bearer ' + VueCookie.get('authorization')
                         }
@@ -41,7 +43,7 @@ export default {
                     }
                 });
             }
-            this.challs = (await axios.get('http://localhost:8080/challenges/currentChallenges')).data;
+            this.challs = (await axios.get(url + '/challenges/currentChallenges')).data;
             this.challs.forEach((c) => {
                 c.solved = solves.includes(c.id);
                 c.content = c.content.replace(/<[^>]+>/g, ' ');

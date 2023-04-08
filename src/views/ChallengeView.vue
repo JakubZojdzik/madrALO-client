@@ -4,6 +4,8 @@ import VueCookie from 'vue-cookie';
 import { useLoggedIn, useAdmin } from '../composables';
 import { Fireworks } from '@fireworks-js/vue';
 
+const url = import.meta.env.VITE_APP_API_URL;
+
 export default {
     computed: {
         id() {
@@ -38,7 +40,7 @@ export default {
             if (lgd) {
                 this.logged = true;
                 s = (
-                    await axios.get('http://localhost:8080/users/solves', {
+                    await axios.get(url + '/users/solves', {
                         headers: {
                             authorization: 'Bearer ' + VueCookie.get('authorization')
                         }
@@ -46,7 +48,7 @@ export default {
                 ).data;
             }
             const chall = (
-                await axios.get('http://localhost:8080/challenges/byId/' + this.id, {
+                await axios.get(url + '/challenges/byId/' + this.id, {
                     headers: {
                         authorization: 'Bearer ' + VueCookie.get('authorization')
                     }
@@ -66,7 +68,7 @@ export default {
             this.error = '';
             axios
                 .post(
-                    'http://localhost:8080/challenges/solve',
+                    url + '/challenges/solve',
                     {
                         challId: this.id,
                         answer: this.answer
@@ -101,7 +103,7 @@ export default {
         removeChallenge() {
             console.log('usuwam', this.id);
             axios
-                .delete('http://localhost:8080/challenges/removeChallenge', {
+                .delete(url + '/challenges/removeChallenge', {
                     data: {
                         challId: this.id
                     },
