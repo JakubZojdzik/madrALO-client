@@ -59,9 +59,11 @@ export default {
             this.solves = chall.solves;
             this.start = chall.start;
             this.solved = s.includes(this.id);
+            this.error = '';
         },
 
         submitAnswer() {
+            this.error = '';
             axios
                 .post(
                     'http://localhost:8080/challenges/solve',
@@ -86,6 +88,7 @@ export default {
                         }, 5000);
                     } else {
                         this.answer = '';
+                        this.error = 'Przed nastepną odpowiedzią musisz odczekać 10 min'
                         this.WA();
                     }
                 })
