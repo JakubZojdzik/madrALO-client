@@ -22,7 +22,9 @@ export default {
             answer: '',
             fireworks: false,
             admin: false,
+            start: null,
             shake: false,
+            error: ''
         };
     },
     methods: {
@@ -86,6 +88,10 @@ export default {
                         this.answer = '';
                         this.WA();
                     }
+                })
+                .catch((error) => {
+                    this.error = error.response.data;
+                    this.answer = '';
                 });
         },
 
@@ -148,6 +154,9 @@ export default {
             </table>
         </form>
         <button class="rem" v-if="admin" @click="removeChallenge">Usuń zadanie</button>
+        <div v-if="error" class="error">
+            {{ error }}
+        </div>
         <div class="start">
             <p v-if="admin">Start: {{ start }}</p>
         </div>
@@ -251,6 +260,14 @@ button:hover {
     margin-left: auto;
     margin-right: auto;
     text-align: right;
+}
+
+.error {
+    color: #d44040;
+    margin-top: 1em;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
 }
 
 .shake {
