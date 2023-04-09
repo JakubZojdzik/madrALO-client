@@ -12,26 +12,13 @@ This repository contains client of **mądrALO** writen in vue and javascript wit
 
 `.env` file should containe one variable `VITE_APP_API_URL` with URL address of API.
 
-## Project Setup
+## Run
+You can run everything with docker-compose:
 
 ```sh
-npm install
+docker-compose up -d
 ```
 
-### Compile and Hot-Reload for Development
+## API
 
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+You can find my API for **mądrALO** [here](https://github.com/JakubZojdzik/madrALO-api)
