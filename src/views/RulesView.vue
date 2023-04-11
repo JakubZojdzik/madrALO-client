@@ -52,7 +52,7 @@ export default {
                 </li>
 
                 <li>
-                    <span>Miejsce 4, 5, 6</span>
+                    <span>Miejsca 4, 5, 6</span>
                     <ul>
                         <li>
                             Plus z matematyki
