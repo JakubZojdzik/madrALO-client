@@ -9,16 +9,20 @@ export default {
         solves: Number,
         solved: Boolean,
         current: Boolean,
+        odd: Boolean,
     },
     components: {
         RouterLink
+    },
+    mounted() {
+        console.log("odd:", this.odd);
     }
 };
 </script>
 
 <template>
     <RouterLink class="link" :to="'/challenge/' + id.toString()">
-        <div :class="{ solved: solved, inactive: !current }" class="frame">
+        <div :class="{ solved: solved, inactive: !current, odd: odd }" class="frame">
             <div class="title">
                 <b>{{ title }}</b>
                 <br />({{ points }} pkt)
@@ -37,12 +41,16 @@ export default {
     text-decoration: none;
 }
 
+.odd {
+    background: rgba(255, 255, 255, 0.05);
+}
+
 .frame {
     width: 80%;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 1rem;
-    margin-top: 1rem;
+    margin-bottom: 1em;
+    margin-top: 1em;
     border: 1px solid #fff;
     padding: 1rem;
     display: flex;

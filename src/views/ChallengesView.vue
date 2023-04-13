@@ -70,7 +70,7 @@ export default {
     <main>
         <div class="title">mądrALO - Zadania</div>
         <div>
-            <ChallengeTileItem v-for="{ id, title, content, points, solves, solved, current } in challs" :key="id" :id="id" :title="title" :content="content" :points="points" :solves="solves" :solved="solved" :current="current" />
+            <ChallengeTileItem v-for="({ id, title, content, points, solves, solved, current }, index) in challs" :key="id" :id="id" :title="title" :content="content" :points="points" :solves="solves" :solved="solved" :current="current" :odd="index % 2 == 1" />
         </div>
     </main>
 </template>
