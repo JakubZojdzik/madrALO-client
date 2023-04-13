@@ -34,7 +34,7 @@ export default {
                             Zwiedzanie <a href="https://pl.wikipedia.org/wiki/Bem_(superkomputer)" target="_blank" rel="noopener noreferrer">superkomputera Bem</a>
                         </li>
                         <li>
-                            Ocena celująca z matematyki
+                            Plus z matematyki
                         </li>
                     </ul>
                 </li>
@@ -46,7 +46,7 @@ export default {
                             Zwiedzanie <a href="https://pl.wikipedia.org/wiki/Bem_(superkomputer)" target="_blank" rel="noopener noreferrer">superkomputera Bem</a>
                         </li>
                         <li>
-                            Ocena celująca z matematyki
+                            Plus z matematyki
                         </li>
                     </ul>
                 </li>
@@ -62,6 +62,29 @@ export default {
             </ul>
 
             <p>Zwiedzanie superkomputera jest możliwe dzięki życzliwości Wrocławskiego Centrum Sieciowo-Superkomputerowego</p>
+            <h3>Zadania tworzyli:</h3>
+            <ul>
+                <li>Jakub Żojdzik</li>
+                <li>Michał Węgrzyn</li>
+            </ul>
+
+            <h3>Nad systemem konkursu pracowali:</h3>
+            <ul>
+                <li>Jakub Żojdzik:</li>
+                <ul>
+                    <li>Codebase</li>
+                </ul>
+                <li>Maciej Opaliński:</li>
+                <ul>
+                    <li>Code review</li>
+                    <li>Konfiguracja serwera</li>
+                </ul>
+            </ul>
+            <p>
+                Aplikacja na licencji MIT dostępna na githubie:
+                <a href="https://github.com/JakubZojdzik/madrALO-client" target="_blank" rel="noopener noreferrer">Client</a>,
+                <a href="https://github.com/JakubZojdzik/madrALO-api" target="_blank" rel="noopener noreferrer">API</a>
+            </p>
         </div>
     </main>
 </template>
@@ -77,6 +100,10 @@ export default {
 a {
     color: white;
 
+}
+
+p {
+    line-height: 2rem;
 }
 
 span {
