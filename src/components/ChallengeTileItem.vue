@@ -64,12 +64,12 @@ export default {
 
 .title {
     padding-right: 1rem;
-    width: 10%;
+    width: 15%;
 }
 
 .content {
     text-decoration: none;
-    width: 75%;
+    width: 70%;
 }
 
 .solves {

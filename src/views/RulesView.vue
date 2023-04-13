@@ -11,7 +11,7 @@ export default {
                 <li>Zadania należy rozwiązywać samodzielnie</li>
                 <li>Dozwolone jest kożystanie z internetu, komputerów, kalkulatorów itd.</li>
                 <li>Łamanie zasad skutkuje unieważnieniem uczestnictwa w konkursie</li>
-                <li>Wszystkie pytania dotycznące zadać lub systemu konkursowego powinny być kierowane na maila: jakub.zojdzik.2020@alo.pwr.edu.pl</li>
+                <li>Wszystkie pytania dotycznące zadań lub systemu konkursowego powinny być kierowane na maila: jakub.zojdzik.2020@alo.pwr.edu.pl</li>
             </ul>
             <h2>Nagrody:</h2>
             <ul>
