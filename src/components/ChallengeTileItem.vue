@@ -14,9 +14,6 @@ export default {
     components: {
         RouterLink
     },
-    mounted() {
-        console.log("odd:", this.odd);
-    }
 };
 </script>
 
@@ -37,8 +34,12 @@ export default {
 
 <style scoped>
 .link {
+    display: block;
     color: #fff;
     text-decoration: none;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .odd {
@@ -46,9 +47,6 @@ export default {
 }
 
 .frame {
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
     margin-bottom: 1em;
     margin-top: 1em;
     border: 1px solid #fff;
