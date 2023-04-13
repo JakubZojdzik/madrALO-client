@@ -36,8 +36,7 @@ export default {
                         }
                     }
                 )
-                .then((response) => {
-                    console.log('odbieram', response);
+                .then(() => {
                     this.$router.push('/');
                 });
         }

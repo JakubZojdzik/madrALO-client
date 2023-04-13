@@ -5,7 +5,6 @@ const url = import.meta.env.VITE_APP_API_URL;
 
 export default {
     created() {
-        console.log('mam', this.$route.query.token);
         axios
             .post(
                 url + '/users/verify',
