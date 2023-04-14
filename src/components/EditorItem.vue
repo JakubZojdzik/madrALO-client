@@ -6,19 +6,42 @@ export default {
     emits: ['modelValue'],
     data() {
         return {
-            localValue: String
-        }
+            localValue: String,
+            editorOption: {
+                modules: {
+                    toolbar: {
+                        container: [['bold', 'italic', 'underline'], ['blockquote', 'code-block'], [{ list: 'ordered' }, { list: 'bullet' }], [{ script: 'sub' }, { script: 'super' }], [{ color: [] }, { background: [] }], ['image'], ['clean']],
+                        handlers: {
+                            image: function () {
+                                var range = this.quill.getSelection();
+                                var value = prompt('What is the image URL');
+                                if (value) {
+                                    this.quill.insertEmbed(range.index, 'image', value, Quill.sources.USER);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        };
     },
     methods: {
+        imageHandler() {
+            var range = this.quill.getSelection();
+            var value = prompt('What is the image URL');
+            if (value) {
+                this.quill.insertEmbed(range.index, 'image', value, Quill.sources.USER);
+            }
+        },
         quillGetHTML(inputDelta) {
-            var tempQuill= new Quill(document.createElement('div'));
+            var tempQuill = new Quill(document.createElement('div'));
             tempQuill.setContents(inputDelta);
             return tempQuill.root.innerHTML;
         },
         onChange(xd) {
             const htmlContent = this.quillGetHTML(xd);
             this.$emit('modelValue', htmlContent);
-        },
+        }
     },
     components: {
         QuillEditor
@@ -29,18 +52,7 @@ export default {
 <template>
     <main>
         <div>
-            <QuillEditor
-                v-model:content="localValue"
-                @update:content="onChange"
-                theme="snow"
-                :toolbar="[
-                    ['bold', 'italic', 'underline'],
-                    ['blockquote', 'code-block'],
-                    [{ list: 'ordered' }, { list: 'bullet' }],
-                    [{ script: 'sub' }, { script: 'super' }],
-                    [{ color: [] }, { background: [] }],
-                    ['clean']]"
-            />
+            <QuillEditor v-model:content="localValue" @update:content="onChange" theme="snow" :options="editorOption" />
         </div>
     </main>
 </template>
