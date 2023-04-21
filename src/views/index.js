@@ -9,6 +9,7 @@ import RegisterView from './RegisterView.vue';
 import EmailInfoView from './EmailInfoView.vue';
 import VerificationView from './VerificationView.vue';
 import ThanksView from './ThanksView.vue';
+import ForgotView from './ForgotView.vue';
 
 export {
     AccountView,
@@ -21,5 +22,6 @@ export {
     RegisterView,
     EmailInfoView,
     VerificationView,
-    ThanksView
+    ThanksView,
+    ForgotView,
 }

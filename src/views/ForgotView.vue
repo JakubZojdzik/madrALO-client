@@ -2,17 +2,11 @@
 import axios from 'axios';
 import VueCookie from 'vue-cookie';
 import store from '../store';
-import { RouterLink } from 'vue-router';
 
 const url = import.meta.env.VITE_APP_API_URL;
 
 export default {
     data() {
-        return {
-            email: '',
-            password: '',
-            err: ''
-        };
     },
     methods: {
         login() {
@@ -37,9 +31,6 @@ export default {
                 });
         }
     },
-    components: {
-        RouterLink,
-    }
 };
 </script>
 
@@ -47,27 +38,14 @@ export default {
     <div class="wrapper">
         <div class="container">
             <form @submit.prevent="login">
-                <h2 class="title">Login</h2>
+                <h2 class="title">Podaj email na który zarejestrowałeś konto</h2>
 
                 <div class="field">
-                    <label for="email">Email</label>
                     <input v-model="email" type="email" name="email" placeholder="imie.nazwisko.rok@alo.pwr.edu.pl" />
+                    <p>Na twojego maila zostanie wysłany link prowadzący do strony zmiany hasła.</p>
                 </div>
 
-                <div class="field">
-                    <label for="password">Hasło</label>
-                    <input v-model="password" type="password" name="password" placeholder="Hasło" />
-                </div>
-
-                <div v-if="err" class="error">
-                    {{ err }}
-                </div>
-
-                <button type="submit">Zaloguj</button>
-                <RouterLink to="/forgot" class="forgot">Nie pamiętam hasła</RouterLink>
-
-                <div>Nie posiadasz jeszcze konta?</div>
-                <RouterLink to="/register"><button>Zarejestruj się</button></RouterLink>
+                <button type="submit">Wyślij</button>
             </form>
         </div>
     </div>
