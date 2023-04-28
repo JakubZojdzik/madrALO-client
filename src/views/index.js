@@ -10,6 +10,7 @@ import EmailInfoView from './EmailInfoView.vue';
 import VerificationView from './VerificationView.vue';
 import ThanksView from './ThanksView.vue';
 import ForgotView from './ForgotView.vue';
+import PassVerifyView from './PassVerifyView.vue';
 
 export {
     AccountView,
@@ -24,4 +25,5 @@ export {
     VerificationView,
     ThanksView,
     ForgotView,
+    PassVerifyView
 }

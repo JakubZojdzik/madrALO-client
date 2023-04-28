@@ -1,28 +1,31 @@
 <script>
 import axios from 'axios';
-import VueCookie from 'vue-cookie';
-import store from '../store';
 
 const url = import.meta.env.VITE_APP_API_URL;
 
 export default {
     data() {
+        return {
+            email: '',
+            password: '',
+            passwordRep: '',
+            err: ''
+        };
     },
     methods: {
-        login() {
+        changePass() {
             axios
                 .post(
-                    url + '/users/login',
+                    url + '/users/changePassword',
                     {
                         email: this.email,
-                        password: this.password
+                        password: this.password,
+                        passwordRep: this.passwordRep,
                     },
                     { headers: { 'content-type': 'application/x-www-form-urlencoded' } }
                 )
-                .then((response) => {
+                .then(() => {
                     this.err = '';
-                    VueCookie.set('authorization', response.data.token, '1h');
-                    store.commit('setUserData', { name: response.data.name, email: response.data.email });
                     this.$router.push('/');
                 })
                 .catch((error) => {
@@ -37,13 +40,25 @@ export default {
 <template>
     <div class="wrapper">
         <div class="container">
-            <form @submit.prevent="login">
-                <h2 class="title">Podaj email na który zarejestrowałeś konto</h2>
+            <form @submit.prevent="changePass">
+                <h2 class="title">Zmiana hasła</h2>
 
                 <div class="field">
-                    <input v-model="email" type="email" name="email" placeholder="imie.nazwisko.rok@alo.pwr.edu.pl" />
-                    <p>Na twojego maila zostanie wysłany link prowadzący do strony zmiany hasła.</p>
+                    <label for="email">Email na który rejestrowałeś konto</label>
+                    <input v-model="email" type="email" name="email" placeholder="imie.nazwisko.rok@alo.pwr.edu.pl" required/>
                 </div>
+
+                <div class="field">
+                    <label for="password">Nowe hasło (8-32 znaków)</label>
+                    <input v-model="password" type="password" name="password" placeholder="Hasło" required />
+                </div>
+
+                <div class="field">
+                    <label for="passwordRep">Powtórz nowe hasło</label>
+                    <input v-model="passwordRep" type="password" name="passwordRep" placeholder="Powtórz hasło" required />
+                </div>
+
+                <p>Na twojego maila zostanie wysłany link prowadzący do strony zmiany hasła.</p>
 
                 <button type="submit">Wyślij</button>
             </form>

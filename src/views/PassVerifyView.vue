@@ -7,14 +7,14 @@ export default {
     created() {
         axios
             .post(
-                url + '/users/verify',
+                url + '/users/verifyPass',
                 {
                     token: this.$route.query.token
                 },
                 { headers: { 'content-type': 'application/x-www-form-urlencoded' } }
             )
             .then(() => {
-                this.$router.push('/thanks');
+                this.$router.push('/login');
             });
     }
 };

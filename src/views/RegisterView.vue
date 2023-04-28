@@ -1,7 +1,5 @@
 <script>
 import axios from 'axios';
-import VueCookie from 'vue-cookie';
-import store from '../store';
 
 const url = import.meta.env.VITE_APP_API_URL;
 
@@ -28,10 +26,8 @@ export default {
                     },
                     { headers: { 'content-type': 'application/x-www-form-urlencoded' } }
                 )
-                .then((response) => {
+                .then(() => {
                     this.err = '';
-                    VueCookie.set('authorization', response.data.token, '1h');
-                    store.commit('setUserData', { name: response.data.name, email: response.data.email });
                     this.$router.push('/emailInfo');
                 })
                 .catch((error) => {
@@ -59,7 +55,7 @@ export default {
                 </div>
 
                 <div class="field">
-                    <label for="password">Hasło (16-32 znaków)</label>
+                    <label for="password">Hasło (8-32 znaków)</label>
                     <input v-model="password" type="password" name="password" placeholder="Hasło" required />
                 </div>
 
