@@ -51,6 +51,7 @@ export default {};
             <ul>
                 <li>Jakub Żojdzik</li>
                 <li>Michał Węgrzyn</li>
+                <li>Tymon Terczyński</li>
             </ul>
 
             <h3>Nad systemem konkursu pracowali:</h3>

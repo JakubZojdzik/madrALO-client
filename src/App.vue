@@ -1,16 +1,18 @@
 <script>
 import { RouterView } from 'vue-router';
-import { NavbarItem } from './components';
+import { NavbarItem, TimerItem } from './components';
 
 export default {
     components: {
-        RouterView,
-        NavbarItem,
-    }
+    RouterView,
+    NavbarItem,
+    TimerItem
+}
 };
 </script>
 
 <template>
+    <TimerItem />
     <NavbarItem />
     <RouterView />
 </template>

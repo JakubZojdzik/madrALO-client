@@ -35,8 +35,8 @@ export default {
         })
     },
     components: {
-        RouterLink
-    }
+    RouterLink
+}
 };
 </script>
 
