@@ -8,9 +8,11 @@ export default {};
             <h2>Zasady:</h2>
             <ul>
                 <li>Zadania należy rozwiązywać samodzielnie</li>
-                <li>Dozwolone jest kożystanie z internetu, komputerów, kalkulatorów itd.</li>
+                <li>Dozwolone jest korzystanie z internetu, komputerów, kalkulatorów itd.</li>
+                <li>Zabronione jest udostępnianie rozwiązań lub odpowiedzi do zadań.</li>
                 <li>Łamanie zasad skutkuje unieważnieniem uczestnictwa w konkursie</li>
-                <li>Wszystkie pytania dotycznące zadań lub systemu konkursowego powinny być kierowane na maila: jakub.zojdzik.2020@alo.pwr.edu.pl</li>
+                <li>Zalecane jest dołączenie do <a href="https://discord.gg/4HN93zecFm" target="_blank" rel="noopener noreferrer">discorda z ogłoszeniami</a> dotyczącymi konkursu</li>
+                <li>Wszystkie pytania dotyczące zadań lub systemu konkursowego powinny być kierowane na discordzie do osób z rolą "organiator"</li>
             </ul>
             <h2>Nagrody:</h2>
             <ul>
@@ -66,6 +68,12 @@ export default {};
                     <li>Konfiguracja serwera</li>
                 </ul>
             </ul>
+
+            <h3>Opiekun konkursu:</h3>
+            <ul>
+                <li>Sławomir Wójcik</li>
+            </ul>
+            <br />
             <p>
                 Aplikacja na licencji MIT dostępna na githubie:
                 <a href="https://github.com/JakubZojdzik/madrALO-client" target="_blank" rel="noopener noreferrer">Client</a>,

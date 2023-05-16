@@ -19,6 +19,8 @@ export default {
             this.endTime = new Date(Date.parse(t['end']));
             console.log(new Date().getTime());
             this.part = (new Date().getTime() - this.startTime.getTime()) / (this.endTime.getTime() - this.startTime.getTime());
+            this.part = Math.max(0, this.part);
+            this.part = Math.min(1, this.part);
         }
     },
     mounted() {
@@ -35,13 +37,20 @@ export default {
 </script>
 
 <template>
-    <div class="bar" :style="cssVars">{{ part }}</div>
+    <div class="wrapper">
+        <div class="bar" :style="cssVars"></div>
+    </div>
 </template>
 
 <style scoped>
-.bar {
-    width: 100%;
+.wrapper {
+    margin: 0;
+    min-height: 1rem;
     border: 1px solid #fff;
+}
+.bar {
+    min-height: 1rem;
+    background-color: #fff;
     width: var(--bar-width);
 }
 </style>
