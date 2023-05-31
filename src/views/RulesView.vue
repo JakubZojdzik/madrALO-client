@@ -10,9 +10,12 @@ export default {};
                 <li>Zadania należy rozwiązywać samodzielnie</li>
                 <li>Dozwolone jest korzystanie z internetu, komputerów, kalkulatorów itd.</li>
                 <li>Zabronione jest udostępnianie rozwiązań lub odpowiedzi do zadań.</li>
-                <li>Łamanie zasad skutkuje unieważnieniem uczestnictwa w konkursie</li>
-                <li>Zalecane jest dołączenie do <a href="https://discord.gg/4HN93zecFm" target="_blank" rel="noopener noreferrer">discorda z ogłoszeniami</a> dotyczącymi konkursu</li>
-                <li>Wszystkie pytania dotyczące zadań lub systemu konkursowego powinny być kierowane na discordzie do osób z rolą "organiator"</li>
+                <li>Łamanie zasad skutkuje unieważnieniem uczestnictwa w konkursie.</li>
+                <li>Zalecane jest dołączenie do <a href="https://discord.gg/4HN93zecFm" target="_blank" rel="noopener noreferrer">discorda z ogłoszeniami</a> dotyczącymi konkursu.</li>
+                <li>Konkurs zaczyna się w poniedziałek 5 czerwca o godzinie 7:00 a kończy w piątek 9 czerwca o godzinie 19:00.</li>
+                <li>Po zakończeniu konkursy ranking jest zamrażany, ale zadania wciąż będzie można rozwiązywać. W dodatku udostępnimy dokument z rozwiązaniami zadań.</li>
+                <li>Każdego dnia o godzinie 7:00 będą się pojawiać 3 nowe zadania.</li>
+                <li>Wszystkie pytania dotyczące zadań lub systemu konkursowego powinny być kierowane na discordzie do osób z rolą "organiator".</li>
             </ul>
             <h2>Nagrody:</h2>
             <ul>
@@ -28,7 +31,7 @@ export default {};
                     <span class="place2">Miejsce 2</span>:
                     <ul>
                         <li>Zwiedzanie <a href="https://pl.wikipedia.org/wiki/Bem_(superkomputer)" target="_blank" rel="noopener noreferrer">superkomputera Bem</a></li>
-                        <li>Plus z matematyki</li>
+                        <li>Ocena celująca z matematyki</li>
                     </ul>
                 </li>
 
@@ -36,7 +39,7 @@ export default {};
                     <span class="place3">Miejsce 3</span>:
                     <ul>
                         <li>Zwiedzanie <a href="https://pl.wikipedia.org/wiki/Bem_(superkomputer)" target="_blank" rel="noopener noreferrer">superkomputera Bem</a></li>
-                        <li>Plus z matematyki</li>
+                        <li>Ocena celująca z matematyki</li>
                     </ul>
                 </li>
 
