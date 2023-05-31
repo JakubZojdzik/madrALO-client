@@ -14,10 +14,8 @@ export default {
     methods: {
         async fetchData() {
             let t = (await axios.get(url + '/challenges/competitionTimeRange')).data;
-            console.log('dostalem ', t);
             this.startTime = new Date(Date.parse(t['start']));
             this.endTime = new Date(Date.parse(t['end']));
-            console.log(new Date().getTime());
             this.part = (new Date().getTime() - this.startTime.getTime()) / (this.endTime.getTime() - this.startTime.getTime());
             this.part = Math.max(0, this.part);
             this.part = Math.min(1, this.part);

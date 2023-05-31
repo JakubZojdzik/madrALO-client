@@ -101,7 +101,6 @@ export default {
         },
 
         removeChallenge() {
-            console.log('usuwam', this.id);
             axios
                 .delete(url + '/challenges/removeChallenge', {
                     data: {
