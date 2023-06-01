@@ -69,6 +69,9 @@ export default {
 <template>
     <main>
         <div class="title">mądrALO - Zadania</div>
+        <div class="info" v-if="!challs">
+            <p>Żadne zadania nie zostały jeszcze opublikowane. Zapoznaj się z zakładką <i>Zasady</i></p>
+        </div>
         <div>
             <ChallengeTileItem v-for="({ id, title, content, points, solves, solved, current }, index) in challs" :key="id" :id="id" :title="title" :content="content" :points="points" :solves="solves" :solved="solved" :current="current" :odd="index % 2 == 1" />
         </div>
@@ -81,5 +84,13 @@ export default {
     text-align: center;
     width: 100%;
     margin-top: 3rem;
+}
+
+.info {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1rem;
+    text-align: center;
 }
 </style>
