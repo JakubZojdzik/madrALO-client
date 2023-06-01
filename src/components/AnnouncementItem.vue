@@ -15,8 +15,7 @@ export default {
     },
     methods: {
         removeChallenge() {
-            axios
-                .delete(url + '/annoucements/removeById', {
+            axios.delete(url + '/announcements/remove', {
                     data: {
                         annId: this.id
                     },
@@ -26,7 +25,7 @@ export default {
                     }
                 })
                 .then(() => {
-                    this.$router.push('/');
+                    this.$router.go();
                 });
         }
     }
