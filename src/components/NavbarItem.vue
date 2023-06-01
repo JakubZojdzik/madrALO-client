@@ -44,8 +44,8 @@ export default {
 
 <template>
     <nav class="wrapper">
-        <RouterLink to="/announcements"><div id="butt0" @click="setActivity" :class="{ active: currentRoute == 0 }" class="element">Ogłoszenia</div></RouterLink>
-        <RouterLink to="/"><div id="butt0" @click="setActivity" :class="{ active: currentRoute == 1 }" class="element">Zadania</div></RouterLink>
+        <RouterLink to="/"><div id="butt0" @click="setActivity" :class="{ active: currentRoute == 0 }" class="element">Ogłoszenia</div></RouterLink>
+        <RouterLink to="/challenges"><div id="butt0" @click="setActivity" :class="{ active: currentRoute == 1 }" class="element">Zadania</div></RouterLink>
         <RouterLink to="/ranking"><div id="butt1" @click="setActivity" :class="{ active: currentRoute == 2 }" class="element">Ranking</div></RouterLink>
         <RouterLink to="/rules"><div id="butt2" @click="setActivity" :class="{ active: currentRoute == 3 }" class="element">Zasady</div></RouterLink>
         <RouterLink :to="name ? '/profile' : '/login'"
