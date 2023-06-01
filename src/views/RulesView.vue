@@ -7,15 +7,17 @@ export default {};
         <div class="wrapper">
             <h2>Zasady:</h2>
             <ul>
-                <li>Zadania należy rozwiązywać samodzielnie</li>
+                <li>Za poprawną odpowiedź przyznawane są punkty (ilość zależna od zadania)</li>
+                <li>Błędna odpowiedź skutkuje karą 10 min bez możliwości wysłania odpowiedzi oraz odjęciem 1 punkta.</li>
                 <li>Dozwolone jest korzystanie z internetu, komputerów, kalkulatorów itd.</li>
+                <li>Zadania należy rozwiązywać samodzielnie</li>
                 <li>Zabronione jest udostępnianie rozwiązań lub odpowiedzi do zadań.</li>
-                <li>Łamanie zasad skutkuje unieważnieniem uczestnictwa w konkursie.</li>
                 <li>Zalecane jest dołączenie do <a href="https://discord.gg/4HN93zecFm" target="_blank" rel="noopener noreferrer">discorda z ogłoszeniami</a> dotyczącymi konkursu.</li>
-                <li>Konkurs zaczyna się w poniedziałek 5 czerwca o godzinie 7:00 a kończy w piątek 9 czerwca o godzinie 19:00.</li>
-                <li>Po zakończeniu konkursy ranking jest zamrażany, ale zadania wciąż będzie można rozwiązywać. W dodatku udostępnimy dokument z rozwiązaniami zadań.</li>
-                <li>Każdego dnia o godzinie 7:00 będą się pojawiać 3 nowe zadania.</li>
+                <li>Konkurs zaczyna się w poniedziałek 5 czerwca o godzinie 7:00 a kończy w niedzielę 11 czerwca o godzinie 16:00.</li>
+                <li>Od poniedziałku do piątku o godzinie 7:00 będą się pojawiać 3 nowe zadania. Sobota i niedziela to czas na rozwiązywanie niedokończonych zadań.</li>
+                <li>Po zakończeniu konkursy ranking jest zamrażany, ale zadania wciąż można rozwiązywać. W dodatku udostępnimy dokument z rozwiązaniami zadań.</li>
                 <li>Wszystkie pytania dotyczące zadań lub systemu konkursowego powinny być kierowane na discordzie do osób z rolą "organiator".</li>
+                <li>Łamanie zasad skutkuje unieważnieniem uczestnictwa w konkursie.</li>
             </ul>
             <h2>Nagrody:</h2>
             <ul>
