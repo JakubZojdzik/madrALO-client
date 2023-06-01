@@ -58,6 +58,9 @@ export default {
 </template>
 
 <style scoped>
+main {
+    margin-bottom: 6rem;
+}
 .title {
     text-align: center;
     font-size: 1.6rem;
@@ -71,7 +74,6 @@ table {
     margin-left: auto;
     margin-right: auto;
     width: 80%;
-    margin-bottom: 5rem;
 }
 
 td {
@@ -125,7 +127,7 @@ input[disabled] {
     width: 80%;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 1rem;
+    margin-top: -1px;
     padding: 12px 20px;
     box-sizing: border-box;
     border-radius: 4px;
