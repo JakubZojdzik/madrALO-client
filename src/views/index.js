@@ -11,6 +11,7 @@ import VerificationView from './VerificationView.vue';
 import ThanksView from './ThanksView.vue';
 import ForgotView from './ForgotView.vue';
 import PassVerifyView from './PassVerifyView.vue';
+import AnnouncementsView from './AnnouncementsView.vue';
 
 export {
     AccountView,
@@ -25,5 +26,6 @@ export {
     VerificationView,
     ThanksView,
     ForgotView,
-    PassVerifyView
+    PassVerifyView,
+    AnnouncementsView
 }
