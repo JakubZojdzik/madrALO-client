@@ -12,6 +12,7 @@ import ThanksView from './ThanksView.vue';
 import ForgotView from './ForgotView.vue';
 import PassVerifyView from './PassVerifyView.vue';
 import AnnouncementsView from './AnnouncementsView.vue';
+import AddAnnouncementView from './AddAnnouncementView.vue';
 
 export {
     AccountView,
@@ -27,5 +28,6 @@ export {
     ThanksView,
     ForgotView,
     PassVerifyView,
-    AnnouncementsView
+    AnnouncementsView,
+    AddAnnouncementView
 }

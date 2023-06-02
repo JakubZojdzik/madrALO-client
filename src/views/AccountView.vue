@@ -50,6 +50,9 @@ export default {
                 <RouterLink v-if="admin" to="/addChallenge">
                     <button class="field">Dodaj zadanie</button>
                 </RouterLink>
+                <RouterLink v-if="admin" to="/addAnnouncement">
+                    <button class="field">Dodaj ogłoszenie</button>
+                </RouterLink>
             </div>
         </div>
     </main>
