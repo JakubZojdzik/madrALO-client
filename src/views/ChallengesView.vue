@@ -43,7 +43,13 @@ export default {
                     }
                 });
             }
-            this.challs = (await axios.get(url + '/challenges/currentChallenges')).data;
+            this.challs = (
+                await axios.get(url + '/challenges/currentChallenges', {
+                    headers: {
+                        authorization: 'Bearer ' + VueCookie.get('authorization')
+                    }
+                })
+            ).data;
             this.challs.forEach((c) => {
                 c.solved = solves.includes(c.id);
                 c.content = c.content.replace(/<[^>]+>/g, ' ');
@@ -69,7 +75,7 @@ export default {
 <template>
     <main>
         <div class="title">mądrALO - Zadania</div>
-        <div class="info" v-if="challs === null || challs === [] || !challs">
+        <div class="info" v-if="challs === null || challs === [] || challs.length === 0 || !challs">
             <p>Żadne zadania nie zostały jeszcze opublikowane. Zapoznaj się z zakładką <i>Zasady</i></p>
         </div>
         <div>
