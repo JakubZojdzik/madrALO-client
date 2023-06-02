@@ -3,6 +3,7 @@ import ChallengeTileItem from './ChallengeTileItem.vue';
 import UserTileItem from './UserTileItem.vue';
 import EditorItem from './EditorItem.vue';
 import TimerItem from './TimerItem.vue';
+import AnnouncementItem from './AnnouncementItem.vue';
 
 export {
     NavbarItem,
@@ -10,4 +11,5 @@ export {
     UserTileItem,
     EditorItem,
     TimerItem,
+    AnnouncementItem
 }

@@ -10,18 +10,20 @@ export default {
         },
         currentRoute() {
             switch (this.$route.name) {
-                case 'challenges':
+                case 'announcements':
                     return 0;
-                case 'ranking':
+                case 'challenges':
                     return 1;
-                case 'rules':
+                case 'ranking':
                     return 2;
+                case 'rules':
+                    return 3;
                 case 'login':
-                    return 3;
+                    return 4;
                 case 'profile':
-                    return 3;
+                    return 4;
                 case 'register':
-                    return 3;
+                    return 4;
                 default:
                     return -1;
             }
@@ -42,11 +44,12 @@ export default {
 
 <template>
     <nav class="wrapper">
-        <RouterLink to="/"><div id="butt0" @click="setActivity" :class="{ active: currentRoute == 0 }" class="element">Zadania</div></RouterLink>
-        <RouterLink to="/ranking"><div id="butt1" @click="setActivity" :class="{ active: currentRoute == 1 }" class="element">Ranking</div></RouterLink>
-        <RouterLink to="/rules"><div id="butt2" @click="setActivity" :class="{ active: currentRoute == 2 }" class="element">Zasady</div></RouterLink>
+        <RouterLink to="/"><div id="butt0" @click="setActivity" :class="{ active: currentRoute == 0 }" class="element">Ogłoszenia</div></RouterLink>
+        <RouterLink to="/challenges"><div id="butt0" @click="setActivity" :class="{ active: currentRoute == 1 }" class="element">Zadania</div></RouterLink>
+        <RouterLink to="/ranking"><div id="butt1" @click="setActivity" :class="{ active: currentRoute == 2 }" class="element">Ranking</div></RouterLink>
+        <RouterLink to="/rules"><div id="butt2" @click="setActivity" :class="{ active: currentRoute == 3 }" class="element">Zasady</div></RouterLink>
         <RouterLink :to="name ? '/profile' : '/login'"
-            ><div id="butt3" @click="setActivity" :class="{ active: currentRoute == 3 }" class="element">{{ name ? name : 'Zaloguj' }}</div></RouterLink
+            ><div id="butt3" @click="setActivity" :class="{ active: currentRoute == 4 }" class="element">{{ name ? name : 'Zaloguj' }}</div></RouterLink
         >
         <div class="clear"></div>
     </nav>
@@ -54,7 +57,7 @@ export default {
 
 <style scoped>
 .wrapper {
-    width: 60%;
+    width: 75%;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 4rem;
@@ -63,7 +66,7 @@ export default {
 }
 
 .element {
-    width: 25%;
+    width: 20%;
     float: left;
     margin: 0;
     text-align: center;
