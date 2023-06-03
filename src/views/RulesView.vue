@@ -118,4 +118,10 @@ span {
 .place3 {
     color: #ad8a56;
 }
+
+@media screen and (max-width: 700px) {
+    .wrapper {
+        width: 95%;
+    }
+}
 </style>
