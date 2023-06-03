@@ -144,4 +144,16 @@ button:hover {
     text-align: right;
 }
 
+@media screen and (max-width: 700px) {
+    table {
+        width: 100%;
+        overflow-x: auto;
+        display: block;
+    }
+
+    .title {
+        font-size: 1.6rem;
+    }
+}
+
 </style>
