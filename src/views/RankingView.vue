@@ -63,20 +63,36 @@ export default {
 }
 
 .pos {
-    width: 10%;
+    width: 15%;
     text-align: left;
     padding-left: 1rem;
 }
 
 .name {
-    width: 75%;
+    width: 70%;
     text-align: left;
     padding-right: 1rem;
 }
-
-
 .points {
     width: 15%;
     text-align: right;
+}
+
+@media screen and (max-width: 700px) {
+    .pos {
+        width: 10%;
+        text-align: left;
+        padding-left: 1rem;
+    }
+    .name {
+        width: 75%;
+        text-align: center;
+        padding-right: 1rem;
+    }
+
+    .points {
+        width: 15%;
+        text-align: right;
+    }
 }
 </style>

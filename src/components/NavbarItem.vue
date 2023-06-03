@@ -34,11 +34,11 @@ export default {
             if (!logged) {
                 store.commit('setUserData', { name: '', email: '' });
             }
-        })
+        });
     },
     components: {
-    RouterLink
-}
+        RouterLink
+    }
 };
 </script>
 
@@ -100,9 +100,9 @@ a {
 }
 
 @media screen and (max-width: 700px) {
-  .element {
-    clear: both;
-    width: 100%;
-  }
+    .element {
+        clear: both;
+        width: 100%;
+    }
 }
 </style>
