@@ -18,9 +18,6 @@ export default {
         <div class="name">
             {{ name }}
         </div>
-        <div class="email">
-            {{ email }}
-        </div>
         <div class="points">{{ points }} pkt</div>
     </div>
 </template>
@@ -48,25 +45,20 @@ export default {
 }
 
 .pos {
-    width: 10%;
+    width: 15%;
     text-align: left;
     padding-left: 1rem;
 }
 
 .name {
-    width: 35%;
+    width: 70%;
     text-align: right;
     padding-right: 1rem;
 }
 
-.email {
-    width: 45%;
-    text-align: left;
-    padding-left: 1rem;
-}
 
 .points {
-    width: 10%;
+    width: 15%;
     text-align: right;
 }
 
