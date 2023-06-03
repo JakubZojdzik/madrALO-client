@@ -14,8 +14,8 @@ export default {};
                 <li>Zabronione jest udostępnianie rozwiązań lub odpowiedzi do zadań.</li>
                 <li>Konkurs zaczyna się w poniedziałek 5 czerwca o godzinie 7:00 a kończy w niedzielę 11 czerwca o godzinie 16:00.</li>
                 <li>Od poniedziałku do piątku o godzinie 7:00 będą się pojawiać 3 nowe zadania. Sobota i niedziela to czas na rozwiązywanie niedokończonych zadań.</li>
-                <li>Po zakończeniu konkursy ranking jest zamrażany, ale zadania wciąż można rozwiązywać. Zostanie również udostępninony dokument z rozwiązaniami.</li>
-                <li>Wszystkie pytania dotyczące zadań lub systemu konkursowego powinny być kierowane na na szkolnego maila organizatorów.</li>
+                <li>Po zakończeniu konkursu ranking jest zamrażany, ale zadania wciąż można rozwiązywać. Zostanie również udostępninony dokument z rozwiązaniami.</li>
+                <li>Wszystkie pytania dotyczące zadań lub systemu konkursowego powinny być kierowane na szkolnego maila organizatorów.</li>
                 <li>Łamanie zasad skutkuje unieważnieniem uczestnictwa w konkursie.</li>
             </ul>
             <h2>Nagrody:</h2>
