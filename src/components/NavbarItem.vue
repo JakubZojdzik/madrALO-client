@@ -104,5 +104,9 @@ a {
         clear: both;
         width: 100%;
     }
+
+    .wrapper {
+        width: 95%;
+    }
 }
 </style>

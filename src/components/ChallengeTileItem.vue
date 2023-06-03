@@ -90,5 +90,8 @@ export default {
     .content {
         display: none;
     }
+    .link {
+        width: 95%;
+    }
 }
 </style>
