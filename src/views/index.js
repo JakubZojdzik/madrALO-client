@@ -13,6 +13,7 @@ import ForgotView from './ForgotView.vue';
 import PassVerifyView from './PassVerifyView.vue';
 import AnnouncementsView from './AnnouncementsView.vue';
 import AddAnnouncementView from './AddAnnouncementView.vue';
+import NotFoundView from './NotFoundView.vue';
 
 export {
     AccountView,
@@ -29,5 +30,6 @@ export {
     ForgotView,
     PassVerifyView,
     AnnouncementsView,
-    AddAnnouncementView
+    AddAnnouncementView,
+    NotFoundView
 }

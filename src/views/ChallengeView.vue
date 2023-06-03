@@ -47,13 +47,22 @@ export default {
                     })
                 ).data;
             }
-            const chall = (
-                await axios.get(url + '/challenges/byId/' + this.id, {
-                    headers: {
-                        authorization: 'Bearer ' + VueCookie.get('authorization')
-                    }
-                })
-            ).data;
+            let chall;
+            try {
+                chall = (
+                    await axios.get(url + '/challenges/byId/' + this.id, {
+                        headers: {
+                            authorization: 'Bearer ' + VueCookie.get('authorization')
+                        }
+                    })
+                ).data;
+            } catch (error) {
+                if (error.response.status === 400)
+                {
+                    this.$router.push('/NotFound');
+                }
+            }
+
             this.title = chall.title;
             this.content = chall.content;
             this.author = chall.author;
