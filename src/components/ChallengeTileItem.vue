@@ -85,4 +85,10 @@ export default {
 .inactive {
     background: rgba(255, 255, 255, 0.1);
 }
+
+@media screen and (max-width: 700px) {
+    .content {
+        display: none;
+    }
+}
 </style>
