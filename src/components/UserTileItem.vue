@@ -2,7 +2,6 @@
 export default {
     props: {
         name: String,
-        email: String,
         points: Number,
         position: Number,
         active: Boolean
@@ -18,7 +17,7 @@ export default {
         <div class="name">
             {{ name }}
         </div>
-        <div class="points">{{ points }} pkt</div>
+        <div class="points">{{ points }}</div>
     </div>
 </template>
 
@@ -45,14 +44,14 @@ export default {
 }
 
 .pos {
-    width: 15%;
+    width: 10%;
     text-align: left;
     padding-left: 1rem;
 }
 
 .name {
-    width: 70%;
-    text-align: right;
+    width: 75%;
+    text-align: left;
     padding-right: 1rem;
 }
 
