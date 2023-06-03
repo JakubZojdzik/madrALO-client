@@ -98,4 +98,11 @@ a {
     color: #fff;
     text-decoration: none;
 }
+
+@media screen and (max-width: 700px) {
+  .element {
+    clear: both;
+    width: 100%;
+  }
+}
 </style>
