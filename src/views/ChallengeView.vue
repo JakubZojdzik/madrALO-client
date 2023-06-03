@@ -32,7 +32,7 @@ export default {
     methods: {
         async WA() {
             this.shake = true;
-            setTimeout(() => this.shake = false, 500);
+            setTimeout(() => (this.shake = false), 500);
         },
         async fetchData() {
             let s = [];
@@ -90,7 +90,7 @@ export default {
                         }, 5000);
                     } else {
                         this.answer = '';
-                        this.error = 'Przed nastepną odpowiedzią musisz odczekać 10 min'
+                        this.error = 'Przed nastepną odpowiedzią musisz odczekać 10 min';
                         this.WA();
                     }
                 })
@@ -148,7 +148,7 @@ export default {
             <table style="margin-top: -1px">
                 <tr>
                     <td width="50%" class="last">
-                        <input :class="{shake: shake}" :disabled="solved || !logged" v-model="answer" type="text" name="answer" placeholder="Odpowiedź" />
+                        <input :class="{ shake: shake }" :disabled="solved || !logged" v-model="answer" type="text" name="answer" placeholder="Odpowiedź" />
                     </td>
                     <td width="20%" class="last">
                         <button :disabled="solved || !logged" type="submit">Wyślij</button>
@@ -296,6 +296,18 @@ button:hover {
     }
     100% {
         transform: translate(0);
+    }
+}
+
+@media screen and (max-width: 700px) {
+    table {
+        width: 100%;
+        overflow-x: auto;
+        display: block;
+    }
+
+    .title {
+        font-size: 1.6rem;
     }
 }
 </style>
