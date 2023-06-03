@@ -12,6 +12,7 @@ export default {
         author: String,
         added: String,
         admin: Boolean,
+        active: Boolean
     },
     methods: {
         removeChallenge() {
@@ -35,7 +36,7 @@ export default {
 <template>
     <main>
         <table>
-            <tr>
+            <tr :class="{active: active}">
                 <td width="70%" class="title">
                     <b>{{ title }}</b>
                 </td>
@@ -142,6 +143,10 @@ button:hover {
 
 .date {
     text-align: right;
+}
+
+.active {
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 @media screen and (max-width: 700px) {
