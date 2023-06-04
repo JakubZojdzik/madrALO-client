@@ -35,7 +35,7 @@ export default {
             });
             this.ann = this.ann.concat(inactAnn);
             this.ann.forEach((el) => {
-                el.added = dateFormat(el.added, 'dd-mm-yyyy, HH:MM:ss');
+                el.added = dateFormat(el.added, 'dd-mm-yyyy, HH:MM:ss', true);
             });
         }
     },
