@@ -58,6 +58,10 @@ export default {
                     <input v-model="passwordRep" type="password" name="passwordRep" placeholder="Powtórz hasło" required />
                 </div>
 
+                <div v-if="err" class="error">
+                    {{ err }}
+                </div>
+
                 <p>Na twojego maila zostanie wysłany link potwierdzający zmianę hasła.</p>
 
                 <button type="submit">Wyślij</button>
