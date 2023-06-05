@@ -16,12 +16,11 @@ export default {};
                 <li>Od poniedziałku do piątku o godzinie 7:00 będą się pojawiać 3 nowe zadania. Sobota i niedziela to czas na rozwiązywanie niedokończonych zadań.</li>
                 <li>Po zakończeniu konkursu ranking jest zamrażany, ale zadania wciąż można rozwiązywać. Zostanie również udostępninony dokument z rozwiązaniami.</li>
                 <li>Łamanie zasad skutkuje unieważnieniem uczestnictwa w konkursie.</li>
-                <li>Wszystkie pytania dotyczące zadań lub systemu konkursowego powinny być kierowane na szkolnego maila organizatorów:</li>
+                <li>Wszystkie pytania dotyczące zadań lub systemu konkursowego powinny być kierowane na szkolnego maila autorów zadań:</li>
                 <ul>
                     <li>jakub.zojdzik.2020@alo.pwr.edu.pl</li>
                     <li>michal.wegrzyn.2020@alo.pwr.edu.pl</li>
                     <li>tymon.terczynski.2020@alo.pwr.edu.pl</li>
-                    <li>maciej.opalinski.2020@alo.pwr.edu.pl</li>
                 </ul>
             </ul>
             <h2>Nagrody:</h2>
