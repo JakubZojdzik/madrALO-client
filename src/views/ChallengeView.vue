@@ -75,6 +75,10 @@ export default {
 
         submitAnswer() {
             this.error = '';
+            if (this.answer.length >= 100) {
+                this.error = 'Za długa odpowiedź';
+                return;
+            }
             axios
                 .post(
                     url + '/challenges/solve',
