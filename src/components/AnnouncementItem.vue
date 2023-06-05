@@ -15,19 +15,25 @@ export default {
         active: Boolean
     },
     methods: {
-        removeChallenge() {
-            axios.delete(url + '/announcements/remove', {
-                    data: {
-                        annId: this.id
-                    },
-                    headers: {
-                        'content-type': 'application/x-www-form-urlencoded',
-                        authorization: 'Bearer ' + VueCookie.get('authorization')
-                    }
-                })
-                .then(() => {
-                    this.$router.go();
-                });
+        removeAnnouncement() {
+            if (confirm('Are you 100% sure??')) {
+                axios
+                    .delete(url + '/announcements/remove', {
+                        data: {
+                            annId: this.id
+                        },
+                        headers: {
+                            'content-type': 'application/x-www-form-urlencoded',
+                            authorization: 'Bearer ' + VueCookie.get('authorization')
+                        }
+                    })
+                    .then(() => {
+                        this.$router.go();
+                    });
+            }
+            else {
+                return;
+            }
         }
     }
 };
@@ -36,7 +42,7 @@ export default {
 <template>
     <main>
         <table>
-            <tr :class="{active: active}">
+            <tr :class="{ active: active }">
                 <td width="70%" class="title">
                     <b>{{ title }}</b>
                 </td>
@@ -53,7 +59,7 @@ export default {
                 </td>
             </tr>
         </table>
-        <button class="rem" v-if="admin" @click="removeChallenge">Usuń ogłoszenie</button>
+        <button class="rem" v-if="admin" @click="removeAnnouncement">Usuń ogłoszenie</button>
     </main>
 </template>
 
@@ -160,5 +166,4 @@ button:hover {
         font-size: 1.6rem;
     }
 }
-
 </style>

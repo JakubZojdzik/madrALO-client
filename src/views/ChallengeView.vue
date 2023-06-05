@@ -57,8 +57,7 @@ export default {
                     })
                 ).data;
             } catch (error) {
-                if (error.response.status === 400)
-                {
+                if (error.response.status === 400) {
                     this.$router.push('/NotFound');
                 }
             }
@@ -114,19 +113,23 @@ export default {
         },
 
         removeChallenge() {
-            axios
-                .delete(url + '/challenges/removeChallenge', {
-                    data: {
-                        challId: this.id
-                    },
-                    headers: {
-                        'content-type': 'application/x-www-form-urlencoded',
-                        authorization: 'Bearer ' + VueCookie.get('authorization')
-                    }
-                })
-                .then(() => {
-                    this.$router.push('/');
-                });
+            if (confirm('Are you 100% sure??')) {
+                axios
+                    .delete(url + '/challenges/removeChallenge', {
+                        data: {
+                            challId: this.id
+                        },
+                        headers: {
+                            'content-type': 'application/x-www-form-urlencoded',
+                            authorization: 'Bearer ' + VueCookie.get('authorization')
+                        }
+                    })
+                    .then(() => {
+                        this.$router.push('/');
+                    });
+            } else {
+                return;
+            }
         }
     },
     created() {
