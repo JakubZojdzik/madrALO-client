@@ -10,7 +10,7 @@ export default {
             editorOption: {
                 modules: {
                     toolbar: {
-                        container: [['bold', 'italic', 'underline'], ['blockquote', 'code-block'], [{ list: 'ordered' }, { list: 'bullet' }], [{ script: 'sub' }, { script: 'super' }], [{ color: [] }, { background: [] }], ['image'], ['clean']],
+                        container: [['bold', 'italic', 'underline'], ['blockquote', 'code-block'], [{ list: 'ordered' }, { list: 'bullet' }], [{ script: 'sub' }, { script: 'super' }], [{ color: [] }, { background: [] }], ['link', 'image'], ['clean']],
                         handlers: {
                             image: function () {
                                 var range = this.quill.getSelection();
