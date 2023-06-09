@@ -58,6 +58,7 @@ export default {};
             </ul>
 
             <p>Zwiedzanie superkomputera jest możliwe dzięki życzliwości Wrocławskiego Centrum Sieciowo-Superkomputerowego</p>
+            <p>Nagrody w postaci ocen są tylko sugestią dla Waszych nauczycieli. Ostateczną decyzję o jej przyznaniu podejmuje oczywiście nauczyciel.</p>
             <h3>Zadania tworzyli:</h3>
             <ul>
                 <li>Jakub Żojdzik</li>
