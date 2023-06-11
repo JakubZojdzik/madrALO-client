@@ -12,7 +12,7 @@ export default {};
                 <li>Dozwolone jest korzystanie z internetu, komputerów, kalkulatorów itd.</li>
                 <li>Zadania należy rozwiązywać samodzielnie.</li>
                 <li>Zabronione jest udostępnianie rozwiązań lub odpowiedzi do zadań.</li>
-                <li>Organizatorzy mają prawo spytać o sposób rozwiązywania zadania w przypadku podejrzeń o łamanie regulaminu.</li>
+                <li>Organizatorzy mają prawo spytać uczestnika o sposób rozwiązywania zadania.</li>
                 <li>Konkurs zaczyna się w poniedziałek 5 czerwca o godzinie 7:00 a kończy w niedzielę 11 czerwca o godzinie 16:00.</li>
                 <li>Od poniedziałku do piątku o godzinie 7:00 będą się pojawiać 3 nowe zadania. Sobota i niedziela to czas na rozwiązywanie niedokończonych zadań.</li>
                 <li>Po zakończeniu konkursu ranking jest zamrażany, ale zadania wciąż można rozwiązywać. Zostanie również udostępninony dokument z rozwiązaniami.</li>
