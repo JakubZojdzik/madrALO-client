@@ -93,7 +93,8 @@ export default {
                     }
                 )
                 .then((response) => {
-                    if (response.data == true) {
+                    console.log(response);
+                    if (response.data.correct == true) {
                         this.solved = true;
                         this.solves++;
                         this.fireworks = true;
@@ -102,7 +103,7 @@ export default {
                         }, 5000);
                     } else {
                         this.answer = '';
-                        this.error = 'Przed nastepną odpowiedzią musisz odczekać 10 min';
+                        this.error = response.data.info;
                         this.WA();
                     }
                 })
