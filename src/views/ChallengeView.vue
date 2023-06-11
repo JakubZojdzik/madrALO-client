@@ -109,6 +109,7 @@ export default {
                 .catch((error) => {
                     this.error = error.response.data;
                     this.answer = '';
+                    this.WA();
                 });
         },
 
