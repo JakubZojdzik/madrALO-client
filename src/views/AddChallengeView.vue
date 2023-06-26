@@ -20,7 +20,7 @@ export default {
         submit() {
             axios
                 .post(
-                    url + '/challenges/addChallenge',
+                    url + '/challenges/add',
                     {
                         title: this.title,
                         content: this.content,

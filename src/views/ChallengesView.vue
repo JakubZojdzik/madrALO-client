@@ -28,7 +28,7 @@ export default {
             let inactChalls = [];
             if (admin) {
                 inactChalls = (
-                    await axios.get(url + '/challenges/inactiveChallenges', {
+                    await axios.get(url + '/challenges/inactive', {
                         headers: {
                             authorization: 'Bearer ' + VueCookie.get('authorization')
                         }
@@ -44,7 +44,7 @@ export default {
                 });
             }
             this.challs = (
-                await axios.get(url + '/challenges/currentChallenges', {
+                await axios.get(url + '/challenges/current', {
                     headers: {
                         authorization: 'Bearer ' + VueCookie.get('authorization')
                     }

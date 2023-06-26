@@ -115,9 +115,9 @@ export default {
         },
 
         removeChallenge() {
-            if (confirm('Are you 100% sure??')) {
+            if (confirm('Czy jesteś pewien że chcesz to zrobić??')) {
                 axios
-                    .delete(url + '/challenges/removeChallenge', {
+                    .delete(url + '/challenges/remove', {
                         data: {
                             challId: this.id
                         },
@@ -132,6 +132,22 @@ export default {
             } else {
                 return;
             }
+        },
+
+        editChallenge() {
+            axios
+                .delete(url + '/challenges/remove', {
+                    data: {
+                        challId: this.id
+                    },
+                    headers: {
+                        'content-type': 'application/x-www-form-urlencoded',
+                        authorization: 'Bearer ' + VueCookie.get('authorization')
+                    }
+                })
+                .then(() => {
+                    this.$router.push('/');
+                });
         }
     },
     created() {
@@ -176,6 +192,7 @@ export default {
             </table>
         </form>
         <button class="rem" v-if="admin" @click="removeChallenge">Usuń zadanie</button>
+        <button class="rem" v-if="admin" @click="editChallenge">Edytuj zadanie</button>
         <div v-if="error" class="error">
             {{ error }}
         </div>

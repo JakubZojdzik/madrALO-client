@@ -18,7 +18,7 @@ export default {
         submit() {
             axios
                 .post(
-                    url + '/announcements/addAnnouncement',
+                    url + '/announcements/add',
                     {
                         title: this.title,
                         content: this.content,
