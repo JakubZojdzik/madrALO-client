@@ -25,7 +25,7 @@ export default {
         submit() {
             axios
                 .post(
-                    url + '/challenges/add',
+                    url + '/challenges/edit',
                     {
                         title: this.title,
                         content: this.content,
@@ -56,7 +56,7 @@ export default {
                     })
                 ).data;
             } catch (error) {
-                if (error.response.status === 400) {
+                if (error.response.status === 404 || error.response.status === 400) {
                     this.$router.push('/NotFound');
                 }
             }
@@ -66,7 +66,7 @@ export default {
             this.author = chall.author;
             this.points = chall.points;
             this.solves = chall.solves;
-            this.start = chall.start;
+            this.start = chall.start.slice(0, -1);
         }
     },
     mounted() {
