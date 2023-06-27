@@ -133,22 +133,6 @@ export default {
                 return;
             }
         },
-
-        editChallenge() {
-            axios
-                .delete(url + '/challenges/remove', {
-                    data: {
-                        challId: this.id
-                    },
-                    headers: {
-                        'content-type': 'application/x-www-form-urlencoded',
-                        authorization: 'Bearer ' + VueCookie.get('authorization')
-                    }
-                })
-                .then(() => {
-                    this.$router.push('/');
-                });
-        }
     },
     created() {
         this.fetchData();
@@ -192,7 +176,9 @@ export default {
             </table>
         </form>
         <button class="rem" v-if="admin" @click="removeChallenge">Usuń zadanie</button>
-        <button class="rem" v-if="admin" @click="editChallenge">Edytuj zadanie</button>
+        <RouterLink class="link" v-if="admin" :to="'/editChallenge/' + id">
+            <button class="rem">Edytuj zadanie</button>
+        </RouterLink>
         <div v-if="error" class="error">
             {{ error }}
         </div>
@@ -292,6 +278,10 @@ input[disabled] {
 
 button:hover {
     background-color: rgba(255, 255, 255, 0.1);
+}
+
+.link {
+    text-decoration: none;
 }
 
 .start {

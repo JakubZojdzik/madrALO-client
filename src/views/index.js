@@ -14,6 +14,7 @@ import PassVerifyView from './PassVerifyView.vue';
 import AnnouncementsView from './AnnouncementsView.vue';
 import AddAnnouncementView from './AddAnnouncementView.vue';
 import NotFoundView from './NotFoundView.vue';
+import EditChallengeView from './EditChallengeView.vue';
 
 export {
     AccountView,
@@ -31,5 +32,6 @@ export {
     PassVerifyView,
     AnnouncementsView,
     AddAnnouncementView,
-    NotFoundView
+    NotFoundView,
+    EditChallengeView
 }

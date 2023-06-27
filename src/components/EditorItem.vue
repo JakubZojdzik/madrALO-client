@@ -4,6 +4,7 @@ import '@vueup/vue-quill/dist/vue-quill.snow.css';
 
 export default {
     emits: ['modelValue'],
+    props: ['placeholder'],
     data() {
         return {
             localValue: String,
@@ -33,14 +34,8 @@ export default {
                 this.quill.insertEmbed(range.index, 'image', value, Quill.sources.USER);
             }
         },
-        quillGetHTML(inputDelta) {
-            var tempQuill = new Quill(document.createElement('div'));
-            tempQuill.setContents(inputDelta);
-            return tempQuill.root.innerHTML;
-        },
         onChange(xd) {
-            const htmlContent = this.quillGetHTML(xd);
-            this.$emit('modelValue', htmlContent);
+            this.$emit('modelValue', xd);
         }
     },
     components: {
@@ -52,7 +47,7 @@ export default {
 <template>
     <main>
         <div>
-            <QuillEditor v-model:content="localValue" @update:content="onChange" theme="snow" :options="editorOption" />
+            <QuillEditor @update:content="onChange" theme="snow" :options="editorOption" :content="placeholder" content-type="html" />
         </div>
     </main>
 </template>
