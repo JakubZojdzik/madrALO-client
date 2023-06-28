@@ -102,6 +102,18 @@ router.beforeEach(async (to) => {
         const admin = await useAdmin();
         return admin;
     }
+    if (to.name === 'addAnnouncement') {
+        const admin = await useAdmin();
+        return admin;
+    }
+    if (to.name === 'editChallenge') {
+        const admin = await useAdmin();
+        return admin;
+    }
+    if (to.name === 'editAnnouncement') {
+        const admin = await useAdmin();
+        return admin;
+    }
     return true;
 });
 
