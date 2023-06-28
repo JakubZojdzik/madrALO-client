@@ -94,25 +94,16 @@ const router = createRouter({
 });
 
 router.beforeEach(async (to) => {
-    if (to.name === 'profile') {
-        const logged = await useLoggedIn();
-        return logged;
+    console.log(to.name);
+    if (['profile'].includes(to.name)) {
+        if (!await useLoggedIn()) {
+            return '/';
+        }
     }
-    if (to.name === 'addChallenge') {
-        const admin = await useAdmin();
-        return admin;
-    }
-    if (to.name === 'addAnnouncement') {
-        const admin = await useAdmin();
-        return admin;
-    }
-    if (to.name === 'editChallenge') {
-        const admin = await useAdmin();
-        return admin;
-    }
-    if (to.name === 'editAnnouncement') {
-        const admin = await useAdmin();
-        return admin;
+    if (['addChallenge', 'addAnouncement', 'editChallenge', 'editAnnouncement'].includes(to.name)) {
+        if (!await useAdmin()) {
+            return '/';
+        }
     }
     return true;
 });
