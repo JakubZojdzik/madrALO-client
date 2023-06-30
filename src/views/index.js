@@ -15,6 +15,7 @@ import AnnouncementsView from './AnnouncementsView.vue';
 import AddAnnouncementView from './AddAnnouncementView.vue';
 import NotFoundView from './NotFoundView.vue';
 import EditChallengeView from './EditChallengeView.vue';
+import EditAnnouncementView from './EditAnnouncementView.vue';
 
 export {
     AccountView,
@@ -33,5 +34,6 @@ export {
     AnnouncementsView,
     AddAnnouncementView,
     NotFoundView,
-    EditChallengeView
+    EditChallengeView,
+    EditAnnouncementView
 }

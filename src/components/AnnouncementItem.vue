@@ -60,6 +60,9 @@ export default {
             </tr>
         </table>
         <button class="rem" v-if="admin" @click="removeAnnouncement">Usuń ogłoszenie</button>
+        <RouterLink class="link" v-if="admin" :to="'/editAnnouncement/' + id">
+            <button class="rem">Edytuj ogłoszenie</button>
+        </RouterLink>
     </main>
 </template>
 
@@ -95,6 +98,10 @@ td {
 .last {
     padding: 0;
     text-align: center;
+}
+
+.link {
+    text-decoration: none;
 }
 
 input,

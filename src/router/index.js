@@ -1,15 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import { AccountView, ChallengesView, LoginView, RankingView, RulesView, ChallengeView, AddChallengeView, RegisterView, EmailInfoView, VerificationView, ThanksView, ForgotView, PassVerifyView, AnnouncementsView, AddAnnouncementView, NotFoundView, EditChallengeView } from '../views';
+import { AccountView, ChallengesView, LoginView, RankingView, RulesView, ChallengeView, AddChallengeView, RegisterView, EmailInfoView, VerificationView, ThanksView, ForgotView, PassVerifyView, AnnouncementsView, AddAnnouncementView, NotFoundView, EditChallengeView, EditAnnouncementView } from '../views';
 import { useAdmin, useLoggedIn } from '../composables';
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
     routes: [
-        {
-            path: '/',
-            name: 'announcements',
-            component: AnnouncementsView
-        },
         {
             path: '/challenges',
             name: 'challenges',
@@ -41,6 +36,11 @@ const router = createRouter({
             component: AccountView
         },
         {
+            path: '/challenge/:id',
+            name: 'challenge',
+            component: ChallengeView
+        },
+        {
             path: '/addChallenge',
             name: 'addChallenge',
             component: AddChallengeView
@@ -49,6 +49,21 @@ const router = createRouter({
             path: '/editChallenge/:id',
             name: 'editChallenge',
             component: EditChallengeView
+        },
+        {
+            path: '/',
+            name: 'announcements',
+            component: AnnouncementsView
+        },
+        {
+            path: '/addAnnouncement',
+            name: 'addAnnouncement',
+            component: AddAnnouncementView
+        },
+        {
+            path: '/editAnnouncement/:id',
+            name: 'editAnnouncement',
+            component: EditAnnouncementView
         },
         {
             path: '/emailInfo',
@@ -66,11 +81,6 @@ const router = createRouter({
             component: ThanksView
         },
         {
-            path: '/challenge/:id',
-            name: 'challenge',
-            component: ChallengeView
-        },
-        {
             path: '/forgot',
             name: 'forgot',
             component: ForgotView
@@ -79,11 +89,6 @@ const router = createRouter({
             path: '/passChange',
             name: 'passChange',
             component: PassVerifyView
-        },
-        {
-            path: '/addAnnouncement',
-            name: 'addAnnouncement',
-            component: AddAnnouncementView
         },
         {
             path: "/:catchAll(.*)",
