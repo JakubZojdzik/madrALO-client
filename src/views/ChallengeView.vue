@@ -336,5 +336,9 @@ button:hover {
     .title {
         font-size: 1.6rem;
     }
+
+    .rem {
+        width: 100%;
+    }
 }
 </style>

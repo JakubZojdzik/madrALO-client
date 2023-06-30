@@ -162,8 +162,16 @@ button:hover {
         display: block;
     }
 
+    td {
+        width: 100%;
+    }
+
     .title {
         font-size: 1.6rem;
+    }
+
+    .rem {
+        width: 100%;
     }
 }
 </style>
