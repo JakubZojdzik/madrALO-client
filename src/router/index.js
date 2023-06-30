@@ -94,7 +94,6 @@ const router = createRouter({
 });
 
 router.beforeEach(async (to) => {
-    console.log(to.name);
     if (['profile'].includes(to.name)) {
         if (!await useLoggedIn()) {
             return '/';

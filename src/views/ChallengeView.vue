@@ -93,7 +93,6 @@ export default {
                     }
                 )
                 .then((response) => {
-                    console.log(response);
                     if (response.data.correct == true) {
                         this.solved = true;
                         this.solves++;
