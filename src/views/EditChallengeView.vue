@@ -49,12 +49,25 @@ export default {
                 });
         },
         async fetchData() {
-            let chall;
+            let chall, corrAns;
             try {
                 chall = (
-                    await axios.get(url + '/challenges/byId/' + this.id, {
+                    await axios.get(url + '/challenges/byId', {
                         headers: {
                             authorization: 'Bearer ' + VueCookie.get('authorization')
+                        },
+                        params: {
+                            challId: this.id
+                        }
+                    })
+                ).data;
+                corrAns = (
+                    await axios.get(url + '/challenges/correctAnswer', {
+                        headers: {
+                            authorization: 'Bearer ' + VueCookie.get('authorization')
+                        },
+                        params: {
+                            challId: this.id
                         }
                     })
                 ).data;
@@ -63,7 +76,7 @@ export default {
                     this.$router.push('/NotFound');
                 }
             }
-
+            this.answer = corrAns;
             this.title = chall.title;
             this.content = chall.content;
             this.author = chall.author;

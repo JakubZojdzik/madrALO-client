@@ -50,9 +50,12 @@ export default {
             let chall;
             try {
                 chall = (
-                    await axios.get(url + '/challenges/byId/' + this.id, {
+                    await axios.get(url + '/challenges/byId', {
                         headers: {
                             authorization: 'Bearer ' + VueCookie.get('authorization')
+                        },
+                        params: {
+                            challId: this.id
                         }
                     })
                 ).data;
