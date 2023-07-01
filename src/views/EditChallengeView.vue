@@ -96,14 +96,22 @@ export default {
 
 <template>
     <main>
+        <h1>Edycja zadania</h1>
         <div class="wrapper">
             <form @submit.prevent="submit">
+                <label>Tytuł:</label>
                 <input v-model="title" type="text" placeholder="Tytuł" required />
+                <label>Autor:</label>
                 <input v-model="author" type="text" placeholder="Autor" required />
-                <EditorItem @modelValue="(msg) => (content = msg)" :placeholder="content" />
+                <label>Treść:</label>
+                <EditorItem class="editor" @modelValue="(msg) => (content = msg)" :placeholder="content" />
+                <label>Odpowiedź:</label>
                 <input v-model="answer" type="text" placeholder="Odpowiedź" required />
+                <label>Punkty:</label>
                 <input v-model="points" type="number" placeholder="Punkty" required />
+                <label>Rozwiązań:</label>
                 <input v-model="solves" type="number" placeholder="Rozwiązań" required />
+                <label>Data startu:</label>
                 <input v-model="start" type="datetime-local" ref="dateInp" min="2023-02-01T00:00" max="2024-01-01T00:00" required />
                 <button type="submit">Zapisz</button>
             </form>
@@ -112,6 +120,9 @@ export default {
 </template>
 
 <style scoped>
+h1 {
+    text-align: center;
+}
 .wrapper {
     width: 80%;
     margin-left: auto;
@@ -142,5 +153,14 @@ button {
 
 button:hover {
     background-color: rgba(255, 255, 255, 0.1);
+}
+
+.editor {
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+}
+
+label {
+    margin-left: -2rem;
 }
 </style>
