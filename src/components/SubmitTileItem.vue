@@ -19,10 +19,13 @@ export default {
 
 <template>
     <div :class="{ correct: correct, wrong: !correct }" class="frame">
-        <div class="title">
+        <div class="sentdate">
             {{ sent }}
         </div>
-        <div class="given"><b>{{ name }}</b>:&nbsp; {{ given_ans }} <span v-if="!correct">&nbsp;<b>/</b>&nbsp; {{ corr_ans }}</span></div>
+        <div>
+            <b>{{ name }}</b>
+        </div>
+        <div class="given">{{ given_ans }} <span v-if="!correct"><b>/</b> {{ corr_ans }}</span></div>
     </div>
 </template>
 
@@ -50,16 +53,16 @@ export default {
     padding: .7rem 2rem .7rem 2rem;
     border: 1px solid #fff;
     display: flex;
+    justify-content: flex-start;
 }
 
-.title {
-    padding-right: 1rem;
-    width: 30%;
+.sentdate {
+    padding-right: 5rem;
 }
 
 .given {
     text-align: right;
-    width: 70%;
+    margin-left: auto;
 }
 
 

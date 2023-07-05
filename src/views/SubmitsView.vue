@@ -21,7 +21,7 @@ export default {
                 })
             ).data;
             this.subs.forEach(el => {
-                el.sent = new Date(Date.parse(el.sent)).toLocaleString('pl-PL', { timeZone: 'UTC' });
+                el.sent = new Date(Date.parse(el.sent)).toLocaleString('pl-PL');
             });
         }
     },
