@@ -4,6 +4,7 @@ import UserTileItem from './UserTileItem.vue';
 import EditorItem from './EditorItem.vue';
 import TimerItem from './TimerItem.vue';
 import AnnouncementItem from './AnnouncementItem.vue';
+import SubmitTileItem from './SubmitTileItem.vue';
 
 export {
     NavbarItem,
@@ -11,5 +12,6 @@ export {
     UserTileItem,
     EditorItem,
     TimerItem,
-    AnnouncementItem
+    AnnouncementItem,
+    SubmitTileItem
 }

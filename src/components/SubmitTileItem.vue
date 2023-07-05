@@ -1,49 +1,41 @@
 <script>
-import { RouterLink } from 'vue-router';
 export default {
     props: {
+        corr_ans: String,
+        correct: Boolean,
+        given_ans: String,
         id: Number,
-        title: String,
-        content: String,
-        points: Number,
-        solves: Number,
-        solved: Boolean,
-        current: Boolean,
-        odd: Boolean,
-    },
-    components: {
-        RouterLink
-    },
+        name: String,
+        sent: String,
+        title: String
+    }
 };
 </script>
 
 <template>
-    <RouterLink class="link" :to="'/challenge/' + id.toString()">
-        <div :class="{ solved: solved, inactive: !current, odd: odd }" class="frame">
-            <div class="title">
-                <b>{{ title }}</b>
-                <br />({{ points }} pkt)
-            </div>
-            <div class="content">
-                {{ content }}
-            </div>
-            <div class="solves">{{ solves }} rozwiązań</div>
+    <div :class="{ correct: correct, wrong: !correct }" class="frame">
+        <div class="title">
+            <b>{{ title }}</b>
         </div>
-    </RouterLink>
+        <div class="given"><i>{{ name }}</i> podał: {{ given_ans }}</div>
+    </div>
 </template>
 
 <style scoped>
-.link {
-    display: block;
-    color: #fff;
-    text-decoration: none;
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
+.correct {
+    background: linear-gradient(90deg, rgba(64, 212, 108, 1) 0%, rgba(0, 0, 0, 0) 20%);
 }
 
-.odd {
-    background: rgba(255, 255, 255, 0.05);
+.correct:hover {
+    background: linear-gradient(90deg, rgba(64, 212, 108, 1) 0%, rgba(255, 255, 255, 0.1) 20%);
+}
+
+.wrong {
+    background: linear-gradient(90deg, rgba(155, 17, 30, 1) 0%, rgba(0, 0, 0, 0) 20%);
+}
+
+.wrong:hover {
+    background: linear-gradient(90deg, rgba(155, 17, 30, 1) 0%, rgba(255, 255, 255, 0.1) 20%);
 }
 
 .frame {
@@ -56,35 +48,16 @@ export default {
     align-items: center;
 }
 
-.frame:hover {
-    background: rgba(255, 255, 255, 0.1);
-}
-
-.solved {
-    background-color: rgb(64, 212, 108);
-}
-
-.solved:hover {
-    background: rgba(64, 212, 108, 0.8);
-}
-
 .title {
     padding-right: 1rem;
-    width: 15%;
+    width: 30%;
 }
 
-.content {
-    text-decoration: none;
+.given {
+    text-align: right;
     width: 70%;
 }
 
-.solves {
-    text-decoration: none;
-}
-
-.inactive {
-    background: rgba(255, 255, 255, 0.1);
-}
 
 @media screen and (max-width: 700px) {
     .content {

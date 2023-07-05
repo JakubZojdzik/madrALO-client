@@ -1,5 +1,5 @@
 <script>
-import { ChallengeTileItem } from '../components';
+import { SubmitTileItem } from '../components';
 import axios from 'axios';
 import VueCookie from 'vue-cookie';
 
@@ -26,8 +26,8 @@ export default {
         this.fetchData();
     },
     components: {
-        ChallengeTileItem
-    }
+    SubmitTileItem
+}
 };
 </script>
 
@@ -38,7 +38,7 @@ export default {
             <p>Brak zgłoszeń</p>
         </div>
         <div>
-            <ChallengeTileItem v-for="({ id, title, content, points, solves, solved, current }, index) in subs" :key="id" :id="id" :title="title" :content="content" :points="points" :solves="solves" :solved="solved" :current="current" :odd="index % 2 == 1" />
+            <SubmitTileItem v-for="{ id, corr_ans, correct, given_ans, name, sent, title } in subs" :key="id" :corr_ans="corr_ans" :correct="correct" :given_ans="given_ans" :name="name" :sent="sent" :title="title" />
         </div>
     </main>
 </template>
