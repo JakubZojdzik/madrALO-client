@@ -20,6 +20,9 @@ export default {
                     }
                 })
             ).data;
+            this.subs.forEach(el => {
+                el.sent = new Date(Date.parse(el.sent)).toLocaleString('pl-PL', { timeZone: 'UTC' });
+            });
         }
     },
     created() {
@@ -32,7 +35,7 @@ export default {
 </script>
 
 <template>
-    <main>
+    <main class="wrapper">
         <div class="title">Zgłoszenia</div>
         <div class="info" v-if="subs === null || subs === [] || subs.length === 0 || !subs">
             <p>Brak zgłoszeń</p>
@@ -44,6 +47,11 @@ export default {
 </template>
 
 <style scoped>
+.wrapper {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
 .title {
     font-size: 3em;
     text-align: center;

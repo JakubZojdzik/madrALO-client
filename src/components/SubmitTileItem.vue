@@ -8,6 +8,11 @@ export default {
         name: String,
         sent: String,
         title: String
+    },
+    data() {
+        return {
+            expanded: false
+        };
     }
 };
 </script>
@@ -15,9 +20,9 @@ export default {
 <template>
     <div :class="{ correct: correct, wrong: !correct }" class="frame">
         <div class="title">
-            <b>{{ title }}</b>
+            {{ sent }}
         </div>
-        <div class="given"><i>{{ name }}</i> podał: {{ given_ans }}</div>
+        <div class="given"><b>{{ name }}</b>:&nbsp; {{ given_ans }} <span v-if="!correct">&nbsp;<b>/</b>&nbsp; {{ corr_ans }}</span></div>
     </div>
 </template>
 
@@ -39,13 +44,12 @@ export default {
 }
 
 .frame {
+    font-size: 1rem;
     margin-bottom: 1em;
     margin-top: 1em;
+    padding: .7rem 2rem .7rem 2rem;
     border: 1px solid #fff;
-    padding: 1rem;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
 }
 
 .title {
