@@ -22,8 +22,11 @@ export default {
         <div class="sentdate">
             {{ sent }}
         </div>
+        <div class="name">
+            <b>{{ name }}</b>:
+        </div>
         <div>
-            <b>{{ name }}</b>
+            {{ title }}
         </div>
         <div class="given">{{ given_ans }} <span v-if="!correct"><b>/</b> {{ corr_ans }}</span></div>
     </div>
@@ -54,10 +57,15 @@ export default {
     border: 1px solid #fff;
     display: flex;
     justify-content: flex-start;
+    flex-wrap: wrap;
 }
 
 .sentdate {
-    padding-right: 5rem;
+    padding-right: 4rem;
+}
+
+.name {
+    padding-right: 2rem;
 }
 
 .given {
@@ -67,11 +75,8 @@ export default {
 
 
 @media screen and (max-width: 700px) {
-    .content {
-        display: none;
-    }
-    .link {
-        width: 95%;
+    .sentdate, .given {
+        width: 100%;
     }
 }
 </style>
