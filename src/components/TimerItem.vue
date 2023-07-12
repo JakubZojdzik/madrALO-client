@@ -13,7 +13,7 @@ export default {
     },
     methods: {
         async fetchData() {
-            let t = (await axios.get(url + '/challenges/competitionTimeRange')).data;
+            let t = (await axios.get(url + '/competition/timeRange')).data;
             this.startTime = new Date(Date.parse(t['start']));
             this.endTime = new Date(Date.parse(t['end']));
             this.part = (new Date().getTime() - this.startTime.getTime()) / (this.endTime.getTime() - this.startTime.getTime());
