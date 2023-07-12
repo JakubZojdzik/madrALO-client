@@ -2,8 +2,16 @@
 import { RouterLink } from 'vue-router';
 import store from '../store';
 import { useLoggedIn } from '../composables';
+import axios from 'axios';
+
+const url = import.meta.env.VITE_APP_API_URL;
 
 export default {
+    data() {
+        return {
+            title: String
+        }
+    },
     computed: {
         name() {
             return store.state.name;
@@ -29,12 +37,18 @@ export default {
             }
         }
     },
+    methods: {
+        async fetchTitle() {
+            this.title = (await axios.get(url + '/competition/title')).data;
+        }
+    },
     mounted() {
         useLoggedIn().then((logged) => {
             if (!logged) {
                 store.commit('setUserData', { name: '', email: '' });
             }
         });
+        this.fetchTitle();
     },
     components: {
         RouterLink
@@ -44,7 +58,7 @@ export default {
 
 <template>
     <nav class="wrapper">
-        <RouterLink to="/"><div id="butt0" @click="setActivity" :class="{ active: currentRoute == 0 }" class="element">Ogłoszenia</div></RouterLink>
+        <RouterLink to="/"><div id="butt0" @click="setActivity" :class="{ active: currentRoute == 0 }" class="element"><span v-if="!title">Ogłoszenia</span>{{ title }}</div></RouterLink>
         <RouterLink to="/challenges"><div id="butt0" @click="setActivity" :class="{ active: currentRoute == 1 }" class="element">Zadania</div></RouterLink>
         <RouterLink to="/ranking"><div id="butt1" @click="setActivity" :class="{ active: currentRoute == 2 }" class="element">Ranking</div></RouterLink>
         <RouterLink to="/rules"><div id="butt2" @click="setActivity" :class="{ active: currentRoute == 3 }" class="element">Zasady</div></RouterLink>
