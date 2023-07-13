@@ -114,6 +114,11 @@ router.beforeEach(async (to) => {
             return '/';
         }
     }
+    if (to.name === 'login') {
+        if (await useLoggedIn()) {
+            return '/profile';
+        }
+    }
     return true;
 });
 
