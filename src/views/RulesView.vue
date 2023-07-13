@@ -12,7 +12,7 @@ export default {
     methods: {
         async fetchData() {
             this.rules = (
-                await axios.get(url + '/competition/rules')
+                await axios.get(`${url  }/competition/rules`)
             ).data;
         },
     },

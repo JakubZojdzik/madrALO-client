@@ -1,8 +1,8 @@
 <script>
-import store from '../store';
 import VueCookie from 'vue-cookie';
-import { useAdmin } from '../composables';
 import { RouterLink } from 'vue-router';
+import store from '../store';
+import { useAdmin } from '../composables';
 
 export default {
     data() {
@@ -48,16 +48,19 @@ export default {
                 <div class="field">Nazwa: {{ nameVal }}</div>
                 <button @click="logout">Wyloguj</button>
 
-                <div class="adminpanel">
+                <div v-if="admin" class="adminpanel">
                     <div class="label">Admin panel</div>
-                    <RouterLink v-if="admin" to="/addChallenge">
+                    <RouterLink to="/addChallenge">
                         <button class="adminButt">Dodaj zadanie</button>
                     </RouterLink>
-                    <RouterLink v-if="admin" to="/addAnnouncement">
+                    <RouterLink to="/addAnnouncement">
                         <button class="adminButt">Dodaj ogłoszenie</button>
                     </RouterLink>
-                    <RouterLink v-if="admin" to="/submits">
+                    <RouterLink to="/submits">
                         <button class="adminButt">Zgłoszenia</button>
+                    </RouterLink>
+                    <RouterLink to="/competition">
+                        <button class="adminButt">Edytuj konkurs</button>
                     </RouterLink>
                 </div>
             </div>

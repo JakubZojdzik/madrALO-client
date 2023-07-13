@@ -16,7 +16,7 @@ export default {
         changePass() {
             axios
                 .post(
-                    url + '/users/changePassword',
+                    `${url  }/users/changePassword`,
                     {
                         email: this.email,
                         password: this.password,

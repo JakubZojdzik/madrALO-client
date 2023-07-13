@@ -1,14 +1,14 @@
 <script>
-import { EditorItem } from '../components';
 import axios from 'axios';
 import VueCookie from 'vue-cookie';
+import { EditorItem } from '../components';
 
 const url = import.meta.env.VITE_APP_API_URL;
 
 export default {
     computed: {
         id() {
-            return parseInt(this.$route.params.id);
+            return parseInt(this.$route.params.id, 10);
         }
     },
     data() {
@@ -23,7 +23,7 @@ export default {
         submit() {
             axios
                 .post(
-                    url + '/announcements/edit',
+                    `${url  }/announcements/edit`,
                     {
                         title: this.title,
                         content: this.content,
@@ -34,7 +34,7 @@ export default {
                     {
                         headers: {
                             'content-type': 'application/x-www-form-urlencoded',
-                            authorization: 'Bearer ' + VueCookie.get('authorization')
+                            authorization: `Bearer ${  VueCookie.get('authorization')}`
                         }
                     }
                 )
@@ -46,9 +46,9 @@ export default {
             let ann;
             try {
                 ann = (
-                    await axios.get(url + '/announcements/byId', {
+                    await axios.get(`${url  }/announcements/byId`, {
                         headers: {
-                            authorization: 'Bearer ' + VueCookie.get('authorization')
+                            authorization: `Bearer ${  VueCookie.get('authorization')}`
                         },
                         params: {
                             annId: this.id

@@ -1,7 +1,7 @@
 <script>
-import { EditorItem } from '../components';
 import axios from 'axios';
 import VueCookie from 'vue-cookie';
+import { EditorItem } from '../components';
 
 const url = import.meta.env.VITE_APP_API_URL;
 
@@ -18,7 +18,7 @@ export default {
         submit() {
             axios
                 .post(
-                    url + '/announcements/add',
+                    `${url  }/announcements/add`,
                     {
                         title: this.title,
                         content: this.content,
@@ -28,7 +28,7 @@ export default {
                     {
                         headers: {
                             'content-type': 'application/x-www-form-urlencoded',
-                            authorization: 'Bearer ' + VueCookie.get('authorization')
+                            authorization: `Bearer ${  VueCookie.get('authorization')}`
                         }
                     }
                 )

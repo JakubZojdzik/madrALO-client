@@ -1,7 +1,7 @@
 <script>
-import { SubmitTileItem } from '../components';
 import axios from 'axios';
 import VueCookie from 'vue-cookie';
+import { SubmitTileItem } from '../components';
 
 const url = import.meta.env.VITE_APP_API_URL;
 
@@ -14,9 +14,9 @@ export default {
     methods: {
         async fetchData() {
             this.subs = (
-                await axios.get(url + '/submits', {
+                await axios.get(`${url  }/submits`, {
                     headers: {
-                        authorization: 'Bearer ' + VueCookie.get('authorization')
+                        authorization: `Bearer ${  VueCookie.get('authorization')}`
                     }
                 })
             ).data;
@@ -29,8 +29,8 @@ export default {
         this.fetchData();
     },
     components: {
-    SubmitTileItem
-}
+        SubmitTileItem
+    }
 };
 </script>
 
@@ -41,7 +41,8 @@ export default {
             <p>Brak zgłoszeń</p>
         </div>
         <div>
-            <SubmitTileItem v-for="{ id, corr_ans, correct, given_ans, name, sent, title } in subs" :key="id" :corr_ans="corr_ans" :correct="correct" :given_ans="given_ans" :name="name" :sent="sent" :title="title" />
+            <SubmitTileItem v-for="{ id, corr_ans, correct, given_ans, name, sent, title } in subs"
+            :key="id" :corr_ans="corr_ans" :correct="correct" :given_ans="given_ans" :name="name" :sent="sent" :title="title" />
         </div>
     </main>
 </template>

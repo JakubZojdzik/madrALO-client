@@ -17,6 +17,7 @@ import NotFoundView from './NotFoundView.vue';
 import EditChallengeView from './EditChallengeView.vue';
 import EditAnnouncementView from './EditAnnouncementView.vue';
 import SubmitsView from './SubmitsView.vue';
+import EditCompetitionView from './EditCompetitionView.vue';
 
 export {
     AccountView,
@@ -37,5 +38,6 @@ export {
     NotFoundView,
     EditChallengeView,
     EditAnnouncementView,
-    SubmitsView
+    SubmitsView,
+    EditCompetitionView,
 }

@@ -4,10 +4,10 @@ import { NavbarItem, TimerItem } from './components';
 
 export default {
     components: {
-    RouterView,
-    NavbarItem,
-    TimerItem
-}
+        RouterView,
+        NavbarItem,
+        TimerItem
+    }
 };
 </script>
 

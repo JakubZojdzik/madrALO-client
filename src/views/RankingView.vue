@@ -1,6 +1,6 @@
 <script>
-import { UserTileItem } from '../components';
 import axios from 'axios';
+import { UserTileItem } from '../components';
 import { useLoggedIn } from '../composables';
 
 const url = import.meta.env.VITE_APP_API_URL;
@@ -14,7 +14,7 @@ export default {
     methods: {
         async fetchData() {
             const logged = await useLoggedIn();
-            this.usrs = (await axios.get(url + '/users/ranking')).data;
+            this.usrs = (await axios.get(`${url  }/users/ranking`)).data;
             this.usrs.forEach((x) => {
                 if (x.id === logged) {
                     x.active = true;

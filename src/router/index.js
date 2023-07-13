@@ -1,5 +1,25 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import { AccountView, ChallengesView, LoginView, RankingView, RulesView, ChallengeView, AddChallengeView, RegisterView, EmailInfoView, VerificationView, ThanksView, ForgotView, PassVerifyView, AnnouncementsView, AddAnnouncementView, NotFoundView, EditChallengeView, EditAnnouncementView, SubmitsView } from '../views';
+import {
+    AccountView,
+    ChallengesView,
+    LoginView,
+    RankingView,
+    RulesView,
+    ChallengeView,
+    AddChallengeView,
+    RegisterView,
+    EmailInfoView,
+    VerificationView,
+    ThanksView,
+    ForgotView,
+    PassVerifyView,
+    AnnouncementsView,
+    AddAnnouncementView,
+    NotFoundView,
+    EditChallengeView,
+    EditAnnouncementView,
+    SubmitsView
+} from '../views';
 import { useAdmin, useLoggedIn } from '../composables';
 
 const router = createRouter({

@@ -1,8 +1,8 @@
 <script>
 import axios from 'axios';
 import VueCookie from 'vue-cookie';
-import store from '../store';
 import { RouterLink } from 'vue-router';
+import store from '../store';
 
 const url = import.meta.env.VITE_APP_API_URL;
 
@@ -18,7 +18,7 @@ export default {
         login() {
             axios
                 .post(
-                    url + '/users/login',
+                    `${url  }/users/login`,
                     {
                         email: this.email,
                         password: this.password

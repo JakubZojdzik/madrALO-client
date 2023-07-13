@@ -11,11 +11,14 @@ export default {
             editorOption: {
                 modules: {
                     toolbar: {
-                        container: [['bold', 'italic', 'underline'], ['blockquote', 'code-block'], [{ list: 'ordered' }, { list: 'bullet' }], [{ script: 'sub' }, { script: 'super' }], [{ color: [] }, { background: [] }], ['link', 'image'], ['clean']],
+                        container: [['bold', 'italic', 'underline'],
+                            ['blockquote', 'code-block'],
+                            [{ list: 'ordered' }, { list: 'bullet' }], [{ script: 'sub' }, { script: 'super' }],
+                            [{ color: [] }, { background: [] }], ['link', 'image'], ['clean']],
                         handlers: {
-                            image: function () {
-                                var range = this.quill.getSelection();
-                                var value = prompt('What is the image URL');
+                            image () {
+                                const range = this.quill.getSelection();
+                                const value = prompt('What is the image URL');
                                 if (value) {
                                     this.quill.insertEmbed(range.index, 'image', value, Quill.sources.USER);
                                 }
@@ -28,8 +31,8 @@ export default {
     },
     methods: {
         imageHandler() {
-            var range = this.quill.getSelection();
-            var value = prompt('What is the image URL');
+            const range = this.quill.getSelection();
+            const value = prompt('What is the image URL');
             if (value) {
                 this.quill.insertEmbed(range.index, 'image', value, Quill.sources.USER);
             }
