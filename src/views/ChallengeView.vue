@@ -268,7 +268,7 @@ input[disabled] {
     width: 80%;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 1rem;
+    margin-top: -1px;
     padding: 12px 20px;
     box-sizing: border-box;
     border-radius: 4px;

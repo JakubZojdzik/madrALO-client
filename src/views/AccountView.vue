@@ -46,16 +46,20 @@ export default {
             <div class="container">
                 <div class="field">Email: {{ emailVal }}</div>
                 <div class="field">Nazwa: {{ nameVal }}</div>
-                <button class="field" @click="logout">Wyloguj</button>
-                <RouterLink v-if="admin" to="/addChallenge">
-                    <button class="field">Dodaj zadanie</button>
-                </RouterLink>
-                <RouterLink v-if="admin" to="/addAnnouncement">
-                    <button class="field">Dodaj ogłoszenie</button>
-                </RouterLink>
-                <RouterLink v-if="admin" to="/submits">
-                    <button class="field">Zgłoszenia</button>
-                </RouterLink>
+                <button @click="logout">Wyloguj</button>
+
+                <div class="adminpanel">
+                    <div class="label">Admin panel</div>
+                    <RouterLink v-if="admin" to="/addChallenge">
+                        <button class="adminButt">Dodaj zadanie</button>
+                    </RouterLink>
+                    <RouterLink v-if="admin" to="/addAnnouncement">
+                        <button class="adminButt">Dodaj ogłoszenie</button>
+                    </RouterLink>
+                    <RouterLink v-if="admin" to="/submits">
+                        <button class="adminButt">Zgłoszenia</button>
+                    </RouterLink>
+                </div>
             </div>
         </div>
     </main>
@@ -88,10 +92,34 @@ export default {
 
 button {
     cursor: pointer;
-    margin-bottom: 1.5rem;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 0;
+    box-sizing: border-box;
+    border-radius: 4px;
+    border: 1px solid #fff;
+    background-color: rgba(0, 0, 0, 0);
+    color: #fff;
+    font-size: 1em;
 }
 
 button:hover {
     background-color: rgba(255, 255, 255, 0.1);
+}
+
+.adminpanel {
+    margin-top: 3rem;
+}
+
+.adminButt {
+    margin: .5rem 0;
+}
+
+.label {
+    text-align: center;
+    border-top: solid 1px white;
+    border-bottom: solid 1px white;
+    padding: .4rem;
+    margin-bottom: 1rem;
 }
 </style>
