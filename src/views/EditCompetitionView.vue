@@ -14,33 +14,26 @@ export default {
     data() {
         return {
             title: '',
-            content: '',
-            answer: '',
-            author: '',
-            points: null,
-            solves: null,
-            start: null
+            rules: '',
+            start: null,
+            end: null
         };
     },
     methods: {
         submit() {
             axios
                 .post(
-                    `${url  }/challenges/edit`,
+                    `${url}/competition/edit`,
                     {
                         title: this.title,
-                        content: this.content,
-                        answer: this.answer,
-                        author: this.author,
-                        points: this.points,
-                        solves: this.solves,
+                        rules: this.rules,
                         start: this.start,
-                        challId: this.id
+                        end: this.end
                     },
                     {
                         headers: {
                             'content-type': 'application/x-www-form-urlencoded',
-                            authorization: `Bearer ${  VueCookie.get('authorization')}`
+                            authorization: `Bearer ${VueCookie.get('authorization')}`
                         }
                     }
                 )
@@ -49,40 +42,17 @@ export default {
                 });
         },
         async fetchData() {
-            let chall; let corrAns;
             try {
-                chall = (
-                    await axios.get(`${url  }/challenges/byId`, {
-                        headers: {
-                            authorization: `Bearer ${  VueCookie.get('authorization')}`
-                        },
-                        params: {
-                            challId: this.id
-                        }
-                    })
-                ).data;
-                corrAns = (
-                    await axios.get(`${url  }/challenges/correctAnswer`, {
-                        headers: {
-                            authorization: `Bearer ${  VueCookie.get('authorization')}`
-                        },
-                        params: {
-                            challId: this.id
-                        }
-                    })
-                ).data;
+                const tr = (await axios.get(`${url}/competition/timeRange`)).data;
+                this.title = (await axios.get(`${url}/competition/title`)).data;
+                this.rules = (await axios.get(`${url}/competition/rules`)).data;
+                this.start = tr.start;
+                this.end = tr.end;
             } catch (error) {
                 if (error.response.status === 404 || error.response.status === 400) {
                     this.$router.push('/NotFound');
                 }
             }
-            this.answer = corrAns;
-            this.title = chall.title;
-            this.content = chall.content;
-            this.author = chall.author;
-            this.points = chall.points;
-            this.solves = chall.solves;
-            this.start = chall.start.slice(0, -1);
         }
     },
     mounted() {
@@ -96,23 +66,17 @@ export default {
 
 <template>
     <main>
-        <h1>Edycja zadania</h1>
+        <h1>Edycja konkursu</h1>
         <div class="wrapper">
             <form @submit.prevent="submit">
                 <label>Tytuł:</label>
                 <input v-model="title" type="text" placeholder="Tytuł" required />
-                <label>Autor:</label>
-                <input v-model="author" type="text" placeholder="Autor" required />
-                <label>Treść:</label>
-                <EditorItem class="editor" @modelValue="(msg) => (content = msg)" :placeholder="content" />
-                <label>Odpowiedź:</label>
-                <input v-model="answer" type="text" placeholder="Odpowiedź" required />
-                <label>Punkty:</label>
-                <input v-model="points" type="number" placeholder="Punkty" required />
-                <label>Rozwiązań:</label>
-                <input v-model="solves" type="number" placeholder="Rozwiązań" required />
+                <label>Opis (zasady):</label>
+                <EditorItem class="editor" @modelValue="(msg) => (rules = msg)" :placeholder="rules" />
                 <label>Data startu:</label>
                 <input v-model="start" type="datetime-local" ref="dateInp" min="2023-02-01T00:00" max="2024-01-01T00:00" required />
+                <label>Data zakończenia:</label>
+                <input v-model="end" type="datetime-local" ref="dateInp" min="2023-02-01T00:00" max="2024-01-01T00:00" required />
                 <button type="submit">Zapisz</button>
             </form>
         </div>
@@ -156,8 +120,8 @@ button:hover {
 }
 
 .editor {
-    margin-top: .5rem;
-    margin-bottom: .5rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
 }
 
 label {

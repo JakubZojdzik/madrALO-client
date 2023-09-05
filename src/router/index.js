@@ -18,7 +18,8 @@ import {
     NotFoundView,
     EditChallengeView,
     EditAnnouncementView,
-    SubmitsView
+    SubmitsView,
+    EditCompetitionView
 } from '../views';
 import { useAdmin, useLoggedIn } from '../composables';
 
@@ -114,6 +115,11 @@ const router = createRouter({
             path: '/submits',
             name: 'submits',
             component: SubmitsView
+        },
+        {
+            path: '/editCompetition',
+            name: 'editCompetition',
+            component: EditCompetitionView
         },
         {
             path: "/:catchAll(.*)",

@@ -59,7 +59,7 @@ export default {
                     <RouterLink to="/submits">
                         <button class="adminButt">Zgłoszenia</button>
                     </RouterLink>
-                    <RouterLink to="/competition">
+                    <RouterLink to="/editCompetition">
                         <button class="adminButt">Edytuj konkurs</button>
                     </RouterLink>
                 </div>
