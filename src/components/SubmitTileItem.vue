@@ -13,22 +13,25 @@ export default {
         return {
             expanded: false
         };
+    },
+    methods: {
+        toggle() {
+            this.expanded = !this.expanded;
+        }
     }
 };
 </script>
 
 <template>
-    <div :class="{ correct: correct, wrong: !correct }" class="frame">
+    <div v-on:click="toggle" :class="{ correct: correct, wrong: !correct }" class="frame">
         <div class="sentdate">
             {{ sent }}
         </div>
         <div class="name">
             <b>{{ name }}</b>:
-        </div>
-        <div>
             {{ title }}
         </div>
-        <div class="given">{{ given_ans }} <span v-if="!correct"><b>/</b> {{ corr_ans }}</span></div>
+        <div v-if="expanded" class="given">{{ given_ans }} <span v-if="!correct"><b>/</b> {{ corr_ans }}</span></div>
     </div>
 </template>
 
@@ -58,6 +61,7 @@ export default {
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
+    cursor: pointer;
 }
 
 .sentdate {
@@ -66,9 +70,6 @@ export default {
 
 .name {
     padding-right: 2rem;
-}
-
-.given {
     text-align: right;
     margin-left: auto;
 }

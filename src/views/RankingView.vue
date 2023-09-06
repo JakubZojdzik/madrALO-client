@@ -42,7 +42,7 @@ export default {
             </div>
             <div class="points">Wynik</div>
         </div>
-        <UserTileItem v-for="{ name, position, points, active } in usrs" :key="name" :name="name" :email="email" :position="position" :points="points" :active="active" />
+        <UserTileItem v-for="{ name, position, points, active } in usrs" :key="name" :name="name" :position="position" :points="points" :active="active" />
         <ul></ul>
     </main>
 </template>

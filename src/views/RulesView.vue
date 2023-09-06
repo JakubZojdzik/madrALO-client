@@ -28,7 +28,7 @@ export default {
             <span v-html="rules"></span>
             <br />
             <p>
-                Aplikacja na licencji MIT dostępna na githubie:
+                Aplikacja <i>SOK</i> na licencji MIT dostępna na githubie:
                 <a class="whitelink" href="https://github.com/JakubZojdzik/SOK-client" target="_blank" rel="noopener noreferrer">Client</a>,
                 <a class="whitelink" href="https://github.com/JakubZojdzik/SOK-api" target="_blank" rel="noopener noreferrer">API</a>
             </p>

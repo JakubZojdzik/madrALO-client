@@ -6,11 +6,6 @@ import { EditorItem } from '../components';
 const url = import.meta.env.VITE_APP_API_URL;
 
 export default {
-    computed: {
-        id() {
-            return parseInt(this.$route.params.id, 10);
-        }
-    },
     data() {
         return {
             title: '',
