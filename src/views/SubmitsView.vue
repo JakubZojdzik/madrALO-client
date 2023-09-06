@@ -2,30 +2,49 @@
 import axios from 'axios';
 import VueCookie from 'vue-cookie';
 import { SubmitTileItem } from '../components';
+import { useAdmin } from '../composables';
 
 const url = import.meta.env.VITE_APP_API_URL;
 
 export default {
     data() {
         return {
-            subs: null
+            subs: null,
+            admin: false
         };
     },
     methods: {
         async fetchData() {
-            this.subs = (
-                await axios.get(`${url  }/submits`, {
-                    headers: {
-                        authorization: `Bearer ${  VueCookie.get('authorization')}`
-                    }
-                })
-            ).data;
+            if (this.admin) {
+                this.subs = (
+                    await axios.get(`${url}/submits`, {
+                        headers: {
+                            authorization: `Bearer ${VueCookie.get('authorization')}`
+                        }
+                    })
+                ).data;
+            } else {
+                this.subs = (
+                    await axios.get(`${url}/submits/byId`, {
+                        headers: {
+                            authorization: `Bearer ${VueCookie.get('authorization')}`
+                        }
+                    })
+                ).data;
+            }
             this.subs.forEach(el => {
                 el.sent = new Date(Date.parse(el.sent)).toLocaleString('pl-PL');
             });
         }
     },
     created() {
+        useAdmin().then((logged) => {
+            if (logged) {
+                this.admin = true;
+            } else {
+                this.admin = false;
+            }
+        });
         this.fetchData();
     },
     components: {

@@ -47,6 +47,9 @@ export default {
                 <div class="field">Email: {{ emailVal }}</div>
                 <div class="field">Nazwa: {{ nameVal }}</div>
                 <button @click="logout">Wyloguj</button>
+                <RouterLink v-if="!admin" to="/submits">
+                    <button class="adminButt">Moje zgłoszenia</button>
+                </RouterLink>
 
                 <div v-if="admin" class="adminpanel">
                     <div class="label">Admin panel</div>
@@ -57,7 +60,7 @@ export default {
                         <button class="adminButt">Dodaj ogłoszenie</button>
                     </RouterLink>
                     <RouterLink to="/submits">
-                        <button class="adminButt">Zgłoszenia</button>
+                        <button class="adminButt">Wszystkie zgłoszenia</button>
                     </RouterLink>
                     <RouterLink to="/editCompetition">
                         <button class="adminButt">Edytuj konkurs</button>
