@@ -1,12 +1,12 @@
-# mądrALO client
+# SOK client
 
-## mądrALO
+## SOK
 
-**mądrALO** is system created for school maths competition. It allows to create challenges, solve them, collect points and show best users in ranking.
+**SOK** is system created for school maths competition. It allows to create challenges, solve them, collect points and show best users in ranking.
 
 ## Client
 
-This repository contains client of **mądrALO** writen in vue and javascript with help of Vite.
+This repository contains client of **SOK** writen in vue and javascript with help of Vite.
 
 ## Environment variables
 
@@ -21,4 +21,4 @@ docker-compose up -d
 
 ## API
 
-You can find my API for **mądrALO** [here](https://github.com/JakubZojdzik/madrALO-api)
+You can find my API for **SOK** [here](https://github.com/JakubZojdzik/SOK-api)

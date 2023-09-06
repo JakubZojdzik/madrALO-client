@@ -29,8 +29,8 @@ export default {
             <br />
             <p>
                 Aplikacja na licencji MIT dostępna na githubie:
-                <a class="whitelink" href="https://github.com/JakubZojdzik/madrALO-client" target="_blank" rel="noopener noreferrer">Client</a>,
-                <a class="whitelink" href="https://github.com/JakubZojdzik/madrALO-api" target="_blank" rel="noopener noreferrer">API</a>
+                <a class="whitelink" href="https://github.com/JakubZojdzik/SOK-client" target="_blank" rel="noopener noreferrer">Client</a>,
+                <a class="whitelink" href="https://github.com/JakubZojdzik/SOK-api" target="_blank" rel="noopener noreferrer">API</a>
             </p>
         </div>
     </main>
