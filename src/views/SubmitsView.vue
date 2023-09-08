@@ -37,15 +37,15 @@ export default {
             });
         }
     },
-    created() {
+    mounted() {
         useAdmin().then((logged) => {
             if (logged) {
                 this.admin = true;
             } else {
                 this.admin = false;
             }
+            this.fetchData();
         });
-        this.fetchData();
     },
     components: {
         SubmitTileItem

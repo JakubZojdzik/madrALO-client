@@ -31,7 +31,7 @@ export default {
             <b>{{ name }}</b>:
             {{ title }}
         </div>
-        <div v-if="expanded" class="given">{{ given_ans }} <span v-if="!correct"><b>/</b> {{ corr_ans }}</span></div>
+        <div v-if="expanded" class="given">{{ given_ans }} <span v-if="(!correct) && corr_ans"><b>/</b> {{ corr_ans }}</span></div>
     </div>
 </template>
 
