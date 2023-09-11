@@ -38,10 +38,8 @@ export default {
         },
         submitIcon() {
             const file = this.$refs.file.files[0];
-            console.log(file);
 
             if (!file) {
-                console.log('puste');
                 return;
             }
 
