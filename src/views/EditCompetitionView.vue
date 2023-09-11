@@ -36,6 +36,29 @@ export default {
                     this.$router.push('/');
                 });
         },
+        submitIcon() {
+            const file = this.$refs.file.files[0];
+            console.log(file);
+
+            if (!file) {
+                console.log('puste');
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('icon', file);
+
+            axios
+                .post(`${url}/competition/uploadIcon`, formData, {
+                    headers: {
+                        'Content-Type': 'multipart/form-data',
+                        authorization: `Bearer ${VueCookie.get('authorization')}`
+                    }
+                })
+                .then(() => {
+                    this.$router.push('/');
+                });
+        },
         async fetchData() {
             try {
                 const tr = (await axios.get(`${url}/competition/timeRange`)).data;
@@ -73,6 +96,11 @@ export default {
                 <label>Data zakończenia:</label>
                 <input v-model="end" type="datetime-local" ref="dateInp" min="2023-02-01T00:00" max="2024-01-01T00:00" required />
                 <button type="submit">Zapisz</button>
+            </form>
+            <form @submit.prevent="submitIcon" class="iconForm">
+                <label>Zmień ikonkę:</label>
+                <input type="file" accept="image/png" ref="file" required />
+                <button type="submit">Wyślij</button>
             </form>
         </div>
     </main>
@@ -121,5 +149,9 @@ button:hover {
 
 label {
     margin-left: -2rem;
+}
+
+.iconForm {
+    margin-top: 3rem;
 }
 </style>
