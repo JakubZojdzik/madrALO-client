@@ -7,6 +7,15 @@ export default {
         RouterView,
         NavbarItem,
         TimerItem
+    },
+    created() {
+        const apiURL = import.meta.env.VITE_APP_API_URL;
+        const titleEndpointUrl = `${apiURL}/competition/title`;
+        fetch(titleEndpointUrl)
+            .then((response) => response.text())
+            .then((title) => {
+                document.title = title;
+            });
     }
 };
 </script>
