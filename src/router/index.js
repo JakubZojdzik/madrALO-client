@@ -135,7 +135,7 @@ router.beforeEach(async (to) => {
             return '/';
         }
     }
-    if (['addChallenge', 'addAnouncement', 'editChallenge', 'editAnnouncement'].includes(to.name)) {
+    if (['addChallenge', 'addAnouncement', 'editChallenge', 'editAnnouncement', 'editCompetition'].includes(to.name)) {
         if (!await useAdmin()) {
             return '/';
         }
