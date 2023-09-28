@@ -36,7 +36,8 @@ The SOK Client includes a Dockerfile and a Docker Compose configuration for easy
     ```sh
     cd SOK-client
     ```
-4. Start the SOK Client in detached mode:
+4. Create a .env file in the root directory of the project and set the required environment variable as described above.
+5. Start the SOK Client in detached mode:
     ```sh
     docker-compose up -d
     ```
