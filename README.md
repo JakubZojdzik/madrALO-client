@@ -1,6 +1,6 @@
 # SOK Client
 
-The SOK Client is a web application that serves as a client for the competition system. It provides a user-friendly interface to create challenges, make announcements, solve challenges, and earn points. Additionally, it offers features like viewing the ranking list and user submissions. The client is built using Vue.js and Vite, making it fast and efficient.
+The SOK Client is a web application that serves as a client for the competition system. It provides a user-friendly interface to create challenges, make announcements, solve challenges, and earn points. Additionally, it offers features like viewing the ranking list and user submissions. The client is built using Vue.js and Vite.
 
 ## Features
 
@@ -42,6 +42,10 @@ The SOK Client includes a Dockerfile and a Docker Compose configuration for easy
     ```
 
 The client will be accessible at `http://localhost:8080`.
+
+## SOK API
+
+You can find API for this project in [this repository](https://github.com/JakubZojdzik/SOK-api)
 
 ## License
 
