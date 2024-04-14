@@ -56,7 +56,7 @@ export default {
                 <EditorItem @modelValue="(msg) => (content = msg)" />
                 <input v-model="answer" type="text" placeholder="Odpowiedź" required />
                 <input v-model="points" type="number" placeholder="Punkty" required />
-                <input v-model="start" type="datetime-local" ref="dateInp" min="2023-02-01T00:00" max="2024-01-01T00:00" required />
+                <input v-model="start" type="datetime-local" ref="dateInp" min="2023-02-01T00:00" required />
                 <button type="submit">Zapisz</button>
             </form>
         </div>
