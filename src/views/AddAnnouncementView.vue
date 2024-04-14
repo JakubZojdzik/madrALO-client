@@ -50,7 +50,7 @@ export default {
                 <input v-model="title" type="text" placeholder="Tytuł" required />
                 <input v-model="author" type="text" placeholder="Autor" required />
                 <EditorItem @modelValue="(msg) => (content = msg)" />
-                <input v-model="added" type="datetime-local" ref="dateInp" min="2023-02-01T00:00" max="2024-01-01T00:00" required />
+                <input v-model="added" type="datetime-local" ref="dateInp" min="2023-02-01T00:00" required />
                 <button type="submit">Zapisz</button>
             </form>
         </div>

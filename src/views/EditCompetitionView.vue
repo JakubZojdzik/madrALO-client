@@ -90,9 +90,9 @@ export default {
                 <label>Opis (zasady):</label>
                 <EditorItem class="editor" @modelValue="(msg) => (rules = msg)" :placeholder="rules" />
                 <label>Data startu:</label>
-                <input v-model="start" type="datetime-local" ref="dateInp" min="2023-02-01T00:00" max="2024-01-01T00:00" required />
+                <input v-model="start" type="datetime-local" ref="dateInp" min="2023-02-01T00:00" required />
                 <label>Data zakończenia:</label>
-                <input v-model="end" type="datetime-local" ref="dateInp" min="2023-02-01T00:00" max="2024-01-01T00:00" required />
+                <input v-model="end" type="datetime-local" ref="dateInp" min="2023-02-01T00:00" required />
                 <button type="submit">Zapisz</button>
             </form>
             <form @submit.prevent="submitIcon" class="iconForm">

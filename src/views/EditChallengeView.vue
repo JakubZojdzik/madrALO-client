@@ -112,7 +112,7 @@ export default {
                 <label>Rozwiązań:</label>
                 <input v-model="solves" type="number" placeholder="Rozwiązań" required />
                 <label>Data startu:</label>
-                <input v-model="start" type="datetime-local" ref="dateInp" min="2023-02-01T00:00" max="2024-01-01T00:00" required />
+                <input v-model="start" type="datetime-local" ref="dateInp" min="2023-02-01T00:00" required />
                 <button type="submit">Zapisz</button>
             </form>
         </div>
