@@ -8,9 +8,9 @@ module.exports = {
         indent: ['error', 4],
         'no-console': 0,
         'max-len': ['error', { code: 170 }],
-        'no-param-reassign': ['error', { 'props': false }],
+        'no-param-reassign': ['error', { props: false }],
         'no-alert': 'off',
-        'no-restricted-globals': 'off',
+        'no-restricted-globals': 'off'
     },
     parserOptions: {
         ecmaVersion: 'latest'

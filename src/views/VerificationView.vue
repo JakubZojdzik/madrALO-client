@@ -7,7 +7,7 @@ export default {
     created() {
         axios
             .post(
-                `${url  }/users/verify`,
+                `${url}/users/verify`,
                 {
                     token: this.$route.query.token
                 },

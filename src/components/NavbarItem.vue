@@ -10,7 +10,7 @@ export default {
     data() {
         return {
             title: String
-        }
+        };
     },
     computed: {
         name() {
@@ -18,28 +18,28 @@ export default {
         },
         currentRoute() {
             switch (this.$route.name) {
-            case 'announcements':
-                return 0;
-            case 'challenges':
-                return 1;
-            case 'ranking':
-                return 2;
-            case 'rules':
-                return 3;
-            case 'login':
-                return 4;
-            case 'profile':
-                return 4;
-            case 'register':
-                return 4;
-            default:
-                return -1;
+                case 'announcements':
+                    return 0;
+                case 'challenges':
+                    return 1;
+                case 'ranking':
+                    return 2;
+                case 'rules':
+                    return 3;
+                case 'login':
+                    return 4;
+                case 'profile':
+                    return 4;
+                case 'register':
+                    return 4;
+                default:
+                    return -1;
             }
         }
     },
     methods: {
         async fetchTitle() {
-            this.title = (await axios.get(`${url  }/competition/title`)).data;
+            this.title = (await axios.get(`${url}/competition/title`)).data;
         }
     },
     mounted() {
@@ -59,9 +59,7 @@ export default {
 <template>
     <nav class="wrapper">
         <RouterLink to="/">
-            <div id="butt0" @click="setActivity" :class="{ active: currentRoute == 0 }" class="element"><span v-if="!title">
-                Ogłoszenia</span>{{ title }}
-            </div>
+            <div id="butt0" @click="setActivity" :class="{ active: currentRoute == 0 }" class="element"><span v-if="!title"> Ogłoszenia</span>{{ title }}</div>
         </RouterLink>
         <RouterLink to="/challenges"><div id="butt0" @click="setActivity" :class="{ active: currentRoute == 1 }" class="element">Zadania</div></RouterLink>
         <RouterLink to="/ranking"><div id="butt1" @click="setActivity" :class="{ active: currentRoute == 2 }" class="element">Ranking</div></RouterLink>

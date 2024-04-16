@@ -16,11 +16,11 @@ export default {
         changePass() {
             axios
                 .post(
-                    `${url  }/users/changePassword`,
+                    `${url}/users/changePassword`,
                     {
                         email: this.email,
                         password: this.password,
-                        passwordRep: this.passwordRep,
+                        passwordRep: this.passwordRep
                     },
                     { headers: { 'content-type': 'application/x-www-form-urlencoded' } }
                 )
@@ -33,7 +33,7 @@ export default {
                     this.password = '';
                 });
         }
-    },
+    }
 };
 </script>
 
@@ -45,7 +45,7 @@ export default {
 
                 <div class="field">
                     <label for="email">Email na który rejestrowałeś konto</label>
-                    <input v-model="email" type="email" name="email" placeholder="imie.nazwisko.rok@alo.pwr.edu.pl" required/>
+                    <input v-model="email" type="email" name="email" placeholder="imie.nazwisko.rok@alo.pwr.edu.pl" required />
                 </div>
 
                 <div class="field">
@@ -87,7 +87,7 @@ export default {
 .forgot {
     color: white;
     margin-bottom: 1em;
-    margin-top: -.5em;
+    margin-top: -0.5em;
     display: block;
 }
 

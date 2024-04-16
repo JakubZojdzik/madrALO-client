@@ -19,25 +19,4 @@ import EditAnnouncementView from './EditAnnouncementView.vue';
 import SubmitsView from './SubmitsView.vue';
 import EditCompetitionView from './EditCompetitionView.vue';
 
-export {
-    AccountView,
-    ChallengesView,
-    LoginView,
-    RankingView,
-    RulesView,
-    ChallengeView,
-    AddChallengeView,
-    RegisterView,
-    EmailInfoView,
-    VerificationView,
-    ThanksView,
-    ForgotView,
-    PassVerifyView,
-    AnnouncementsView,
-    AddAnnouncementView,
-    NotFoundView,
-    EditChallengeView,
-    EditAnnouncementView,
-    SubmitsView,
-    EditCompetitionView,
-}
+export { AccountView, ChallengesView, LoginView, RankingView, RulesView, ChallengeView, AddChallengeView, RegisterView, EmailInfoView, VerificationView, ThanksView, ForgotView, PassVerifyView, AnnouncementsView, AddAnnouncementView, NotFoundView, EditChallengeView, EditAnnouncementView, SubmitsView, EditCompetitionView };

@@ -118,14 +118,14 @@ button:hover {
 }
 
 .adminButt {
-    margin: .5rem 0;
+    margin: 0.5rem 0;
 }
 
 .label {
     text-align: center;
     border-top: solid 1px white;
     border-bottom: solid 1px white;
-    padding: .4rem;
+    padding: 0.4rem;
     margin-bottom: 1rem;
 }
 </style>

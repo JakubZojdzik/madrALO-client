@@ -18,9 +18,9 @@ export default {
             const logged = await useLoggedIn();
             if (logged) {
                 solves = (
-                    await axios.get(`${url  }/users/solves`, {
+                    await axios.get(`${url}/users/solves`, {
                         headers: {
-                            authorization: `Bearer ${  VueCookie.get('authorization')}`
+                            authorization: `Bearer ${VueCookie.get('authorization')}`
                         }
                     })
                 ).data;
@@ -28,9 +28,9 @@ export default {
             let inactChalls = [];
             if (admin) {
                 inactChalls = (
-                    await axios.get(`${url  }/challenges/inactive`, {
+                    await axios.get(`${url}/challenges/inactive`, {
                         headers: {
-                            authorization: `Bearer ${  VueCookie.get('authorization')}`
+                            authorization: `Bearer ${VueCookie.get('authorization')}`
                         }
                     })
                 ).data;
@@ -39,14 +39,14 @@ export default {
                     c.content = c.content.replace(/<[^>]+>/g, ' ');
                     c.current = false;
                     if (c.content.length > 100) {
-                        c.content = `${c.content.substring(0, 96)  }...`;
+                        c.content = `${c.content.substring(0, 96)}...`;
                     }
                 });
             }
             this.challs = (
-                await axios.get(`${url  }/challenges/current`, {
+                await axios.get(`${url}/challenges/current`, {
                     headers: {
-                        authorization: `Bearer ${  VueCookie.get('authorization')}`
+                        authorization: `Bearer ${VueCookie.get('authorization')}`
                     }
                 })
             ).data;
@@ -55,7 +55,7 @@ export default {
                 c.content = c.content.replace(/<[^>]+>/g, ' ');
                 c.current = true;
                 if (c.content.length > 100) {
-                    c.content = `${c.content.substring(0, 96)  }...`;
+                    c.content = `${c.content.substring(0, 96)}...`;
                 }
             });
             this.challs = this.challs.concat(inactChalls);
@@ -79,8 +79,7 @@ export default {
             <p>Żadne zadania nie zostały jeszcze opublikowane. Zapoznaj się z zakładką <i>Zasady</i></p>
         </div>
         <div>
-            <ChallengeTileItem v-for="({ id, title, content, points, solves, solved, current }, index) in challs"
-            :key="id" :id="id" :title="title" :content="content" :points="points" :solves="solves" :solved="solved" :current="current" :odd="index % 2 == 1" />
+            <ChallengeTileItem v-for="({ id, title, content, points, solves, solved, current }, index) in challs" :key="id" :id="id" :title="title" :content="content" :points="points" :solves="solves" :solved="solved" :current="current" :odd="index % 2 == 1" />
         </div>
     </main>
 </template>

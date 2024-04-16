@@ -10,11 +10,11 @@ export default {
         solves: Number,
         solved: Boolean,
         current: Boolean,
-        odd: Boolean,
+        odd: Boolean
     },
     components: {
         RouterLink
-    },
+    }
 };
 </script>
 

@@ -4,11 +4,11 @@ The SOK Client is a web application that serves as a client for the competition 
 
 ## Features
 
-- **Challenge Creation:** Create challenges easily using the intuitive interface.
-- **Announcements:** Make announcements to keep participants informed.
-- **Challenge Solving:** Solve challenges and earn points.
-- **Ranking List:** View the ranking list to see how you compare to other participants.
-- **User Submissions:** Check user submissions and their progress.
+-   **Challenge Creation:** Create challenges easily using the intuitive interface.
+-   **Announcements:** Make announcements to keep participants informed.
+-   **Challenge Solving:** Solve challenges and earn points.
+-   **Ranking List:** View the ranking list to see how you compare to other participants.
+-   **User Submissions:** Check user submissions and their progress.
 
 ## Getting Started
 
@@ -17,11 +17,11 @@ To run the SOK Client, you'll need to set up the necessary environment variable:
 1. Create a `.env` file in the root directory of the project.
 2. Add the following variable to the `.env` file:
 
-   ```env
-   VITE_APP_API_URL=<API_URL_HERE>
-   ```
+    ```env
+    VITE_APP_API_URL=<API_URL_HERE>
+    ```
 
-   Replace `<API_URL_HERE>` with the URL of the API server.
+    Replace `<API_URL_HERE>` with the URL of the API server.
 
 ## Running with docker
 

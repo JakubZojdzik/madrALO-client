@@ -1,26 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import {
-    AccountView,
-    ChallengesView,
-    LoginView,
-    RankingView,
-    RulesView,
-    ChallengeView,
-    AddChallengeView,
-    RegisterView,
-    EmailInfoView,
-    VerificationView,
-    ThanksView,
-    ForgotView,
-    PassVerifyView,
-    AnnouncementsView,
-    AddAnnouncementView,
-    NotFoundView,
-    EditChallengeView,
-    EditAnnouncementView,
-    SubmitsView,
-    EditCompetitionView
-} from '../views';
+import { AccountView, ChallengesView, LoginView, RankingView, RulesView, ChallengeView, AddChallengeView, RegisterView, EmailInfoView, VerificationView, ThanksView, ForgotView, PassVerifyView, AnnouncementsView, AddAnnouncementView, NotFoundView, EditChallengeView, EditAnnouncementView, SubmitsView, EditCompetitionView } from '../views';
 import { useAdmin, useLoggedIn } from '../composables';
 
 const router = createRouter({
@@ -122,7 +101,7 @@ const router = createRouter({
             component: EditCompetitionView
         },
         {
-            path: "/:catchAll(.*)",
+            path: '/:catchAll(.*)',
             name: 'notFound',
             component: NotFoundView
         }
@@ -131,12 +110,12 @@ const router = createRouter({
 
 router.beforeEach(async (to) => {
     if (['profile'].includes(to.name)) {
-        if (!await useLoggedIn()) {
+        if (!(await useLoggedIn())) {
             return '/';
         }
     }
     if (['addChallenge', 'addAnouncement', 'editChallenge', 'editAnnouncement', 'editCompetition'].includes(to.name)) {
-        if (!await useAdmin()) {
+        if (!(await useAdmin())) {
             return '/';
         }
     }

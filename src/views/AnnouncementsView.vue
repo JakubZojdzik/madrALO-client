@@ -16,13 +16,13 @@ export default {
     },
     methods: {
         async fetchData(admin) {
-            this.ann = (await axios.get(`${url  }/announcements/`)).data;
+            this.ann = (await axios.get(`${url}/announcements/`)).data;
             let inactAnn = [];
             if (admin) {
                 inactAnn = (
-                    await axios.get(`${url  }/announcements/inactive`, {
+                    await axios.get(`${url}/announcements/inactive`, {
                         headers: {
-                            authorization: `Bearer ${  VueCookie.get('authorization')}`
+                            authorization: `Bearer ${VueCookie.get('authorization')}`
                         }
                     })
                 ).data;
@@ -53,8 +53,7 @@ export default {
 
 <template>
     <main>
-        <AnnouncementItem v-for="{ id, title, content, author, added, active } in ann"
-        :id="id" :key="id" :title="title" :content="content" :author="author" :added="added" :admin="admin" :active="!active" />
+        <AnnouncementItem v-for="{ id, title, content, author, added, active } in ann" :id="id" :key="id" :title="title" :content="content" :author="author" :added="added" :admin="admin" :active="!active" />
     </main>
 </template>
 

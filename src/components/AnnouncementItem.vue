@@ -18,13 +18,13 @@ export default {
         removeAnnouncement() {
             if (confirm('Czy na pewno chcesz usunąć to ogłoszenie?')) {
                 axios
-                    .delete(`${url  }/announcements/remove`, {
+                    .delete(`${url}/announcements/remove`, {
                         data: {
                             annId: this.id
                         },
                         headers: {
                             'content-type': 'application/x-www-form-urlencoded',
-                            authorization: `Bearer ${  VueCookie.get('authorization')}`
+                            authorization: `Bearer ${VueCookie.get('authorization')}`
                         }
                     })
                     .then(() => {

@@ -17,7 +17,7 @@ export default {
         register() {
             axios
                 .post(
-                    `${url  }/users/register`,
+                    `${url}/users/register`,
                     {
                         email: this.email,
                         name: this.name,

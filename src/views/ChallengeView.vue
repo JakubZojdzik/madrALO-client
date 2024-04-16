@@ -32,7 +32,9 @@ export default {
     methods: {
         async WA() {
             this.shake = true;
-            setTimeout(() => { this.shake = false }, 500);
+            setTimeout(() => {
+                this.shake = false;
+            }, 500);
         },
         async fetchData() {
             let s = [];
@@ -40,9 +42,9 @@ export default {
             if (lgd) {
                 this.logged = true;
                 s = (
-                    await axios.get(`${url  }/users/solves`, {
+                    await axios.get(`${url}/users/solves`, {
                         headers: {
-                            authorization: `Bearer ${  VueCookie.get('authorization')}`
+                            authorization: `Bearer ${VueCookie.get('authorization')}`
                         }
                     })
                 ).data;
@@ -50,9 +52,9 @@ export default {
             let chall;
             try {
                 chall = (
-                    await axios.get(`${url  }/challenges/byId`, {
+                    await axios.get(`${url}/challenges/byId`, {
                         headers: {
-                            authorization: `Bearer ${  VueCookie.get('authorization')}`
+                            authorization: `Bearer ${VueCookie.get('authorization')}`
                         },
                         params: {
                             challId: this.id
@@ -83,7 +85,7 @@ export default {
             }
             axios
                 .post(
-                    `${url  }/challenges/solve`,
+                    `${url}/challenges/solve`,
                     {
                         challId: this.id,
                         answer: this.answer
@@ -91,7 +93,7 @@ export default {
                     {
                         headers: {
                             'content-type': 'application/x-www-form-urlencoded',
-                            authorization: `Bearer ${  VueCookie.get('authorization')}`
+                            authorization: `Bearer ${VueCookie.get('authorization')}`
                         }
                     }
                 )
@@ -119,20 +121,20 @@ export default {
         removeChallenge() {
             if (confirm('Czy na pewno chcesz usunąć to zadanie?')) {
                 axios
-                    .delete(`${url  }/challenges/remove`, {
+                    .delete(`${url}/challenges/remove`, {
                         data: {
                             challId: this.id
                         },
                         headers: {
                             'content-type': 'application/x-www-form-urlencoded',
-                            authorization: `Bearer ${  VueCookie.get('authorization')}`
+                            authorization: `Bearer ${VueCookie.get('authorization')}`
                         }
                     })
                     .then(() => {
                         this.$router.push('/');
                     });
             }
-        },
+        }
     },
     created() {
         this.fetchData();

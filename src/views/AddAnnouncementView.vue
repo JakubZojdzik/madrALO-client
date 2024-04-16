@@ -11,14 +11,14 @@ export default {
             title: '',
             content: '',
             author: '',
-            added: null,
+            added: null
         };
     },
     methods: {
         submit() {
             axios
                 .post(
-                    `${url  }/announcements/add`,
+                    `${url}/announcements/add`,
                     {
                         title: this.title,
                         content: this.content,
@@ -28,7 +28,7 @@ export default {
                     {
                         headers: {
                             'content-type': 'application/x-www-form-urlencoded',
-                            authorization: `Bearer ${  VueCookie.get('authorization')}`
+                            authorization: `Bearer ${VueCookie.get('authorization')}`
                         }
                     }
                 )

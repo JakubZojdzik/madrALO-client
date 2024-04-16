@@ -13,26 +13,26 @@ export default {
             answer: '',
             author: '',
             points: null,
-            start: null,
+            start: null
         };
     },
     methods: {
         submit() {
             axios
                 .post(
-                    `${url  }/challenges/add`,
+                    `${url}/challenges/add`,
                     {
                         title: this.title,
                         content: this.content,
                         answer: this.answer,
                         author: this.author,
                         points: this.points,
-                        start: this.start,
+                        start: this.start
                     },
                     {
                         headers: {
                             'content-type': 'application/x-www-form-urlencoded',
-                            authorization: `Bearer ${  VueCookie.get('authorization')}`
+                            authorization: `Bearer ${VueCookie.get('authorization')}`
                         }
                     }
                 )

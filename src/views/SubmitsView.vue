@@ -32,7 +32,7 @@ export default {
                     })
                 ).data;
             }
-            this.subs.forEach(el => {
+            this.subs.forEach((el) => {
                 el.sent = new Date(Date.parse(el.sent)).toLocaleString('pl-PL');
             });
         }
@@ -60,8 +60,7 @@ export default {
             <p>Brak zgłoszeń</p>
         </div>
         <div>
-            <SubmitTileItem v-for="{ id, corr_ans, correct, given_ans, name, sent, title } in subs"
-            :key="id" :corr_ans="corr_ans" :correct="correct" :given_ans="given_ans" :name="name" :sent="sent" :title="title" />
+            <SubmitTileItem v-for="{ id, corr_ans, correct, given_ans, name, sent, title } in subs" :key="id" :corr_ans="corr_ans" :correct="correct" :given_ans="given_ans" :name="name" :sent="sent" :title="title" />
         </div>
     </main>
 </template>

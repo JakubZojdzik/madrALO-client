@@ -6,12 +6,4 @@ import TimerItem from './TimerItem.vue';
 import AnnouncementItem from './AnnouncementItem.vue';
 import SubmitTileItem from './SubmitTileItem.vue';
 
-export {
-    NavbarItem,
-    ChallengeTileItem,
-    UserTileItem,
-    EditorItem,
-    TimerItem,
-    AnnouncementItem,
-    SubmitTileItem
-}
+export { NavbarItem, ChallengeTileItem, UserTileItem, EditorItem, TimerItem, AnnouncementItem, SubmitTileItem };

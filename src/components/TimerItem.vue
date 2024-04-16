@@ -13,7 +13,7 @@ export default {
     },
     methods: {
         async fetchData() {
-            const t = (await axios.get(`${url  }/competition/timeRange`)).data;
+            const t = (await axios.get(`${url}/competition/timeRange`)).data;
             this.startTime = new Date(Date.parse(t.start));
             this.endTime = new Date(Date.parse(t.end));
             this.part = (new Date().getTime() - this.startTime.getTime()) / (this.endTime.getTime() - this.startTime.getTime());
@@ -27,7 +27,7 @@ export default {
     computed: {
         cssVars() {
             return {
-                '--bar-width': `${this.part * 100  }%`,
+                '--bar-width': `${this.part * 100}%`
             };
         }
     }

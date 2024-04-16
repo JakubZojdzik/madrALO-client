@@ -26,7 +26,7 @@ export default {
         submit() {
             axios
                 .post(
-                    `${url  }/challenges/edit`,
+                    `${url}/challenges/edit`,
                     {
                         title: this.title,
                         content: this.content,
@@ -40,7 +40,7 @@ export default {
                     {
                         headers: {
                             'content-type': 'application/x-www-form-urlencoded',
-                            authorization: `Bearer ${  VueCookie.get('authorization')}`
+                            authorization: `Bearer ${VueCookie.get('authorization')}`
                         }
                     }
                 )
@@ -49,12 +49,13 @@ export default {
                 });
         },
         async fetchData() {
-            let chall; let corrAns;
+            let chall;
+            let corrAns;
             try {
                 chall = (
-                    await axios.get(`${url  }/challenges/byId`, {
+                    await axios.get(`${url}/challenges/byId`, {
                         headers: {
-                            authorization: `Bearer ${  VueCookie.get('authorization')}`
+                            authorization: `Bearer ${VueCookie.get('authorization')}`
                         },
                         params: {
                             challId: this.id
@@ -62,9 +63,9 @@ export default {
                     })
                 ).data;
                 corrAns = (
-                    await axios.get(`${url  }/challenges/correctAnswer`, {
+                    await axios.get(`${url}/challenges/correctAnswer`, {
                         headers: {
-                            authorization: `Bearer ${  VueCookie.get('authorization')}`
+                            authorization: `Bearer ${VueCookie.get('authorization')}`
                         },
                         params: {
                             challId: this.id
@@ -156,8 +157,8 @@ button:hover {
 }
 
 .editor {
-    margin-top: .5rem;
-    margin-bottom: .5rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
 }
 
 label {

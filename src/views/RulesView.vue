@@ -7,14 +7,12 @@ export default {
     data() {
         return {
             rules: String
-        }
+        };
     },
     methods: {
         async fetchData() {
-            this.rules = (
-                await axios.get(`${url  }/competition/rules`)
-            ).data;
-        },
+            this.rules = (await axios.get(`${url}/competition/rules`)).data;
+        }
     },
     mounted() {
         this.fetchData();
@@ -28,8 +26,7 @@ export default {
             <span v-html="rules"></span>
             <br />
             <p>
-                Aplikacja <b><i>SOK</i></b> na licencji MIT dostępna na githubie:
-                <a class="whitelink" href="https://github.com/JakubZojdzik/SOK-client" target="_blank" rel="noopener noreferrer">Client</a>,
+                Aplikacja <b><i>SOK</i></b> na licencji MIT dostępna na githubie: <a class="whitelink" href="https://github.com/JakubZojdzik/SOK-client" target="_blank" rel="noopener noreferrer">Client</a>,
                 <a class="whitelink" href="https://github.com/JakubZojdzik/SOK-api" target="_blank" rel="noopener noreferrer">API</a>
             </p>
         </div>
@@ -45,7 +42,7 @@ export default {
 }
 
 .whitelink {
-    color: white
+    color: white;
 }
 
 @media screen and (max-width: 700px) {

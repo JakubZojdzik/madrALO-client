@@ -14,7 +14,7 @@ export default {
     methods: {
         async fetchData() {
             const logged = await useLoggedIn();
-            this.usrs = (await axios.get(`${url  }/users/ranking`)).data;
+            this.usrs = (await axios.get(`${url}/users/ranking`)).data;
             this.usrs.forEach((x) => {
                 if (x.id === logged) {
                     x.active = true;
@@ -34,12 +34,8 @@ export default {
 <template>
     <main>
         <div class="heading">
-            <div class="pos">
-                Miejsce
-            </div>
-            <div class="name">
-                Nazwa
-            </div>
+            <div class="pos">Miejsce</div>
+            <div class="name">Nazwa</div>
             <div class="points">Wynik</div>
         </div>
         <UserTileItem v-for="{ name, position, points, active } in usrs" :key="name" :name="name" :position="position" :points="points" :active="active" />

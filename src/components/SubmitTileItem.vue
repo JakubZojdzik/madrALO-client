@@ -28,10 +28,13 @@ export default {
             {{ sent }}
         </div>
         <div class="name">
-            <b>{{ name }}</b>:
+            <b>{{ name }}</b
+            >:
             {{ title }}
         </div>
-        <div v-if="expanded" class="given">{{ given_ans }} <span v-if="(!correct) && corr_ans"><b>/</b> {{ corr_ans }}</span></div>
+        <div v-if="expanded" class="given">
+            {{ given_ans }} <span v-if="!correct && corr_ans"><b>/</b> {{ corr_ans }}</span>
+        </div>
     </div>
 </template>
 
@@ -56,7 +59,7 @@ export default {
     font-size: 1rem;
     margin-bottom: 1em;
     margin-top: 1em;
-    padding: .7rem 2rem .7rem 2rem;
+    padding: 0.7rem 2rem 0.7rem 2rem;
     border: 1px solid #fff;
     display: flex;
     justify-content: flex-start;
@@ -74,9 +77,9 @@ export default {
     margin-left: auto;
 }
 
-
 @media screen and (max-width: 700px) {
-    .sentdate, .given {
+    .sentdate,
+    .given {
         width: 100%;
     }
 }
