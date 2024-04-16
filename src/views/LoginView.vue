@@ -18,7 +18,7 @@ export default {
         login() {
             axios
                 .post(
-                    `${url  }/users/login`,
+                    `${url}/users/login`,
                     {
                         email: this.email,
                         password: this.password
@@ -27,7 +27,7 @@ export default {
                 )
                 .then((response) => {
                     this.err = '';
-                    VueCookie.set('authorization', response.data.token, '1h');
+                    VueCookie.set('authorization', response.data.token, '12h');
                     store.commit('setUserData', { name: response.data.name, email: response.data.email });
                     this.$router.push('/');
                 })
@@ -38,7 +38,7 @@ export default {
         }
     },
     components: {
-        RouterLink,
+        RouterLink
     }
 };
 </script>
@@ -90,7 +90,7 @@ export default {
 .forgot {
     color: white;
     margin-bottom: 1em;
-    margin-top: -.5em;
+    margin-top: -0.5em;
     display: block;
 }
 
