@@ -87,7 +87,7 @@ export default {
                 <label>Treść:</label>
                 <EditorItem class="editor" @modelValue="(msg) => (content = msg)" :placeholder="content" />
                 <label>Data dodania:</label>
-                <input v-model="added" type="datetime-local" min="2023-02-01T00:00" required />
+                <input v-model="added" type="datetime-local" ref="dateInp" min="2023-02-01T00:00" required />
                 <button type="submit">Zapisz</button>
             </form>
         </div>

@@ -75,7 +75,7 @@ export default {
 <template>
     <main>
         <div class="title">mądrALO - Zadania</div>
-        <div class="info" v-if="challs === null || challs.length === 0 || !challs">
+        <div class="info" v-if="challs === null || challs === [] || challs.length === 0 || !challs">
             <p>Żadne zadania nie zostały jeszcze opublikowane. Zapoznaj się z zakładką <i>Zasady</i></p>
         </div>
         <div>
