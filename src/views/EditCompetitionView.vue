@@ -11,7 +11,9 @@ export default {
             title: '',
             rules: '',
             start: null,
-            end: null
+            end: null,
+            freeze: false,
+            freezeTime: null
         };
     },
     methods: {
@@ -23,7 +25,9 @@ export default {
                         title: this.title,
                         rules: this.rules,
                         start: this.start,
-                        end: this.end
+                        end: this.end,
+                        freeze: this.freeze,
+                        freezeTime: this.freezeTime
                     },
                     {
                         headers: {
@@ -64,6 +68,8 @@ export default {
                 this.rules = (await axios.get(`${url}/competition/rules`)).data;
                 this.start = tr.start;
                 this.end = tr.end;
+                this.freeze = (await axios.get(`${url}/competition/freeze`)).data;
+                this.freezeTime = (await axios.get(`${url}/competition/freezeTime`)).data;
             } catch (error) {
                 if (error.response.status === 404 || error.response.status === 400) {
                     this.$router.push('/NotFound');
@@ -90,9 +96,13 @@ export default {
                 <label>Opis (zasady):</label>
                 <EditorItem class="editor" @modelValue="(msg) => (rules = msg)" :placeholder="rules" />
                 <label>Data startu:</label>
-                <input v-model="start" type="datetime-local" ref="dateInp" min="2023-02-01T00:00" required />
+                <input v-model="start" type="datetime-local" min="2023-02-01T00:00" required />
                 <label>Data zakończenia:</label>
-                <input v-model="end" type="datetime-local" ref="dateInp" min="2023-02-01T00:00" required />
+                <input v-model="end" type="datetime-local" min="2023-02-01T00:00" required />
+                <label>Zamrażanie rankingu:</label>
+                <input v-model="freeze" type="checkbox" />
+                <label>Data zamrożenia rankingu:</label>
+                <input v-model="freezeTime" type="datetime-local" min="2023-02-01T00:00" required />
                 <button type="submit">Zapisz</button>
             </form>
             <form @submit.prevent="submitIcon" class="iconForm">
