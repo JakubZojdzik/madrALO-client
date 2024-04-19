@@ -141,6 +141,11 @@ input:focus {
     background-color: rgba(255, 255, 255, 0.1);
 }
 
+input[type='checkbox'] {
+    display: block;
+    width: auto;
+}
+
 button {
     cursor: pointer;
     margin-bottom: 2rem;
