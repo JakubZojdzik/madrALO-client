@@ -23,7 +23,6 @@ export default {
             });
 
             this.freeze = (await axios.get(`${url}/competition/freeze`)).data;
-            console.log(this.freeze);
         }
     },
     created() {

@@ -1,13 +1,17 @@
 <script>
 import VueCookie from 'vue-cookie';
+import axios from 'axios';
 import { RouterLink } from 'vue-router';
 import store from '../store';
 import { useAdmin } from '../composables';
 
+const url = import.meta.env.VITE_APP_API_URL;
+
 export default {
     data() {
         return {
-            admin: false
+            admin: false,
+            points: 0
         };
     },
     computed: {
@@ -23,6 +27,13 @@ export default {
             store.commit('reset');
             VueCookie.delete('authorization');
             this.$router.push('/');
+        },
+        async fetchData() {
+            this.points = (await axios.get(`${url}/users/usersPoints`, {
+                headers: {
+                    authorization: `Bearer ${VueCookie.get('authorization')}`
+                }
+            })).data;
         }
     },
     mounted() {
@@ -33,6 +44,7 @@ export default {
                 this.admin = false;
             }
         });
+        this.fetchData();
     },
     components: {
         RouterLink
@@ -46,6 +58,7 @@ export default {
             <div class="container">
                 <div class="field">Email: {{ emailVal }}</div>
                 <div class="field">Nazwa: {{ nameVal }}</div>
+                <div class="field">Punkty: {{ points }}</div>
                 <button @click="logout">Wyloguj</button>
                 <RouterLink v-if="!admin" to="/submits">
                     <button class="adminButt">Moje zgłoszenia</button>
