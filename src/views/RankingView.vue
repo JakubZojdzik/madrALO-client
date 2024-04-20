@@ -1,5 +1,6 @@
 <script>
 import axios from 'axios';
+import VueCookie from 'vue-cookie';
 import { UserTileItem } from '../components';
 import { useLoggedIn } from '../composables';
 
@@ -9,13 +10,19 @@ export default {
     data() {
         return {
             usrs: null,
-            freeze: false,
+            freeze: false
         };
     },
     methods: {
         async fetchData() {
             const logged = await useLoggedIn();
-            this.usrs = (await axios.get(`${url}/users/ranking`)).data;
+            this.usrs = (
+                await axios.get(`${url}/users/ranking`, {
+                    headers: {
+                        authorization: `Bearer ${VueCookie.get('authorization')}`
+                    }
+                })
+            ).data;
             this.usrs.forEach((x) => {
                 if (x.id === logged) {
                     x.active = true;
