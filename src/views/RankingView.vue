@@ -8,7 +8,8 @@ const url = import.meta.env.VITE_APP_API_URL;
 export default {
     data() {
         return {
-            usrs: null
+            usrs: null,
+            freeze: false,
         };
     },
     methods: {
@@ -20,6 +21,9 @@ export default {
                     x.active = true;
                 }
             });
+
+            this.freeze = (await axios.get(`${url}/competition/freeze`)).data;
+            console.log(this.freeze);
         }
     },
     created() {
@@ -33,6 +37,7 @@ export default {
 
 <template>
     <main>
+        <div class="warn" v-if="freeze === true">Uwaga, ranking jest zamrożony</div>
         <div class="heading">
             <div class="pos">Miejsce</div>
             <div class="name">Nazwa</div>
@@ -44,6 +49,12 @@ export default {
 </template>
 
 <style scoped>
+.warn {
+    text-align: center;
+    padding-bottom: 1.3rem;
+    color: #dad74c;
+}
+
 .heading {
     width: 80%;
     margin-left: auto;
