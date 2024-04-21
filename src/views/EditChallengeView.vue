@@ -83,7 +83,9 @@ export default {
             this.author = chall.author;
             this.points = chall.points;
             this.solves = chall.solves;
-            this.start = chall.start.slice(0, -1);
+
+            this.start = new Date(chall.start);
+            this.start = (new Date(this.start.getTime() - this.start.getTimezoneOffset() * 60000).toISOString()).slice(0, -1);
         }
     },
     mounted() {

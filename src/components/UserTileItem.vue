@@ -2,7 +2,7 @@
 export default {
     props: {
         name: String,
-        points: Number,
+        points: String,
         position: Number,
         active: Boolean
     }

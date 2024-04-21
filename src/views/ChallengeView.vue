@@ -72,7 +72,7 @@ export default {
             this.author = chall.author;
             this.points = chall.points;
             this.solves = chall.solves;
-            this.start = chall.start;
+            this.start = new Date(chall.start).toLocaleString('pl-PL');
             this.solved = s.includes(this.id);
             this.error = '';
         },

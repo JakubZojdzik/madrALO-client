@@ -66,10 +66,14 @@ export default {
                 const tr = (await axios.get(`${url}/competition/timeRange`)).data;
                 this.title = (await axios.get(`${url}/competition/title`)).data;
                 this.rules = (await axios.get(`${url}/competition/rules`)).data;
-                this.start = tr.start;
-                this.end = tr.end;
+                this.start = new Date(tr.start);
+                this.end = new Date(tr.end);
                 this.freeze = (await axios.get(`${url}/competition/freeze`)).data;
-                this.freezeTime = (await axios.get(`${url}/competition/freezeTime`)).data;
+                this.freezeTime = new Date((await axios.get(`${url}/competition/freezeTime`)).data);
+
+                this.start = (new Date(this.start.getTime() - this.start.getTimezoneOffset() * 60000).toISOString()).slice(0, -1);
+                this.end = (new Date(this.end.getTime() - this.end.getTimezoneOffset() * 60000).toISOString()).slice(0, -1);
+                this.freezeTime = (new Date(this.freezeTime.getTime() - this.freezeTime.getTimezoneOffset() * 60000).toISOString()).slice(0, -1);
             } catch (error) {
                 if (error.response.status === 404 || error.response.status === 400) {
                     this.$router.push('/NotFound');
