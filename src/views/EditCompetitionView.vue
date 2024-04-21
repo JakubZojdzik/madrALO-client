@@ -24,10 +24,10 @@ export default {
                     {
                         title: this.title,
                         rules: this.rules,
-                        start: this.start,
-                        end: this.end,
+                        start: new Date(this.start).toISOString(),
+                        end: new Date(this.end).toISOString(),
                         freeze: this.freeze,
-                        freezeTime: this.freezeTime
+                        freezeTime: new Date(this.freezeTime).toISOString()
                     },
                     {
                         headers: {

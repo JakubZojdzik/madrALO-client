@@ -34,7 +34,7 @@ export default {
                         author: this.author,
                         points: this.points,
                         solves: this.solves,
-                        start: this.start,
+                        start: new Date(this.start).toISOString(),
                         challId: this.id
                     },
                     {
