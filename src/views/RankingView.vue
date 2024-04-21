@@ -29,7 +29,10 @@ export default {
                 }
             });
 
-            this.freeze = (await axios.get(`${url}/competition/freeze`)).data;
+            const freeze = (await axios.get(`${url}/competition/freeze`)).data;
+            const freezeDate = new Date((await axios.get(`${url}/competition/freezeTime`)).data);
+
+            this.freeze = freeze && freezeDate <= new Date();
         }
     },
     created() {
