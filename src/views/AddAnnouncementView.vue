@@ -23,7 +23,7 @@ export default {
                         title: this.title,
                         content: this.content,
                         author: this.author,
-                        added: this.added
+                        added: new Date(this.added).toISOString()
                     },
                     {
                         headers: {

@@ -27,7 +27,7 @@ export default {
                         answer: this.answer,
                         author: this.author,
                         points: this.points,
-                        start: this.start
+                        start: new Date(this.start).toISOString()
                     },
                     {
                         headers: {

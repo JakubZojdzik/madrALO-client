@@ -1,6 +1,5 @@
 <script>
 import axios from 'axios';
-import dateFormat from 'dateformat';
 import VueCookie from 'vue-cookie';
 import { useAdmin } from '../composables';
 import { AnnouncementItem } from '../components';
@@ -35,7 +34,8 @@ export default {
             });
             this.ann = this.ann.concat(inactAnn);
             this.ann.forEach((el) => {
-                el.added = dateFormat(el.added, 'dd-mm-yyyy, HH:MM:ss', true);
+                el.added = new Date(el.added);
+                el.added = el.added.toLocaleString('pl-PL');
             });
         }
     },

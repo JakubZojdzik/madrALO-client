@@ -28,7 +28,7 @@ export default {
                         title: this.title,
                         content: this.content,
                         author: this.author,
-                        added: this.added,
+                        added: new Date(this.added).toISOString(),
                         annId: this.id
                     },
                     {
@@ -63,7 +63,9 @@ export default {
             this.title = ann.title;
             this.content = ann.content;
             this.author = ann.author;
-            this.added = ann.added.slice(0, -1);
+            ann.added = new Date(ann.added);
+
+            this.added = (new Date(ann.added.getTime() - ann.added.getTimezoneOffset() * 60000).toISOString()).slice(0, -1);
         }
     },
     mounted() {
