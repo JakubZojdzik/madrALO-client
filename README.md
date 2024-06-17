@@ -55,3 +55,17 @@ This project is open-source and available under the [MIT License](LICENSE).
 ## Contributing
 
 If you find a bug or have an idea for an improvement, please create an issue or submit a pull request.
+
+## Screenshots
+
+![Home page](.screenshots/Home.png)
+
+![Challenges page](.screenshots/Challenges.png)
+
+![Ranking page](.screenshots/Ranking.png)
+
+![Profile page](.screenshots/Profile.png)
+
+![Competition edit page](.screenshots/MetadataEditing.png)
+
+![Submissions page](.screenshots/Submissions.png)
